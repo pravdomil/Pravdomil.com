@@ -3,7 +3,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "ci": "./bin/ci"
+    "ci": "bin/ci"
   },
   "dependencies": {
     "gatsby": "^1.9.130",
