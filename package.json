@@ -1,0 +1,19 @@
+{
+  "name": "pravdomil.com",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.130",
+    "gatsby-link": "^1.6.31",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-typescript": "^1.4.12"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.29",
+    "@types/react-helmet": "^5.0.3",
+    "react": "^16.2.0",
+    "react-helmet": "^5.2.0"
+  }
+}
