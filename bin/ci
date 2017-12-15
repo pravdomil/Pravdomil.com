@@ -10,5 +10,5 @@ if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false
     git config user.email "info@pravdomil.com"
     git config user.name "pravdomil"
     
-    ./node_modules/.bin/gh-pages -d public -r "https://$github_token@github.com/pravdomil/pravdomil.com.git"
+    ./node_modules/.bin/gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/pravdomil/pravdomil.com.git"
 fi
