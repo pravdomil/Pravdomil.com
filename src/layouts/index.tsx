@@ -18,8 +18,14 @@ const Layout: StatelessComponent = ({ children }) => (
         <div>
             { (children as any)() }
         </div>
+        <Footer/>
     </main>
 );
+
+const Footer: StatelessComponent = () => (
+    <footer>
+        <a href="https://github.com/pravdomil/pravdomil.com">edit this page</a>
+    </footer>
 );
 
 export default Layout;
