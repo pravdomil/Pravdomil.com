@@ -57,7 +57,7 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
             {topics.map((topic, i) => (
                 <div key={i}>
                     <h1>{humanReadable(topic.name)}</h1>
-                    <ul>
+                    <ul className="list">
                         {topic.repos.map((repo, c) => (
                             <li key={c}>
                                 <a href={repo.url}>
