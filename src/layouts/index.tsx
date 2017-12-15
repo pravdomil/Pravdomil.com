@@ -5,16 +5,10 @@ import Link from "gatsby-link";
 import "../style.less";
 import { Helmet } from "react-helmet";
 
-const headerStyle = {
-    padding: "3rem 0",
-};
-
 const Header: StatelessComponent = () => (
-  <div style={headerStyle}>
-      <Link to="/">Pravdomil.com</Link>
-      {"   "}
-      <Link to="/about">about</Link>
-  </div>
+    <header>
+        <Link to="/">Pravdomil.com</Link>
+    </header>
 );
 
 const pageStyle = {
