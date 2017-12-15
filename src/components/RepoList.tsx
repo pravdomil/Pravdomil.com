@@ -2,13 +2,14 @@ import * as React from "react";
 import { StatelessComponent } from "react";
 import { humanReadable } from "../helpers/humanReadable";
 import Spacer from "./Spacer";
+import { additionRepos } from "../helpers/additionalRepos";
 
-interface Repo {
+export interface Repo {
     name: string;
     shortDescriptionHTML: string;
     
     url: string;
-    homepageUrl: string;
+    homepageUrl?: string;
     
     viewerHasStarred: boolean;
     stargazers: { totalCount: number };
@@ -16,7 +17,7 @@ interface Repo {
     repositoryTopics: { nodes: Array<{ topic: { name: string } }> };
 }
 
-interface Topic {
+export interface Topic {
     name: string;
     stars: number;
     repos: Repo[];
@@ -34,7 +35,8 @@ function getTopic(topics: Topic[], name: string): Topic {
 }
 
 const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
-    const topics = repos.reduce((accumulator, repo) => {
+    
+    const topics = repos.concat(additionRepos).reduce((accumulator, repo) => {
         const topicCount = repo.repositoryTopics.nodes.length;
         const name = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
         const topic = getTopic(accumulator, name);
