@@ -9,7 +9,7 @@ const IndexPage: StatelessComponent<{ data: any }> = function({ data }) {
         <div>
             <RepoList repos={repos}/>
         </div>
-    )
+    );
 };
 
 declare const graphql: any;

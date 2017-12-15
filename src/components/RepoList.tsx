@@ -30,11 +30,11 @@ function getTopic(topics: Topic[], name: string): Topic {
     } else {
         const topic = { name, repos: [], stars: name === "uncategorized" ? -1 : 0 };
         topics.push(topic);
-        return topic
+        return topic;
     }
 }
 
-const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
+const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
     
     const topics = repos.concat(additionRepos).reduce((accumulator, repo) => {
         const topicCount = repo.repositoryTopics.nodes.length;
