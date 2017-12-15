@@ -3,7 +3,7 @@
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
-    "strict": true
+    "lib": ["esnext"]
   },
   "exclude": [
     "node_modules"
