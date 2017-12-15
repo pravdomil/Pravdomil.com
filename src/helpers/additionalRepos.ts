@@ -6,7 +6,7 @@ export const additionRepos: Repo[] = [
         shortDescriptionHTML: "",
         url: "https://services.pravdomil.com",
         viewerHasStarred: false,
-        stargazers: { totalCount: 5 },
-        repositoryTopics: { nodes: [{ topic: { name: "f" } }] },
+        stargazers: { totalCount: 0 },
+        repositoryTopics: { nodes: [] },
     },
 ];
