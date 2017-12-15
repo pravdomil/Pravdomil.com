@@ -6,8 +6,8 @@
     "ci": "bin/ci"
   },
   "dependencies": {
-    "gatsby": "^1.9.130",
-    "gatsby-link": "^1.6.31",
+    "gatsby": "^1.9.135",
+    "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-typescript": "^1.4.12"
   },
