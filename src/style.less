@@ -1,34 +1,4 @@
-main, header, footer, aside, nav, section, article, page { display: block; }
-
-html, body,
-h1, h2, h3, h4, h5, h6,
-p, pre, kbd, blockquote,
-img, iframe, hr,
-ul, ol,
-table,
-figure,
-form, input, button, keygen, textarea, select, label, fieldset
-{ padding: 0; margin: 0; border: 0; font: inherit; }
-
-a { color: inherit; }
-b, strong { font-weight: bold; }
-cite, em, i { font-style: italic; }
-pre, code, samp { font-family: monospace; }
-big { font-size: larger; line-height: 1; }
-sub, sup, small { font-size: smaller; line-height: 1/1.25; }
-
-@supports (-webkit-text-size-adjust: 100%) {
-  html { -webkit-text-size-adjust: 100%; }
-}
-
-@supports (-webkit-font-smoothing: subpixel-antialiased) {
-  html { -webkit-font-smoothing: subpixel-antialiased; }
-}
-
-html {
-  font-family: sans-serif;
-  font-size: 8px;
-}
+@import "~rembased/css/rembased_basic";
 
 body {
   font-size: 14px;
