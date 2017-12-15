@@ -57,3 +57,40 @@ main {
   }
 }
 
+.repos {
+  > div {
+    > h1 {
+      text-align: left;
+    }
+
+    > .list {
+      display: flex;
+      flex-flow: row wrap;
+      
+      > li {
+        width: 100%/4;
+        
+        > a {
+          display: block;
+          
+          margin-right: 2rem;
+          margin-bottom: 2rem;
+          
+          > .title {
+            display: block;
+            
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            
+            border-bottom: 1px solid currentColor;
+          }
+          
+          > .desc {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
