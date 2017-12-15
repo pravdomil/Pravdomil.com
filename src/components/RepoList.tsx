@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StatelessComponent } from "react";
-import { humanReadable } from "../helpers/helper";
+import { humanReadable } from "../helpers/humanReadable";
 import Spacer from "./Spacer";
 
 interface Repo {
