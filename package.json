@@ -11,7 +11,8 @@
     "gatsby-plugin-less": "^1.0.8",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-typescript": "^1.4.12",
-    "gatsby-source-github-api": "^0.0.3"
+    "gatsby-source-github-api": "^0.0.3",
+    "rembased": "github:pravdomil/rembased"
   },
   "devDependencies": {
     "@types/react": "^16.0.30",
