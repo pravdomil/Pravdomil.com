@@ -22,7 +22,16 @@ const Layout: StatelessComponent = ({ children }) => (
 
 const Footer: StatelessComponent = () => (
     <footer>
-        <a href="https://github.com/pravdomil/pravdomil.com">edit this page</a>
+        <div>
+            <div className="links">
+                <a href="https://github.com/search?q=user%3Apravdomil&s=stars&type=Repositories">Sorted by stars</a>
+                <a href="https://github.com/pravdomil/pravdomil.com">Source on GitHub</a>
+                <a href="https://gatsbyjs.org">Made with Gatsby</a>
+                <br/>
+                <a href="https://travis-ci.org">Build by Travis</a>
+                <a href="https://cloudflare.com">Cached by CloudFlare</a>
+            </div>
+        </div>
     </footer>
 );
 
