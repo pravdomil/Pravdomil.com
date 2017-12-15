@@ -2,7 +2,7 @@ import * as React from "react";
 import { StatelessComponent } from "react";
 import Link from "gatsby-link";
 
-import "./index.css";
+import "../style.less";
 import { Helmet } from "react-helmet";
 
 const headerStyle = {
