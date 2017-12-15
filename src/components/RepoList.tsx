@@ -6,7 +6,7 @@ import { additionalRepos } from "../helpers/additionalRepos";
 
 export interface Repo {
     name: string;
-    shortDescriptionHTML: string;
+    description: string;
     
     url: string;
     homepageUrl?: string;
@@ -68,7 +68,7 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
                             <li key={c}>
                                 <a href={repo.url + "#readme"} target="_blank">
                                     <span className="title">{humanReadable(repo.name)}</span>
-                                    <span className="desc">{repo.shortDescriptionHTML}</span>
+                                    <span className="desc">{repo.description}</span>
                                 </a>
                             </li>
                         ))}

@@ -4,7 +4,7 @@ query {
         repositories(isFork: false, privacy: PUBLIC, first: 100) {
             nodes {
                 name
-                shortDescriptionHTML
+                description
                 
                 url
                 homepageUrl

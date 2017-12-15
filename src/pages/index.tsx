@@ -21,7 +21,7 @@ export const query = graphql`
                     repositories {
                         nodes {
                             name
-                            shortDescriptionHTML
+                            description
 
                             url
                             homepageUrl

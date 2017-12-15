@@ -3,7 +3,7 @@ import { Repo } from "../components/RepoList";
 export const additionalRepos: Repo[] = [
     {
         name: "Services",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://services.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -11,7 +11,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Whetstone",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://whetstone.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -19,7 +19,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Nodepad",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://nodepad.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -27,7 +27,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Pravdomil Piano",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://piano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -35,7 +35,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Přijímačky UMPRUM",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://prijimackyumprum.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -43,7 +43,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "halftone-workshop",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://halftone-workshop.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -51,7 +51,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "cmyk-workshop",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://cmyk-workshop.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -59,7 +59,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "prawood",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://prawood.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -67,7 +67,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "photography",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://www.icloud.com/sharedalbum/#B0P5oqs3qkAGn;30709E02-4714-4CEA-B4DE-17C88DB668FC",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -75,7 +75,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "graphics-design",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://graphic.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -83,7 +83,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "web-development",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://web.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -91,7 +91,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "3d-print",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://3dprint.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -99,7 +99,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "sound",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://sound.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -107,7 +107,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Viewfinder",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://viewfinder.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -115,7 +115,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "nodragreleasedelay",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://nodragreleasedelay.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -123,7 +123,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "jailbreak",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://jailbreak.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -131,7 +131,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "programming",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://programming.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -139,7 +139,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "wordpress",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://wordpress.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -147,7 +147,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "magiclantern",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://magiclantern.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -155,7 +155,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "learn",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://learn.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -163,7 +163,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "yearprogress",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://yearprogress.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -171,7 +171,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "newton-law",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://newton-law.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -179,7 +179,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "bookletflow",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://bookletflow.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -187,7 +187,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "fusion",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://fusion.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -195,7 +195,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "cheatsheet",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://cheatsheet.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -203,7 +203,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "electronic",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://electronic.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -211,7 +211,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "papercut",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://papercut.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -219,7 +219,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "pravidla-typografie",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://pravidla-typografie.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -227,7 +227,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "heroes3rady",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://heroes3rady.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -235,7 +235,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "pravidla-grafiky",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://pravidla-grafiky.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -243,7 +243,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "mackeyboardpiano",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://mackeyboardpiano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
@@ -251,7 +251,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "macos",
-        shortDescriptionHTML: "",
+        description: "",
         url: "https://macos.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
