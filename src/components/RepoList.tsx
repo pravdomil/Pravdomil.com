@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StatelessComponent } from "react";
 import { humanReadable } from "../helpers/helper";
+import Spacer from "./Spacer";
 
 interface Repo {
     name: string;
@@ -56,7 +57,9 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
         <div className="repos">
             {topics.map((topic, i) => (
                 <div key={i}>
+                    <Spacer height={6}/>
                     <h1>{humanReadable(topic.name)}</h1>
+                    <Spacer height={2}/>
                     <ul className="list">
                         {topic.repos.map((repo, c) => (
                             <li key={c}>
