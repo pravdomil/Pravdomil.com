@@ -9,7 +9,8 @@
     "gatsby": "^1.9.135",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^2.0.3",
-    "gatsby-plugin-typescript": "^1.4.12"
+    "gatsby-plugin-typescript": "^1.4.12",
+    "gatsby-source-github-api": "^0.0.3"
   },
   "devDependencies": {
     "@types/react": "^16.0.30",
