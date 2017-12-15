@@ -48,7 +48,7 @@ const Layout: StatelessComponent = ({ children }) => (
 
 const Footer: StatelessComponent = () => (
     <footer>
-        <Spacer height={9}/>
+        <Spacer height={16}/>
         <div>
             <div className="links">
                 <a href="https://github.com/search?q=user%3Apravdomil&s=stars&type=Repositories">Sorted by stars</a>
