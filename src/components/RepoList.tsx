@@ -28,7 +28,7 @@ function getTopic(topics: Topic[], name: string): Topic {
     if (found) {
         return found;
     } else {
-        const stars = name === "uncategorized" ? -1 : name === "deprecated" ? -2 : 0;
+        const stars = name === "uncategorized" ? -100 : name === "deprecated" ? -200 : 0;
         const topic = { name, repos: [], stars };
         topics.push(topic);
         return topic;
@@ -43,7 +43,7 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
         const topic = getTopic(accumulator, name);
         
         topic.stars += repo.stargazers.totalCount;
-        if (repo.viewerHasStarred) { topic.stars += 99; }
+        if (repo.viewerHasStarred) { topic.stars += 100; }
         
         topic.repos.push(repo);
         
