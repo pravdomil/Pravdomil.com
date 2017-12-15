@@ -11,20 +11,15 @@ const Header: StatelessComponent = () => (
     </header>
 );
 
-const pageStyle = {
-    margin: "0 auto",
-    maxWidth: 960,
-    padding: "1rem",
-};
-
 const Layout: StatelessComponent = ({ children }) => (
-  <div style={pageStyle}>
-    <Helmet title="Pravdomil.com"/>
-    <Header/>
-    <div>
-      { (children as any)() }
-    </div>
-  </div>
+    <main>
+        <Helmet title="Pravdomil.com"/>
+        <Header/>
+        <div>
+            { (children as any)() }
+        </div>
+    </main>
+);
 );
 
 export default Layout;
