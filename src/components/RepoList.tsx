@@ -58,7 +58,7 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
     return (
         <div className="repos">
             {topics.map((topic, i) => (
-                <div key={i}>
+                <div key={i} id={topic.name}>
                     <Spacer height={6}/>
                     <h1>{humanReadable(topic.name)}</h1>
                     <Spacer height={2}/>
