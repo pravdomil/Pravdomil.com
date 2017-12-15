@@ -2,7 +2,7 @@ import * as React from "react";
 import { StatelessComponent } from "react";
 import { humanReadable } from "../helpers/humanReadable";
 import Spacer from "./Spacer";
-import { additionRepos } from "../helpers/additionalRepos";
+import { additionalRepos } from "../helpers/additionalRepos";
 
 export interface Repo {
     name: string;
@@ -37,7 +37,7 @@ function getTopic(topics: Topic[], name: string): Topic {
 
 const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
     
-    const topics = repos.concat(additionRepos).reduce((accumulator, repo) => {
+    const topics = repos.concat(additionalRepos).reduce((accumulator, repo) => {
         const topicCount = repo.repositoryTopics.nodes.length;
         const name = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
         const topic = getTopic(accumulator, name);
