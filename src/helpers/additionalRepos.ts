@@ -105,15 +105,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "nodragreleasedelay",
-        description: "",
-        url: "",
-        homepageUrl: "https://nodragreleasedelay.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "programming",
         description: "",
         url: "",
