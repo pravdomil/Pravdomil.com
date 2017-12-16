@@ -223,11 +223,11 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "mackeyboardpiano",
-        description: "",
+        description: "Use your Mac keyboard as piano keys",
         url: "https://mackeyboardpiano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
     },
     {
         name: "macos",
