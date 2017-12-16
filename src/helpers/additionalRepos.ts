@@ -46,22 +46,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
     {
-        name: "halftone-workshop",
-        description: "",
-        url: "https://halftone-workshop.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "workshop" } }] },
-    },
-    {
-        name: "cmyk-workshop",
-        description: "",
-        url: "https://cmyk-workshop.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "workshop" } }] },
-    },
-    {
         name: "prawood",
         description: "",
         url: "https://prawood.pravdomil.com",
