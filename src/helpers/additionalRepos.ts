@@ -132,7 +132,7 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
-        name: "programming",
+        name: "programming tips",
         description: "",
         url: "",
         homepageUrl: "https://programming.pravdomil.com",
