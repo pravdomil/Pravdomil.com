@@ -219,7 +219,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://pravidla-typografie.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
     {
         name: "heroes3rady",
@@ -228,7 +228,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://heroes3rady.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
     {
         name: "pravidla-grafiky",
@@ -237,7 +237,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://pravidla-grafiky.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
     {
         name: "macos",
