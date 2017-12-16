@@ -114,15 +114,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "jailbreak",
-        description: "",
-        url: "",
-        homepageUrl: "https://jailbreak.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "programming",
         description: "",
         url: "",
