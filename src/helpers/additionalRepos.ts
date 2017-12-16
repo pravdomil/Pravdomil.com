@@ -84,7 +84,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://prawood.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
         name: "photography",
@@ -93,7 +93,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://www.icloud.com/sharedalbum/#B0P5oqs3qkAGn;30709E02-4714-4CEA-B4DE-17C88DB668FC",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
         name: "graphics-design",
@@ -102,7 +102,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://graphic.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
         name: "web-development",
@@ -120,7 +120,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://3dprint.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
         name: "sound",
@@ -129,7 +129,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://sound.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
         name: "programming",
@@ -138,7 +138,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://programming.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "development" } }] },
     },
     {
         name: "wordpress",
@@ -147,7 +147,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://wordpress.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
+        repositoryTopics: { nodes: [{ topic: { name: "development" } }] },
     },
     {
         name: "magiclantern",
