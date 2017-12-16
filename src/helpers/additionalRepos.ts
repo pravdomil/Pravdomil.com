@@ -106,14 +106,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "Viewfinder",
-        description: "",
-        url: "https://viewfinder.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "mobile-apps" } }] },
-    },
-    {
         name: "nodragreleasedelay",
         description: "",
         url: "https://nodragreleasedelay.pravdomil.com",
