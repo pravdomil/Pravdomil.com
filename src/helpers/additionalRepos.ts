@@ -19,7 +19,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Nodepad",
-        description: "",
+        description: "Another developer tool",
         url: "https://nodepad.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
