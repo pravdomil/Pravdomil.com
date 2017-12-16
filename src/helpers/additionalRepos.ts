@@ -9,6 +9,8 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
     },
+    
+    
     {
         name: "Whetstone",
         description: "Image processing application for macOS",
@@ -25,6 +27,8 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
     },
+    
+    
     {
         name: "Pravdomil Piano",
         description: "My piano in development",
