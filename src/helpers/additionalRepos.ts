@@ -48,6 +48,15 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
+    {
+        name: "yearprogress",
+        description: "",
+        url: "",
+        homepageUrl: "https://yearprogress.pravdomil.com",
+        viewerHasStarred: false,
+        stargazers: { totalCount: 0 },
+        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
+    },
     
     
     {
@@ -154,15 +163,6 @@ export const additionalRepos: Repo[] = [
         description: "",
         url: "",
         homepageUrl: "https://learn.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
-        name: "yearprogress",
-        description: "",
-        url: "",
-        homepageUrl: "https://yearprogress.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
