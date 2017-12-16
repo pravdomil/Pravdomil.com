@@ -14,7 +14,7 @@ export const additionalRepos: Repo[] = [
     
     {
         name: "Whetstone",
-        description: "Image processing application for macOS",
+        description: "Image processing application for macOS with no UI",
         url: "",
         homepageUrl: "https://whetstone.pravdomil.com",
         viewerHasStarred: false,
