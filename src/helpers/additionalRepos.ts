@@ -186,15 +186,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "fusion",
-        description: "",
-        url: "",
-        homepageUrl: "https://fusion.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "cheatsheet",
         description: "",
         url: "",
