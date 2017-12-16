@@ -39,6 +39,16 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
+    {
+        name: "mackeyboardpiano",
+        description: "Use your Mac keyboard as piano keys",
+        url: "",
+        homepageUrl: "https://mackeyboardpiano.pravdomil.com",
+        viewerHasStarred: false,
+        stargazers: { totalCount: 0 },
+        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
+    },
+    
     
     {
         name: "Pravdomil Piano",
@@ -228,15 +238,6 @@ export const additionalRepos: Repo[] = [
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
-    },
-    {
-        name: "mackeyboardpiano",
-        description: "Use your Mac keyboard as piano keys",
-        url: "",
-        homepageUrl: "https://mackeyboardpiano.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     {
         name: "macos",
