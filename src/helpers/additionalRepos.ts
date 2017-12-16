@@ -19,7 +19,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://whetstone.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
+        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     {
         name: "Nodepad",
@@ -28,7 +28,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://nodepad.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
+        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     {
         name: "papercut",
@@ -37,7 +37,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://papercut.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
+        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     
     {
@@ -236,7 +236,7 @@ export const additionalRepos: Repo[] = [
         homepageUrl: "https://mackeyboardpiano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
+        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     {
         name: "macos",
