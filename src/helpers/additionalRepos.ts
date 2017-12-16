@@ -27,7 +27,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Pravdomil Piano",
-        description: "",
+        description: "My piano in development",
         url: "https://piano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
