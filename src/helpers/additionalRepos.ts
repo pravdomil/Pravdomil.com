@@ -35,7 +35,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "Přijímačky UMPRUM",
-        description: "",
+        description: "Má první kniha",
         url: "https://prijimackyumprum.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
