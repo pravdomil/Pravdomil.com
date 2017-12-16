@@ -232,7 +232,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "pravidla-grafiky",
-        description: "",
+        description: "Shrnutí základů grafického designu",
         url: "",
         homepageUrl: "https://pravidla-grafiky.pravdomil.com",
         viewerHasStarred: false,
