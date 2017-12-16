@@ -40,6 +40,9 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
     const topics = repos.concat(additionalRepos).reduce((accumulator, repo) => {
         const topicCount = repo.repositoryTopics.nodes.length;
         const name = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
+        
+        if (name === "wordpress") { return accumulator; } // TODO add wordpress
+        
         const topic = getTopic(accumulator, name);
         
         topic.stars += repo.stargazers.totalCount;
