@@ -30,7 +30,15 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
     },
-    
+    {
+        name: "papercut",
+        description: "Video editor concept",
+        url: "",
+        homepageUrl: "https://papercut.pravdomil.com",
+        viewerHasStarred: false,
+        stargazers: { totalCount: 0 },
+        repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
+    },
     
     {
         name: "Pravdomil Piano",
@@ -190,15 +198,6 @@ export const additionalRepos: Repo[] = [
         description: "",
         url: "",
         homepageUrl: "https://electronic.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
-        name: "papercut",
-        description: "",
-        url: "",
-        homepageUrl: "https://papercut.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
