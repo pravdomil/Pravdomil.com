@@ -223,7 +223,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "heroes3rady",
-        description: "",
+        description: "Aneb co jsem slyšel v putice",
         url: "",
         homepageUrl: "https://heroes3rady.pravdomil.com",
         viewerHasStarred: false,
