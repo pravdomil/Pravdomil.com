@@ -50,7 +50,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "yearprogress",
-        description: "",
+        description: "Progress bar you'd rather see go slower",
         url: "",
         homepageUrl: "https://yearprogress.pravdomil.com",
         viewerHasStarred: false,
