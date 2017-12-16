@@ -214,7 +214,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "pravidla-typografie",
-        description: "",
+        description: "Doporučené typografické minimum",
         url: "",
         homepageUrl: "https://pravidla-typografie.pravdomil.com",
         viewerHasStarred: false,
