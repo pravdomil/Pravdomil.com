@@ -4,7 +4,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "Services",
         description: "",
-        url: "https://services.pravdomil.com",
+        url: "",
+        homepageUrl: "https://services.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -14,7 +15,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "Whetstone",
         description: "Image processing application for macOS",
-        url: "https://whetstone.pravdomil.com",
+        url: "",
+        homepageUrl: "https://whetstone.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
@@ -22,7 +24,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "Nodepad",
         description: "Another developer tool",
-        url: "https://nodepad.pravdomil.com",
+        url: "",
+        homepageUrl: "https://nodepad.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
@@ -32,7 +35,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "Pravdomil Piano",
         description: "My piano in development",
-        url: "https://piano.pravdomil.com",
+        url: "",
+        homepageUrl: "https://piano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "design" } }] },
@@ -40,7 +44,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "Přijímačky UMPRUM",
         description: "Má první kniha",
-        url: "https://prijimackyumprum.pravdomil.com",
+        url: "",
+        homepageUrl: "https://prijimackyumprum.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
@@ -48,7 +53,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "prawood",
         description: "",
-        url: "https://prawood.pravdomil.com",
+        url: "",
+        homepageUrl: "https://prawood.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -56,7 +62,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "photography",
         description: "",
-        url: "https://www.icloud.com/sharedalbum/#B0P5oqs3qkAGn;30709E02-4714-4CEA-B4DE-17C88DB668FC",
+        url: "",
+        homepageUrl: "https://www.icloud.com/sharedalbum/#B0P5oqs3qkAGn;30709E02-4714-4CEA-B4DE-17C88DB668FC",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -64,7 +71,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "graphics-design",
         description: "",
-        url: "https://graphic.pravdomil.com",
+        url: "",
+        homepageUrl: "https://graphic.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -72,7 +80,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "web-development",
         description: "",
-        url: "https://web.pravdomil.com",
+        url: "",
+        homepageUrl: "https://web.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -80,7 +89,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "3d-print",
         description: "",
-        url: "https://3dprint.pravdomil.com",
+        url: "",
+        homepageUrl: "https://3dprint.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -88,7 +98,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "sound",
         description: "",
-        url: "https://sound.pravdomil.com",
+        url: "",
+        homepageUrl: "https://sound.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -96,7 +107,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "nodragreleasedelay",
         description: "",
-        url: "https://nodragreleasedelay.pravdomil.com",
+        url: "",
+        homepageUrl: "https://nodragreleasedelay.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -104,7 +116,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "jailbreak",
         description: "",
-        url: "https://jailbreak.pravdomil.com",
+        url: "",
+        homepageUrl: "https://jailbreak.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -112,7 +125,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "programming",
         description: "",
-        url: "https://programming.pravdomil.com",
+        url: "",
+        homepageUrl: "https://programming.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -120,7 +134,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "wordpress",
         description: "",
-        url: "https://wordpress.pravdomil.com",
+        url: "",
+        homepageUrl: "https://wordpress.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -128,7 +143,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "magiclantern",
         description: "",
-        url: "https://magiclantern.pravdomil.com",
+        url: "",
+        homepageUrl: "https://magiclantern.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -136,7 +152,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "learn",
         description: "",
-        url: "https://learn.pravdomil.com",
+        url: "",
+        homepageUrl: "https://learn.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -144,7 +161,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "yearprogress",
         description: "",
-        url: "https://yearprogress.pravdomil.com",
+        url: "",
+        homepageUrl: "https://yearprogress.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -152,7 +170,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "newton-law",
         description: "",
-        url: "https://newton-law.pravdomil.com",
+        url: "",
+        homepageUrl: "https://newton-law.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -160,7 +179,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "bookletflow",
         description: "",
-        url: "https://bookletflow.pravdomil.com",
+        url: "",
+        homepageUrl: "https://bookletflow.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -168,7 +188,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "fusion",
         description: "",
-        url: "https://fusion.pravdomil.com",
+        url: "",
+        homepageUrl: "https://fusion.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -176,7 +197,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "cheatsheet",
         description: "",
-        url: "https://cheatsheet.pravdomil.com",
+        url: "",
+        homepageUrl: "https://cheatsheet.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -184,7 +206,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "electronic",
         description: "",
-        url: "https://electronic.pravdomil.com",
+        url: "",
+        homepageUrl: "https://electronic.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -192,7 +215,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "papercut",
         description: "",
-        url: "https://papercut.pravdomil.com",
+        url: "",
+        homepageUrl: "https://papercut.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -200,7 +224,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "pravidla-typografie",
         description: "",
-        url: "https://pravidla-typografie.pravdomil.com",
+        url: "",
+        homepageUrl: "https://pravidla-typografie.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -208,7 +233,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "heroes3rady",
         description: "",
-        url: "https://heroes3rady.pravdomil.com",
+        url: "",
+        homepageUrl: "https://heroes3rady.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -216,7 +242,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "pravidla-grafiky",
         description: "",
-        url: "https://pravidla-grafiky.pravdomil.com",
+        url: "",
+        homepageUrl: "https://pravidla-grafiky.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
@@ -224,7 +251,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "mackeyboardpiano",
         description: "Use your Mac keyboard as piano keys",
-        url: "https://mackeyboardpiano.pravdomil.com",
+        url: "",
+        homepageUrl: "https://mackeyboardpiano.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "software" } }] },
@@ -232,7 +260,8 @@ export const additionalRepos: Repo[] = [
     {
         name: "macos",
         description: "",
-        url: "https://macos.pravdomil.com",
+        url: "",
+        homepageUrl: "https://macos.pravdomil.com",
         viewerHasStarred: false,
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
