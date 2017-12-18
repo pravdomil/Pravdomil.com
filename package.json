@@ -6,7 +6,7 @@
     "ci": "bin/ci"
   },
   "dependencies": {
-    "gatsby": "^1.9.135",
+    "gatsby": "^1.9.141",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-less": "^1.0.8",
     "gatsby-plugin-react-helmet": "^2.0.3",
@@ -15,7 +15,7 @@
     "rembased": "github:pravdomil/rembased"
   },
   "devDependencies": {
-    "@types/react": "^16.0.30",
+    "@types/react": "^16.0.31",
     "@types/react-helmet": "^5.0.3",
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
