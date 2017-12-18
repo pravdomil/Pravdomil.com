@@ -6,6 +6,7 @@
     "ci": "bin/ci"
   },
   "dependencies": {
+    "@types/node": "^8.5.1",
     "gatsby": "^1.9.141",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-less": "^1.0.8",
