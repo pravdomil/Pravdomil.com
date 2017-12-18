@@ -39,7 +39,7 @@ const Layout: StatelessComponent = ({ children }) => (
     <main>
         <Helmet title="Pravdomil.com"/>
         <Helmet meta={[{ name: "viewport", content: "width=device-width" }]}/>
-        <Helmet script={[{ src: require("file!rembased/src/js/rembased_class") }]}/>
+        <Helmet script={[{ src: require("file!rembased/js/rembased_class") }]}/>
         
         <Header/>
         <div>
