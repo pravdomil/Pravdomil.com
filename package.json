@@ -2,7 +2,7 @@
   "name": "pravdomil.com",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "ci": "bin/ci"
   },
   "dependencies": {
