@@ -33,8 +33,9 @@ a {
 
 main {
   margin: 0 auto;
-  width: 80rem;
   padding: 0 1rem;
+  width: 80rem;
+  html.mobile & { width: auto; }
   //border-left: 1px solid currentColor;
   //border-right: 1px solid currentColor;
   
@@ -68,11 +69,14 @@ main {
       
       > li {
         width: 100%/4;
+        html.mobile & { width: 100%; }
         
         > a {
           display: block;
           
           margin-right: 2rem;
+          html.mobile & { margin-right: 0; }
+          
           margin-bottom: 2rem;
           
           > .title {
