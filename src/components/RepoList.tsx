@@ -66,7 +66,7 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
                     <Spacer height={6}/>
                     <h1>{humanReadable(topic.name)}</h1>
                     <Spacer height={2}/>
-                    <ul className="list">
+                    <ul>
                         {topic.repos.map((repo, c) => (
                             <li key={c}>
                                 <a href={repo.homepageUrl && !repo.homepageUrl.includes("://pravdomil.com") ? repo.homepageUrl : repo.url + "#readme"} target="_blank">
