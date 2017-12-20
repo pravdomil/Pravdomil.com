@@ -3,7 +3,7 @@ import { StatelessComponent } from "react";
 
 const Spacer: StatelessComponent<{ height?: number }> = function({ children, height = 1 }) {
     const style = {
-        marginTop: height * 8,
+        height: height * 8,
     };
     
     return (
