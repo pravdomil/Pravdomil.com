@@ -140,13 +140,4 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
     },
-    {
-        name: "heroes-3-rady",
-        description: "Aneb co jsem slyšel v putice",
-        url: "",
-        homepageUrl: "https://heroes3rady.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
-    },
 ];
