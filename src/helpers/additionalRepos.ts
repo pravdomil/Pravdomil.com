@@ -3,7 +3,7 @@ import { Repo } from "../components/RepoList";
 export const additionalRepos: Repo[] = [
     {
         name: "Services",
-        description: "",
+        description: "That's what I do for living",
         url: "",
         homepageUrl: "https://services.pravdomil.com",
         viewerHasStarred: false,
