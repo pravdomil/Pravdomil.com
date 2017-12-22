@@ -133,7 +133,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "newton-law",
-        description: "",
+        description: "Newton’s law experiments",
         url: "",
         homepageUrl: "https://newton-law.pravdomil.com",
         viewerHasStarred: false,
