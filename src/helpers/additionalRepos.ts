@@ -176,13 +176,4 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
-    {
-        name: "macos",
-        description: "",
-        url: "",
-        homepageUrl: "https://macos.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
 ];
