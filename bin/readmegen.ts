@@ -4,10 +4,11 @@ main();
 
 async function main() {
     const links = await editLinks();
-    const readme = `
-# Pravdomil.com
+    const readme = `# Pravdomil.com
+
 ## Files to edit
-${links}`;
+${links}
+`;
     
     console.log(readme);
 }
