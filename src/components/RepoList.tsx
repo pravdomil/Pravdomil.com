@@ -41,7 +41,8 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
         const topicCount = repo.repositoryTopics.nodes.length;
         const name = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
         
-        if (name === "wordpress") { return accumulator; } // TODO add wordpress
+        if (name === "wordpress") { return accumulator; }
+        if (name === "submodule") { return accumulator; }
         
         const topic = getTopic(accumulator, name);
         
