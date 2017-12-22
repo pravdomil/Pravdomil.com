@@ -168,15 +168,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "electronic",
-        description: "",
-        url: "",
-        homepageUrl: "https://electronic.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "pravidla-typografie",
         description: "Doporučené typografické minimum",
         url: "",
