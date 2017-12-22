@@ -105,7 +105,7 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "3d-print",
+        name: "3D-print",
         description: "",
         url: "",
         homepageUrl: "https://3dprint.pravdomil.com",
