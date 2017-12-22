@@ -40,7 +40,7 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     {
-        name: "mackeyboardpiano",
+        name: "Mac-Keyboard-Piano",
         description: "Use your Mac keyboard as piano keys",
         url: "",
         homepageUrl: "https://mackeyboardpiano.pravdomil.com",
