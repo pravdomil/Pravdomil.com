@@ -124,7 +124,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "MagicLantern",
-        description: "",
+        description: "Hacks for Canon cameras",
         url: "",
         homepageUrl: "https://magiclantern.pravdomil.com",
         viewerHasStarred: false,
