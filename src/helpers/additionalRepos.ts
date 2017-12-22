@@ -97,7 +97,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "web-development",
-        description: "",
+        description: "That's what I used to do for living",
         url: "",
         homepageUrl: "https://web.pravdomil.com",
         viewerHasStarred: false,
