@@ -106,7 +106,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "3D-print",
-        description: "Sharing my 3D printed plastic experiences",
+        description: "My experiences with 3D printing",
         url: "",
         homepageUrl: "https://3dprint.pravdomil.com",
         viewerHasStarred: false,
