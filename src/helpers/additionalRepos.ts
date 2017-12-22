@@ -141,15 +141,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "bookletflow",
-        description: "",
-        url: "",
-        homepageUrl: "https://bookletflow.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "cheatsheet",
         description: "",
         url: "",
