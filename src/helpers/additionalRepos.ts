@@ -141,15 +141,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "pravidla-typografie",
-        description: "Doporučené typografické minimum",
-        url: "",
-        homepageUrl: "https://pravidla-typografie.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
-    },
-    {
         name: "heroes-3-rady",
         description: "Aneb co jsem slyšel v putice",
         url: "",
