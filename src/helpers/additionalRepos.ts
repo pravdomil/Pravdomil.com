@@ -158,13 +158,4 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
-    {
-        name: "pravidla-grafiky",
-        description: "Shrnutí základů grafického designu",
-        url: "",
-        homepageUrl: "https://pravidla-grafiky.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
-    },
 ];
