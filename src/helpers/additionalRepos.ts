@@ -48,15 +48,6 @@ export const additionalRepos: Repo[] = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
-    {
-        name: "yearprogress",
-        description: "Progress bar you'd rather see go slower",
-        url: "",
-        homepageUrl: "https://yearprogress.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
-    },
     
     
     {
