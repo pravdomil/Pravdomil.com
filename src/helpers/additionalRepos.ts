@@ -186,7 +186,7 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "czech" } }] },
     },
     {
-        name: "heroes3rady",
+        name: "heroes-3-rady",
         description: "Aneb co jsem slyšel v putice",
         url: "",
         homepageUrl: "https://heroes3rady.pravdomil.com",
