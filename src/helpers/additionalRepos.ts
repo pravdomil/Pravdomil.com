@@ -141,15 +141,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "cheatsheet",
-        description: "",
-        url: "",
-        homepageUrl: "https://cheatsheet.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "pravidla-typografie",
         description: "Doporučené typografické minimum",
         url: "",
