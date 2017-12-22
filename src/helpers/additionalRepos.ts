@@ -123,15 +123,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
-        name: "programming tips",
-        description: "",
-        url: "",
-        homepageUrl: "https://programming.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "development" } }] },
-    },
-    {
         name: "magiclantern",
         description: "",
         url: "",
