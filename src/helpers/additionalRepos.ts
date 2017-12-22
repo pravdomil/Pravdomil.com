@@ -132,15 +132,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [] },
     },
     {
-        name: "learn",
-        description: "",
-        url: "",
-        homepageUrl: "https://learn.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [] },
-    },
-    {
         name: "newton-law",
         description: "",
         url: "",
