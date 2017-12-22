@@ -70,7 +70,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "prawood",
-        description: "",
+        description: "DIY wooden furniture",
         url: "",
         homepageUrl: "https://prawood.pravdomil.com",
         viewerHasStarred: false,
@@ -79,7 +79,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "photography",
-        description: "",
+        description: "Nice photos",
         url: "",
         homepageUrl: "https://www.icloud.com/sharedalbum/#B0P5oqs3qkAGn;30709E02-4714-4CEA-B4DE-17C88DB668FC",
         viewerHasStarred: false,
@@ -88,7 +88,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "graphics-design",
-        description: "",
+        description: "Posters, logos, brand identity I have created",
         url: "",
         homepageUrl: "https://graphic.pravdomil.com",
         viewerHasStarred: false,
@@ -106,7 +106,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "3D-print",
-        description: "",
+        description: "Sharing my 3D printed plastic experiences",
         url: "",
         homepageUrl: "https://3dprint.pravdomil.com",
         viewerHasStarred: false,
@@ -115,7 +115,7 @@ export const additionalRepos: Repo[] = [
     },
     {
         name: "sound",
-        description: "",
+        description: "My sound experiments",
         url: "",
         homepageUrl: "https://sound.pravdomil.com",
         viewerHasStarred: false,
