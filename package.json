@@ -1,7 +1,7 @@
 {
   "name": "pravdomil.com",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && ts-node bin/readmegen > readme.md",
     "start": "gatsby develop",
     "ci": "bin/ci"
   },
