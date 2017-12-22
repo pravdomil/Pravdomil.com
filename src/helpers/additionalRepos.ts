@@ -123,7 +123,7 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
-        name: "magiclantern",
+        name: "MagicLantern",
         description: "",
         url: "",
         homepageUrl: "https://magiclantern.pravdomil.com",
