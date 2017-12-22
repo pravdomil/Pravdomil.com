@@ -132,15 +132,6 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "development" } }] },
     },
     {
-        name: "wordpress",
-        description: "",
-        url: "",
-        homepageUrl: "https://wordpress.pravdomil.com",
-        viewerHasStarred: false,
-        stargazers: { totalCount: 0 },
-        repositoryTopics: { nodes: [{ topic: { name: "development" } }] },
-    },
-    {
         name: "magiclantern",
         description: "",
         url: "",
