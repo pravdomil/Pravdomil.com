@@ -28,7 +28,7 @@ function getTopic(topics: Topic[], name: string): Topic {
     if (found) {
         return found;
     } else {
-        const stars = name === "uncategorized" ? -100 : name === "deprecated" ? -200 : 0;
+        const stars = name === "uncategorized" ? -100 : 0;
         const topic = { name, repos: [], stars };
         topics.push(topic);
         return topic;
