@@ -123,7 +123,7 @@ export const additionalRepos: Repo[] = [
         repositoryTopics: { nodes: [{ topic: { name: "art" } }] },
     },
     {
-        name: "MagicLantern",
+        name: "Magic-Lantern",
         description: "Hacks for Canon cameras",
         url: "",
         homepageUrl: "https://magiclantern.pravdomil.com",
