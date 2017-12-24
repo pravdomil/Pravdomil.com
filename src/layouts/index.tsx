@@ -58,7 +58,7 @@ const Footer: StatelessComponent = () => (
                 <a href="https://github.com/pravdomil/pravdomil.com#readme">Edit this page</a>
                 <br/>
                 <a href="https://gatsbyjs.org">Made with Gatsby</a>
-                <a href="https://travis-ci.org">Build by Travis</a>
+                <a href="https://travis-ci.org/pravdomil/pravdomil.com">Build by Travis</a>
                 <a href="https://cloudflare.com">Cached by CloudFlare</a>
             </div>
         </div>
