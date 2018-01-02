@@ -6,16 +6,16 @@
     "ci": "bin/ci"
   },
   "dependencies": {
-    "@types/node": "^8.5.1",
+    "@types/node": "^8.5.2",
     "bootstrap": "^4.0.0-beta.3",
-    "gatsby": "^1.9.141",
+    "gatsby": "^1.9.149",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-less": "^1.0.8",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-typescript": "^1.4.12",
     "gatsby-source-github-api": "^0.0.3",
     "rembased": "github:pravdomil/rembased",
-    "ts-node": "^4.0.2"
+    "ts-node": "^4.1.0"
   },
   "devDependencies": {
     "@types/glob": "^5.0.34",
