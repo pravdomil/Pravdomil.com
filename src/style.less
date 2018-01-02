@@ -14,6 +14,13 @@ html.mobile {
   text-size-adjust: 120%;
 }
 
+h1, h2, h3, p {
+  font-weight: inherit;
+  margin: 0;
+}
+
+ul { padding: 0; margin: 0; }
+
 body {
   font: @fs2 ~"/" 1.4 "Playfair Display", sans-serif;
   color: mediumblue;
@@ -29,7 +36,8 @@ h2 {
   html.mobile & { font-size: @fs3; }
 }
 
-a {
+a, a:hover {
+  color: inherit;
   text-decoration: none;
 }
 
