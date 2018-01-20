@@ -10,7 +10,7 @@ const Header: StatelessComponent = () => (
             <Spacer height={9}/>
             
             <h2>Pravdomil</h2>
-            <p>personal site</p>
+            <p>all my projects on one page</p>
             
             <Spacer height={3}/>
             
