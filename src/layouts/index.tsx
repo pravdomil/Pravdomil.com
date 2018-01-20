@@ -10,7 +10,15 @@ const Header: StatelessComponent = () => (
             <Spacer height={9}/>
             
             <h2>Pravdomil</h2>
-            <p>all my projects on one page</p>
+            <p>
+                <span>
+                    all my projects on one page
+                </span>
+                <br/>
+                <a href="https://github.com/search?q=user%3Apravdomil&s=stars&type=Repositories">
+                    <small>sorted by github stars</small>
+                </a>
+            </p>
             
             <Spacer height={3}/>
             
@@ -54,9 +62,7 @@ const Footer: StatelessComponent = () => (
         <Spacer height={16}/>
         <div>
             <div className="links">
-                <a href="https://github.com/search?q=user%3Apravdomil&s=stars&type=Repositories">Sorted by stars</a>
                 <a href="https://github.com/pravdomil/pravdomil.com#readme">Edit this page</a>
-                <br/>
                 <a href="https://gatsbyjs.org">Made with Gatsby</a>
                 <a href="https://travis-ci.org/pravdomil/pravdomil.com">Build by Travis</a>
                 <a href="https://cloudflare.com">Cached by CloudFlare</a>
