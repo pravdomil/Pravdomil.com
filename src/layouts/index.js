@@ -25,7 +25,7 @@ function Header() {
             <div>
                 <Spacer height={9}/>
                 
-                <h2>Pravdomil</h2>
+                <h2><a href="/">Pravdomil</a></h2>
                 <p>
                 <span>
                     all my projects on one page
