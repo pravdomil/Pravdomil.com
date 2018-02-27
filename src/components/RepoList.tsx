@@ -38,8 +38,8 @@ function getTopic(topics: Topic[], name: string): Topic {
 const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
     // compute repo list
     const topics = repos.concat(additionalRepos).reduce((accumulator, repo) => {
-        const topicCount = repo.repositoryTopics.nodes.length;
-        const topicName = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
+        const repoTopics = repo.repositoryTopics.nodes;
+        const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized";
         
         let ignoreRepo = (topicName === "wordpress" || topicName === "dependency");
         if (ignoreRepo) {
