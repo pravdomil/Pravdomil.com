@@ -41,7 +41,8 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
         const topicCount = repo.repositoryTopics.nodes.length;
         const topicName = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
         
-        if (topicName !== "wordpress" && topicName !== "dependency") {
+        let ignoreRepo = (topicName === "wordpress" || topicName === "dependency");
+        if (ignoreRepo) {
             const topic = getTopic(accumulator, topicName);
             
             topic.stars += repo.stargazers.totalCount;
