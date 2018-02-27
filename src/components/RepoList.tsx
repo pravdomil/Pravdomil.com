@@ -55,11 +55,11 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
         return accumulator;
     }, [] as Topic[]);
     
-    topics.sort((a, b) => a.stars < b.stars ? 1 : -1);
-    
     topics.forEach(topic => {
         topic.repos.sort((a, b) => a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1);
     });
+    
+    topics.sort((a, b) => a.stars < b.stars ? 1 : -1);
     
     return (
         <div className="repos">
