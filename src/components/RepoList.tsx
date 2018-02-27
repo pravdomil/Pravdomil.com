@@ -27,7 +27,8 @@ function getTopic(topics: Topic[], name: string): Topic {
     const found = topics.find(t => t.name === name);
     if (found) {
         return found;
-    } else {
+    }
+    else {
         const stars = name === "uncategorized" ? -100 : 0;
         const topic = { name, repos: [], stars };
         topics.push(topic);
