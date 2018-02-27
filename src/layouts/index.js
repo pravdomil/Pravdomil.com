@@ -61,7 +61,7 @@ function Header() {
     
 }
 
-function Footer({}) {
+function Footer() {
     return (
         <footer>
             <Spacer height={16}/>
