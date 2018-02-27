@@ -1,4 +1,4 @@
-import { Glob } from "glob";
+const Glob = require("glob");
 
 main();
 
