@@ -4,7 +4,7 @@ main();
 
 async function main() {
     const links = await editLinks();
-    const readme = `# Pravdomil.com
+    const readme = `<h1 align="center">Pravdomil.com</h1>
 
 ## Files to edit
 ${links}
