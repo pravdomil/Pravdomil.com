@@ -1,18 +1,18 @@
-import * as React from "react";
-import { additionalRepos } from "../helpers/additionalRepos";
-import { humanReadable } from "../helpers/humanReadable";
-import Spacer from "./Spacer";
+import * as React from "react"
+import { additionalRepos } from "../helpers/additionalRepos"
+import { humanReadable } from "../helpers/humanReadable"
+import Spacer from "./Spacer"
 
 function getTopic(topics, name) {
-    const found = topics.find(t => t.name === name);
+    const found = topics.find(t => t.name === name)
     if (found) {
-        return found;
+        return found
     }
     else {
-        const stars = name === "uncategorized" ? -100 : 0;
-        const topic = { name, repos: [], stars };
-        topics.push(topic);
-        return topic;
+        const stars = name === "uncategorized" ? -100 : 0
+        const topic = { name, repos: [], stars }
+        topics.push(topic)
+        return topic
     }
 }
 
@@ -23,21 +23,21 @@ export default function RepoList({ repos }) {
     
     // add repos to corresponding topics
     [...repos, ...additionalRepos].forEach((repo) => {
-        const repoTopics = repo.repositoryTopics.nodes;
-        const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized";
+        const repoTopics = repo.repositoryTopics.nodes
+        const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
         
-        const topic = getTopic(topics, topicName);
-        topic.stars += repo.stargazers.totalCount;
-        topic.repos.push(repo);
-    });
+        const topic = getTopic(topics, topicName)
+        topic.stars += repo.stargazers.totalCount
+        topic.repos.push(repo)
+    })
     
     // sort topic repos by stars
     topics.forEach(topic => {
-        topic.repos.sort((a, b) => a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1);
-    });
+        topic.repos.sort((a, b) => a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1)
+    })
     
     // sort topics by stars sum
-    topics.sort((a, b) => a.stars < b.stars ? 1 : -1);
+    topics.sort((a, b) => a.stars < b.stars ? 1 : -1)
     
     return (
         <div className="repos">
@@ -60,5 +60,5 @@ export default function RepoList({ repos }) {
                 </div>
             ))}
         </div>
-    );
+    )
 }

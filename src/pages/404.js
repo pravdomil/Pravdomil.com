@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from "react"
 
 export default function NotFoundPage() {
     return (
@@ -6,5 +6,5 @@ export default function NotFoundPage() {
             <h1>Not found</h1>
             <p>Sorry.</p>
         </div>
-    );
+    )
 }

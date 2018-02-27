@@ -1,17 +1,17 @@
-import * as React from "react";
-import RepoList from "../components/RepoList";
+import * as React from "react"
+import RepoList from "../components/RepoList"
 
 export default function Index({ data }) {
     if (!(data && data.githubData)) {
-        throw new Error("No data from GitHub");
+        throw new Error("No data from GitHub")
     }
-    const repos = data.githubData.data.viewer.repositories.nodes;
+    const repos = data.githubData.data.viewer.repositories.nodes
     
     return (
         <div>
             <RepoList repos={repos}/>
         </div>
-    );
+    )
 };
 
 export const query = graphql`
@@ -45,4 +45,4 @@ export const query = graphql`
             }
         }
     }
-`;
+`

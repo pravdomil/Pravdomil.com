@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from "react"
 
-let stylesStr;
+let stylesStr
 if (process.env.NODE_ENV === "production") {
     try {
-        stylesStr = require("!raw-loader!../public/styles.css");
+        stylesStr = require("!raw-loader!../public/styles.css")
     } catch (e) {
-        console.log(e);
+        console.log(e)
     }
 }
 
@@ -23,5 +23,5 @@ export default function Html(props) {
             {props.postBodyComponents}
         </body>
         </html>
-    );
+    )
 }

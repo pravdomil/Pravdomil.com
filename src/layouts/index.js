@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Helmet } from "react-helmet";
-import Spacer from "../components/Spacer";
-import "../style.less";
+import * as React from "react"
+import { Helmet } from "react-helmet"
+import Spacer from "../components/Spacer"
+import "../style.less"
 
 export default function Layout({ children }) {
     return (
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
             </div>
             <Footer/>
         </main>
-    );
+    )
 }
 
 function Header() {
@@ -57,7 +57,7 @@ function Header() {
                 </div>
             </div>
         </header>
-    );
+    )
     
 }
 
@@ -75,5 +75,5 @@ function Footer() {
             </div>
             <Spacer height={1}/>
         </footer>
-    );
+    )
 }

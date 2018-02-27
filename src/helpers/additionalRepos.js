@@ -138,4 +138,4 @@ export const additionalRepos = [
         stargazers: { totalCount: 0 },
         repositoryTopics: { nodes: [] },
     },
-];
+]
