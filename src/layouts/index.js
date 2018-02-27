@@ -1,8 +1,8 @@
 import * as React from "react";
 import { StatelessComponent } from "react";
-import "../style.less";
 import { Helmet } from "react-helmet";
 import Spacer from "../components/Spacer";
+import "../style.less";
 
 const Header: StatelessComponent = () => (
     <header>
