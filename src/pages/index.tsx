@@ -3,7 +3,7 @@ import { StatelessComponent } from "react";
 import RepoList from "../components/RepoList";
 
 const IndexPage: StatelessComponent<{ data: any }> = function ({ data }) {
-    if (!data.githubData) {
+    if (!(data && data.githubData)) {
         throw new Error("No data from GitHub");
     }
     const repos = data.githubData.data.viewer.repositories.nodes;
