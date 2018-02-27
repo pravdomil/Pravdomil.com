@@ -66,12 +66,12 @@ const RepoList: StatelessComponent<{ repos }> = function ({ repos }) {
                     <h1>{humanReadable(topic.name)}</h1>
                     <Spacer height={2}/>
                     <ul>
-                        {topic.repos.map((repo, c) => (
+                        {topic.repos.map(({ homepageUrl, url, name, description }, c) => (
                             <li key={c}>
-                                <a href={repo.homepageUrl && !repo.homepageUrl.includes("://pravdomil.com") ? repo.homepageUrl : repo.url + "#readme"} target="_blank">
-                                    <span className="title">{humanReadable(repo.name)}</span>
+                                <a href={homepageUrl && !homepageUrl.includes("://pravdomil.com") ? homepageUrl : url + "#readme"} target="_blank">
+                                    <span className="title">{humanReadable(name)}</span>
                                     <Spacer height={.5}/>
-                                    <span className="desc">{repo.description}</span>
+                                    <span className="desc">{description}</span>
                                 </a>
                             </li>
                         ))}
