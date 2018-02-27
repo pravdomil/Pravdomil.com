@@ -1,29 +1,9 @@
 import * as React from "react";
-import { StatelessComponent } from "react";
 import { additionalRepos } from "../helpers/additionalRepos";
 import { humanReadable } from "../helpers/humanReadable";
 import Spacer from "./Spacer";
 
-export interface Repo {
-    name: string;
-    description: string;
-    
-    url: string;
-    homepageUrl?: string;
-    
-    viewerHasStarred: boolean;
-    stargazers: { totalCount: number };
-    
-    repositoryTopics: { nodes: Array<{ topic: { name: string } }> };
-}
-
-export interface Topic {
-    name: string;
-    stars: number;
-    repos: Repo[];
-}
-
-function getTopic(topics: Topic[], name: string): Topic {
+function getTopic(topics, name) {
     const found = topics.find(t => t.name === name);
     if (found) {
         return found;
@@ -36,12 +16,13 @@ function getTopic(topics: Topic[], name: string): Topic {
     }
 }
 
-const RepoList: StatelessComponent<{ repos }> = function ({ repos }) {
+
+export default function RepoList({ repos }) {
     // our main topic collection
-    const topics: Topic[] = [];
+    const topics = [];
     
     // add repos to corresponding topics
-    [...repos, ...additionalRepos].forEach((repo: Repo) => {
+    [...repos, ...additionalRepos].forEach((repo) => {
         const repoTopics = repo.repositoryTopics.nodes;
         const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized";
         
@@ -80,6 +61,4 @@ const RepoList: StatelessComponent<{ repos }> = function ({ repos }) {
             ))}
         </div>
     );
-};
-
-export default RepoList;
+}
