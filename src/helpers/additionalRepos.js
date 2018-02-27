@@ -29,7 +29,7 @@ export const additionalRepos = [
         repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
     },
     {
-        name: "papercut",
+        name: "Papercut",
         description: "Video editor concept",
         url: "",
         homepageUrl: "https://papercut.pravdomil.com",
