@@ -1,5 +1,3 @@
-import { Repo } from "../components/RepoList";
-
 export const additionalRepos = [
     {
         name: "Services",
