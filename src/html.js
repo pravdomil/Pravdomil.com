@@ -1,5 +1,4 @@
 import * as React from "react";
-import { StatelessComponent } from "react";
 
 let stylesStr;
 if (process.env.NODE_ENV === "production") {
@@ -10,7 +9,7 @@ if (process.env.NODE_ENV === "production") {
     }
 }
 
-const HTML: StatelessComponent<any> = (props) => {
+export default function Html(props) {
     return (
         <html {...props.htmlAttributes}>
         <head>
@@ -25,6 +24,4 @@ const HTML: StatelessComponent<any> = (props) => {
         </body>
         </html>
     );
-};
-
-module.exports = HTML;
+}
