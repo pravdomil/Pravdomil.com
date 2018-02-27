@@ -14,7 +14,6 @@ export default function Index({ data }) {
     );
 };
 
-declare const graphql: any;
 export const query = graphql`
     query Repos {
         githubData {
