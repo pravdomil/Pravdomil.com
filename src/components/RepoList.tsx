@@ -41,7 +41,7 @@ const RepoList: StatelessComponent<{ repos }> = function ({ repos }) {
     const topics: Topic[] = [];
     
     // add repos to corresponding topics
-    [...repos, additionalRepos].forEach((repo: Repo) => {
+    [...repos, ...additionalRepos].forEach((repo: Repo) => {
         const repoTopics = repo.repositoryTopics.nodes;
         const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized";
         
