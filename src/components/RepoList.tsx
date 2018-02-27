@@ -36,17 +36,18 @@ function getTopic(topics: Topic[], name: string): Topic {
 }
 
 const RepoList: StatelessComponent<{ repos }> = function ({ repos }) {
-    // compute repo list
-    const topics = repos.concat(additionalRepos).reduce((accumulator, repo) => {
+    // our main topic collection
+    const topics: Topic[] = [];
+    
+    // add repos to corresponding topics
+    [...repos, additionalRepos].forEach((repo: Repo) => {
         const repoTopics = repo.repositoryTopics.nodes;
         const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized";
         
-        const topic = getTopic(accumulator, topicName);
+        const topic = getTopic(topics, topicName);
         topic.stars += repo.stargazers.totalCount;
         topic.repos.push(repo);
-        
-        return accumulator;
-    }, [] as Topic[]);
+    });
     
     // sort topic repos by stars
     topics.forEach(topic => {
