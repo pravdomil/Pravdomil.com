@@ -1,8 +1,8 @@
 import * as React from "react";
 import { StatelessComponent } from "react";
+import { additionalRepos } from "../helpers/additionalRepos";
 import { humanReadable } from "../helpers/humanReadable";
 import Spacer from "./Spacer";
-import { additionalRepos } from "../helpers/additionalRepos";
 
 export interface Repo {
     name: string;
