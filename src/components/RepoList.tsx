@@ -35,7 +35,7 @@ function getTopic(topics: Topic[], name: string): Topic {
     }
 }
 
-const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
+const RepoList: StatelessComponent<{ repos }> = function ({ repos }) {
     // compute repo list
     const topics = repos.concat(additionalRepos).reduce((accumulator, repo) => {
         const repoTopics = repo.repositoryTopics.nodes;
