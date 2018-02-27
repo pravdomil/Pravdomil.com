@@ -1,8 +1,7 @@
 import * as React from "react";
-import { StatelessComponent } from "react";
 import RepoList from "../components/RepoList";
 
-const IndexPage: StatelessComponent<{ data: any }> = function ({ data }) {
+export default function Index({ data }) {
     if (!(data && data.githubData)) {
         throw new Error("No data from GitHub");
     }
@@ -48,5 +47,3 @@ export const query = graphql`
         }
     }
 `;
-
-export default IndexPage;
