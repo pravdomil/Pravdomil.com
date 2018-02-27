@@ -6,11 +6,11 @@
     "ci": "bin/ci"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-beta.3",
-    "gatsby": "^1.9.149",
-    "gatsby-link": "^1.6.32",
-    "gatsby-plugin-less": "^1.0.8",
-    "gatsby-plugin-react-helmet": "^2.0.3",
+    "bootstrap": "^4.0.0",
+    "gatsby": "^1.9.217",
+    "gatsby-link": "^1.6.37",
+    "gatsby-plugin-less": "^1.1.5",
+    "gatsby-plugin-react-helmet": "^2.0.5",
     "gatsby-source-github-api": "^0.0.3",
     "rembased": "github:pravdomil/rembased"
   },
