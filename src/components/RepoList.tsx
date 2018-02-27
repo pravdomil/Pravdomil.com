@@ -41,21 +41,16 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
         const topicCount = repo.repositoryTopics.nodes.length;
         const name = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
         
-        if (name === "wordpress") {
-            return accumulator;
+        if (name !== "wordpress" && name !== "dependency") {
+            const topic = getTopic(accumulator, name);
+            
+            topic.stars += repo.stargazers.totalCount;
+            if (repo.viewerHasStarred) {
+                topic.stars += 100;
+            }
+            
+            topic.repos.push(repo);
         }
-        if (name === "dependency") {
-            return accumulator;
-        }
-        
-        const topic = getTopic(accumulator, name);
-        
-        topic.stars += repo.stargazers.totalCount;
-        if (repo.viewerHasStarred) {
-            topic.stars += 100;
-        }
-        
-        topic.repos.push(repo);
         
         return accumulator;
     }, [] as Topic[]);
