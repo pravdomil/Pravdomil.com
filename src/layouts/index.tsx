@@ -51,7 +51,7 @@ const Layout: StatelessComponent = ({ children }) => (
         
         <Header/>
         <div>
-            { (children as any)() }
+            {(children as any)()}
         </div>
         <Footer/>
     </main>
