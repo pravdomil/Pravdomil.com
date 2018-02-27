@@ -1,14 +1,14 @@
 <h1 align="center">Pravdomil.com</h1>
 
 ## Files to edit
-- [components/RepoList.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/RepoList.tsx)
-- [components/Spacer.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/Spacer.tsx)
-- [helpers/additionalRepos.ts](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/additionalRepos.ts)
-- [helpers/humanReadable.ts](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/humanReadable.ts)
+- [components/RepoList.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/RepoList.js)
+- [components/Spacer.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/Spacer.js)
+- [helpers/additionalRepos.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/additionalRepos.js)
+- [helpers/humanReadable.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/humanReadable.js)
 - [helpers/query.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/query.js)
-- [html.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/html.tsx)
-- [layouts/index.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/layouts/index.tsx)
-- [pages/404.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/pages/404.tsx)
-- [pages/index.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/pages/index.tsx)
+- [html.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/html.js)
+- [layouts/index.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/layouts/index.js)
+- [pages/404.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/pages/404.js)
+- [pages/index.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/pages/index.js)
 - [style.less](https://github.com/pravdomil/pravdomil.com/edit/master/src/style.less)
 
