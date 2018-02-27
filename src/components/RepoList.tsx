@@ -45,9 +45,6 @@ const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
             const topic = getTopic(accumulator, topicName);
             
             topic.stars += repo.stargazers.totalCount;
-            if (repo.viewerHasStarred) {
-                topic.stars += 100;
-            }
             
             topic.repos.push(repo);
         }
