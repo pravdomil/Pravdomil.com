@@ -1,6 +1,6 @@
 import { Repo } from "../components/RepoList";
 
-export const additionalRepos: Repo[] = [
+export const additionalRepos = [
     {
         name: "Services",
         description: "That's what I do for living",
