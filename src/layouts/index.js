@@ -1,10 +1,10 @@
 import * as React from "react";
-import { StatelessComponent } from "react";
 import { Helmet } from "react-helmet";
 import Spacer from "../components/Spacer";
 import "../style.less";
 
-const Header: StatelessComponent = () => (
+function Header() {
+    return (
     <header>
         <div>
             <Spacer height={9}/>
@@ -41,9 +41,11 @@ const Header: StatelessComponent = () => (
             </div>
         </div>
     </header>
-);
+    );
+}
 
-const Layout: StatelessComponent = ({ children }) => (
+export default function Layout({ children }) {
+    return (
     <main>
         <Helmet title="Pravdomil.com"/>
         <Helmet meta={[{ name: "viewport", content: "width=device-width" }]}/>
@@ -51,13 +53,15 @@ const Layout: StatelessComponent = ({ children }) => (
         
         <Header/>
         <div>
-            {(children as any)()}
+            {children()}
         </div>
         <Footer/>
     </main>
-);
+    );
+}
 
-const Footer: StatelessComponent = () => (
+function Footer({}) {
+    return (
     <footer>
         <Spacer height={16}/>
         <div>
@@ -70,6 +74,5 @@ const Footer: StatelessComponent = () => (
         </div>
         <Spacer height={1}/>
     </footer>
-);
-
-export default Layout;
+    );
+}
