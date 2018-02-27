@@ -26,7 +26,7 @@ async function editLinks() {
     return links.join("\n");
 }
 
-function glob(pattern, options?: any): Promise<string[]> {
+function glob(pattern, options) {
     return new Promise((resolve, reject) => {
         const g = new Glob(pattern, options);
         g.once("end", resolve);
