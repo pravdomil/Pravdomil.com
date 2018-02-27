@@ -1,5 +1,4 @@
-# Pravdomil.com
-My personal site.
+<h1 align="center">Pravdomil.com</h1>
 
 ## Files to edit
 - [components/RepoList.tsx](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/RepoList.tsx)
