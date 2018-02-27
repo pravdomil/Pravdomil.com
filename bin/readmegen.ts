@@ -5,7 +5,6 @@ main();
 async function main() {
     const links = await editLinks();
     const readme = `# Pravdomil.com
-My personal site.
 
 ## Files to edit
 ${links}
