@@ -35,19 +35,25 @@ function getTopic(topics: Topic[], name: string): Topic {
     }
 }
 
-const RepoList: StatelessComponent<{ repos: Repo[] }> = function({ repos }) {
+const RepoList: StatelessComponent<{ repos: Repo[] }> = function ({ repos }) {
     
     const topics = repos.concat(additionalRepos).reduce((accumulator, repo) => {
         const topicCount = repo.repositoryTopics.nodes.length;
         const name = topicCount ? repo.repositoryTopics.nodes[0].topic.name : "uncategorized";
         
-        if (name === "wordpress") { return accumulator; }
-        if (name === "dependency") { return accumulator; }
+        if (name === "wordpress") {
+            return accumulator;
+        }
+        if (name === "dependency") {
+            return accumulator;
+        }
         
         const topic = getTopic(accumulator, name);
         
         topic.stars += repo.stargazers.totalCount;
-        if (repo.viewerHasStarred) { topic.stars += 100; }
+        if (repo.viewerHasStarred) {
+            topic.stars += 100;
+        }
         
         topic.repos.push(repo);
         
