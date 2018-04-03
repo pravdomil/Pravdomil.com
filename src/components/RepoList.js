@@ -44,7 +44,7 @@ export default function RepoList({ repos }) {
             {topics.map((topic, i) => (
                 <div className="repo" key={i} id={topic.name}>
                     <Spacer height={6}/>
-                    <h1>{humanReadable(topic.name)}</h1>
+                    <h1 title={topic.stars + " ★"}>{humanReadable(topic.name)}</h1>
                     <Spacer height={2}/>
                     <ul>
                         {topic.repos.map(({ homepageUrl, url, name, description }, c) => (
