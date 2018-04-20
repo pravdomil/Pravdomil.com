@@ -3,30 +3,6 @@ import { additionalRepos } from "../helpers/additionalRepos"
 import { humanReadable } from "../helpers/humanReadable"
 import Spacer from "./Spacer"
 
-function getTopic(topics, name) {
-  const found = topics.find(t => t.name === name)
-  if (found) {
-    return found
-  }
-  const stars = name === "uncategorized" ? -100 : 0
-  const topic = { name, repos: [], stargazers: { totalCount: stars } }
-  topics.push(topic)
-  return topic
-}
-
-function sortByStarsAndName(a, b) {
-  if (a.stargazers.totalCount !== b.stargazers.totalCount) {
-    return a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1
-  }
-  if (a.name < b.name) {
-    return -1
-  }
-  if (a.name > b.name) {
-    return 1
-  }
-  return 0
-}
-
 export default function RepoList({ repos }) {
   // our main topic collection
   const topics = []
@@ -75,4 +51,28 @@ export default function RepoList({ repos }) {
       ))}
     </div>
   )
+}
+
+function getTopic(topics, name) {
+  const found = topics.find(t => t.name === name)
+  if (found) {
+    return found
+  }
+  const stars = name === "uncategorized" ? -100 : 0
+  const topic = { name, repos: [], stargazers: { totalCount: stars } }
+  topics.push(topic)
+  return topic
+}
+
+function sortByStarsAndName(a, b) {
+  if (a.stargazers.totalCount !== b.stargazers.totalCount) {
+    return a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1
+  }
+  if (a.name < b.name) {
+    return -1
+  }
+  if (a.name > b.name) {
+    return 1
+  }
+  return 0
 }
