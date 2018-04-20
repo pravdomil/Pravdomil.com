@@ -58,13 +58,18 @@ function getTopic(topics, name) {
   if (found) {
     return found
   }
-  const stars = name === "uncategorized" ? -10 : 0
-  const topic = { name, repos: [], stargazers: { totalCount: stars } }
+  const topic = { name, repos: [], stargazers: { totalCount: 0 } }
   topics.push(topic)
   return topic
 }
 
 function sortByStarsAndName(a, b) {
+  if (a.name === "uncategorized") {
+    return 1
+  }
+  if (b.name === "uncategorized") {
+    return -1
+  }
   if (a.stargazers.totalCount !== b.stargazers.totalCount) {
     return a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1
   }
