@@ -7,12 +7,11 @@ function getTopic(topics, name) {
   const found = topics.find(t => t.name === name)
   if (found) {
     return found
-  } else {
-    const stars = name === "uncategorized" ? -100 : 0
-    const topic = { name, repos: [], stars }
-    topics.push(topic)
-    return topic
   }
+  const stars = name === "uncategorized" ? -100 : 0
+  const topic = { name, repos: [], stars }
+  topics.push(topic)
+  return topic
 }
 
 export default function RepoList({ repos }) {
