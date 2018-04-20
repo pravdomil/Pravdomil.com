@@ -12,7 +12,7 @@ export default function Index({ data }) {
       <RepoList repos={repos} />
     </div>
   )
-};
+}
 
 export const query = graphql`
     query Repos {
