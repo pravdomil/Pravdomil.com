@@ -22,9 +22,9 @@ export default function RepoList({ repos }) {
   topics.sort(sortByStarsAndName)
 
   // sort topic repos
-  topics.forEach(topic => {
+  for (const topic of topics) {
     topic.repos.sort(sortByStarsAndName)
-  })
+  }
 
   return (
     <div className="repos">
