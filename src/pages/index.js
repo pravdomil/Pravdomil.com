@@ -15,34 +15,34 @@ export default function Index({ data }) {
 }
 
 export const query = graphql`
-    query Repos {
-        githubData {
-            data {
-                viewer {
-                    repositories {
-                        nodes {
-                            name
-                            description
+  query Repos {
+    githubData {
+      data {
+        viewer {
+          repositories {
+            nodes {
+              name
+              description
 
-                            url
-                            homepageUrl
+              url
+              homepageUrl
 
-                            viewerHasStarred
-                            stargazers {
-                                totalCount
-                            }
+              viewerHasStarred
+              stargazers {
+                totalCount
+              }
 
-                            repositoryTopics {
-                                nodes {
-                                    topic {
-                                        name
-                                    }
-                                }
-                            }
-                        }
-                    }
+              repositoryTopics {
+                nodes {
+                  topic {
+                    name
+                  }
                 }
+              }
             }
+          }
         }
+      }
     }
+  }
 `
