@@ -5,10 +5,5 @@ export default function Spacer({ children, height = 1 }) {
     height: height * 8,
   }
 
-  return (
-    <div style={style}>
-      {children}
-    </div>
-  )
-};
-
+  return <div style={style}>{children}</div>
+}
