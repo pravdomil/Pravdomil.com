@@ -27,9 +27,9 @@ function Header() {
 
         <h2><a href="/">Pravdomil</a></h2>
         <p>
-                <span>
-                    all my projects on one page
-                </span>
+          <span>
+            all my projects on one page
+          </span>
           <br />
           <a href="https://github.com/search?q=user%3Apravdomil&s=stars&type=Repositories">
             <small>sorted by github stars</small>
