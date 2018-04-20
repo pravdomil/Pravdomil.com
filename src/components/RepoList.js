@@ -11,9 +11,9 @@ export default function RepoList({ repos }) {
   const allRepos = [...repos, ...additionalRepos]
   for (const repo of allRepos) {
     const repoTopics = repo.repositoryTopics.nodes
-    const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
+    const repoTopicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
 
-    const topic = getTopic(topics, topicName)
+    const topic = getTopic(topics, repoTopicName)
     topic.stargazers.totalCount += repo.stargazers.totalCount
     topic.repos.push(repo)
   }
