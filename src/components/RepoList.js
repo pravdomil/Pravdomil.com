@@ -42,13 +42,13 @@ export default function RepoList({ repos }) {
     topic.repos.push(repo)
   }
 
+  // sort topics by stars sum
+  topics.sort((a, b) => (a.stars < b.stars ? 1 : -1))
+
   // sort topic repos
   topics.forEach(topic => {
     topic.repos.sort(sortByStarsAndName)
   })
-
-  // sort topics by stars sum
-  topics.sort((a, b) => (a.stars < b.stars ? 1 : -1))
 
   return (
     <div className="repos">
