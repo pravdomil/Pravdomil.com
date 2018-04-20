@@ -31,7 +31,9 @@ export default function RepoList({ repos }) {
 
   // sort topic repos by stars
   topics.forEach(topic => {
-    topic.repos.sort((a, b) => (a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1))
+    topic.repos.sort((a, b) => {
+      return (a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1)
+    })
   })
 
   // sort topics by stars sum
