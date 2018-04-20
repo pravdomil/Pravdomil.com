@@ -9,7 +9,7 @@ function getTopic(topics, name) {
     return found
   }
   const stars = name === "uncategorized" ? -100 : 0
-  const topic = { name, repos: [], stars }
+  const topic = { name, repos: [], stargazers: { totalCount: stars } }
   topics.push(topic)
   return topic
 }
@@ -38,12 +38,12 @@ export default function RepoList({ repos }) {
     const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
 
     const topic = getTopic(topics, topicName)
-    topic.stars += repo.stargazers.totalCount
+    topic.stargazers.totalCount += repo.stargazers.totalCount
     topic.repos.push(repo)
   }
 
-  // sort topics by stars sum
-  topics.sort((a, b) => (a.stars < b.stars ? 1 : -1))
+  // sort topics
+  topics.sort(sortByStarsAndName)
 
   // sort topic repos
   topics.forEach(topic => {
@@ -55,7 +55,7 @@ export default function RepoList({ repos }) {
       {topics.map((topic, i) => (
         <div className="repo" key={i} id={topic.name}>
           <Spacer height={6} />
-          <h1 title={topic.stars + " ★"}>{humanReadable(topic.name)}</h1>
+          <h1 title={topic.stargazers.totalCount + " ★"}>{humanReadable(topic.name)}</h1>
           <Spacer height={2} />
           <ul>
             {topic.repos.map(({ homepageUrl, url, name, description }, c) => (
