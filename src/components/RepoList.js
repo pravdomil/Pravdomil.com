@@ -20,7 +20,7 @@ export default function RepoList({ repos }) {
   const topics = []
 
   // add repos to corresponding topics
-  ;[...repos, ...additionalRepos].forEach((repo) => {
+  ;[...repos, ...additionalRepos].forEach(repo => {
     const repoTopics = repo.repositoryTopics.nodes
     const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
 
