@@ -14,6 +14,19 @@ function getTopic(topics, name) {
   return topic
 }
 
+function sortByStarsAndName(a, b) {
+  if (a.stargazers.totalCount !== b.stargazers.totalCount) {
+    return a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1
+  }
+  if (a.name < b.name) {
+    return -1
+  }
+  if (a.name > b.name) {
+    return 1
+  }
+  return 0
+}
+
 export default function RepoList({ repos }) {
   // our main topic collection
   const topics = []
@@ -31,18 +44,7 @@ export default function RepoList({ repos }) {
 
   // sort topic repos
   topics.forEach(topic => {
-    topic.repos.sort((a, b) => {
-      if (a.stargazers.totalCount !== b.stargazers.totalCount) {
-        return a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1
-      }
-      if (a.name < b.name) {
-        return -1
-      }
-      if (a.name > b.name) {
-        return 1
-      }
-      return 0
-    })
+    topic.repos.sort(sortByStarsAndName)
   })
 
   // sort topics by stars sum
