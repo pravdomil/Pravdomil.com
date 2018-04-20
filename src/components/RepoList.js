@@ -7,15 +7,13 @@ function getTopic(topics, name) {
   const found = topics.find(t => t.name === name)
   if (found) {
     return found
-  }
-  else {
+  } else {
     const stars = name === "uncategorized" ? -100 : 0
     const topic = { name, repos: [], stars }
     topics.push(topic)
     return topic
   }
 }
-
 
 export default function RepoList({ repos }) {
   // our main topic collection
@@ -37,7 +35,7 @@ export default function RepoList({ repos }) {
   })
 
   // sort topics by stars sum
-  topics.sort((a, b) => a.stars < b.stars ? 1 : -1)
+  topics.sort((a, b) => (a.stars < b.stars ? 1 : -1))
 
   return (
     <div className="repos">
@@ -49,9 +47,12 @@ export default function RepoList({ repos }) {
           <ul>
             {topic.repos.map(({ homepageUrl, url, name, description }, c) => (
               <li key={c}>
-                <a href={homepageUrl && !homepageUrl.includes("://pravdomil.com") ? homepageUrl : url + "#readme"} target="_blank">
+                <a
+                  href={homepageUrl && !homepageUrl.includes("://pravdomil.com") ? homepageUrl : url + "#readme"}
+                  target="_blank"
+                >
                   <span className="title">{humanReadable(name)}</span>
-                  <Spacer height={.5} />
+                  <Spacer height={0.5} />
                   <span className="desc">{description}</span>
                 </a>
               </li>
