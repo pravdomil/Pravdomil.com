@@ -27,9 +27,9 @@ export default function RepoList({ repos }) {
   }
 
   return (
-    <div className="repos">
+    <div className="topics">
       {topics.map(({ name, stargazers, repos }, i) => (
-        <div className="repo" key={i} id={name}>
+        <div className="topic" key={i} id={name}>
           <Spacer height={6} />
           <h1 title={stargazers.totalCount + " ★"}>{humanReadable(name)}</h1>
           <Spacer height={2} />
