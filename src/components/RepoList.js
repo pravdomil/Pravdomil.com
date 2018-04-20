@@ -58,7 +58,7 @@ function getTopic(topics, name) {
   if (found) {
     return found
   }
-  const stars = name === "uncategorized" ? -100 : 0
+  const stars = name === "uncategorized" ? -10 : 0
   const topic = { name, repos: [], stargazers: { totalCount: stars } }
   topics.push(topic)
   return topic
