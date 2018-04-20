@@ -52,13 +52,13 @@ export default function RepoList({ repos }) {
 
   return (
     <div className="repos">
-      {topics.map((topic, i) => (
-        <div className="repo" key={i} id={topic.name}>
+      {topics.map(({ name, stargazers, repos }, i) => (
+        <div className="repo" key={i} id={name}>
           <Spacer height={6} />
-          <h1 title={topic.stargazers.totalCount + " ★"}>{humanReadable(topic.name)}</h1>
+          <h1 title={stargazers.totalCount + " ★"}>{humanReadable(name)}</h1>
           <Spacer height={2} />
           <ul>
-            {topic.repos.map(({ homepageUrl, url, name, description }, c) => (
+            {repos.map(({ homepageUrl, url, name, description }, c) => (
               <li key={c}>
                 <a
                   href={homepageUrl && !homepageUrl.includes("://pravdomil.com") ? homepageUrl : url + "#readme"}
