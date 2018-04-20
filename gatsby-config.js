@@ -7,8 +7,8 @@ module.exports = {
       options: {
         token: process.env.GITHUB_TOKEN,
         graphQLQuery: require("./src/helpers/query.js"),
-        variables: {}
-      }
+        variables: {},
+      },
     },
   ],
 }
