@@ -17,10 +17,10 @@ function getTopic(topics, name) {
 
 export default function RepoList({ repos }) {
   // our main topic collection
-  const topics = [];
+  const topics = []
 
   // add repos to corresponding topics
-  [...repos, ...additionalRepos].forEach((repo) => {
+  ;[...repos, ...additionalRepos].forEach((repo) => {
     const repoTopics = repo.repositoryTopics.nodes
     const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
 
@@ -31,7 +31,7 @@ export default function RepoList({ repos }) {
 
   // sort topic repos by stars
   topics.forEach(topic => {
-    topic.repos.sort((a, b) => a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1)
+    topic.repos.sort((a, b) => (a.stargazers.totalCount < b.stargazers.totalCount ? 1 : -1))
   })
 
   // sort topics by stars sum
