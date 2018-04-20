@@ -20,14 +20,15 @@ export default function RepoList({ repos }) {
   const topics = []
 
   // add repos to corresponding topics
-  ;[...repos, ...additionalRepos].forEach(repo => {
+  const allRepos = [...repos, ...additionalRepos]
+  for (const repo of allRepos) {
     const repoTopics = repo.repositoryTopics.nodes
     const topicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
 
     const topic = getTopic(topics, topicName)
     topic.stars += repo.stargazers.totalCount
     topic.repos.push(repo)
-  })
+  }
 
   // sort topic repos by stars
   topics.forEach(topic => {
