@@ -9,7 +9,6 @@ export const additionalRepos = [
     repositoryTopics: { nodes: [] },
   },
 
-
   {
     name: "Whetstone",
     description: "Image processing application for macOS with no UI",
@@ -46,7 +45,6 @@ export const additionalRepos = [
     stargazers: { totalCount: 0 },
     repositoryTopics: { nodes: [{ topic: { name: "applications" } }] },
   },
-
 
   {
     name: "Pravdomil Piano",
