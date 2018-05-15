@@ -1,4 +1,8 @@
-<h1 align="center">Pravdomil.com</h1>
+<div align="center">
+
+# Pravdomil.com
+
+</div>
 
 ## Files to edit
 - [components/RepoList.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/RepoList.js)
