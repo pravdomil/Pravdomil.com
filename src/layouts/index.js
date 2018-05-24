@@ -46,7 +46,7 @@ function Header() {
           <a href="https://github.com/pravdomil">
             <i className="fa fa-github" />
           </a>
-          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=Donation%20pravdomil.com">
+          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer">
             <i className="fa fa-paypal" />
           </a>
           <a href="https://stackoverflow.com/users/3748498/pravdomil">
