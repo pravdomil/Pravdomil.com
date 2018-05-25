@@ -34,8 +34,8 @@ export default function RepoList({ repos }) {
           <h1 title={stargazers.totalCount + " ★"}>{humanReadable(name)}</h1>
           <Spacer height={2} />
           <ul>
-            {repos.map(({ homepageUrl, url, name, description }, c) => (
-              <li key={c}>
+            {repos.map(({ homepageUrl, url, name, description, stargazers }, c) => (
+              <li key={c} title={stargazers.totalCount + " ★"}>
                 <a
                   href={homepageUrl && !homepageUrl.includes("://pravdomil.com") ? homepageUrl : url + "#readme"}
                   target="_blank"
