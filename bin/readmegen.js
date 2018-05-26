@@ -33,7 +33,7 @@ async function editLinks() {
   }, {})
 
   return Object.entries(links)
-    .map(([category, links]) => "## " + category + "\n" + links.join("\n") + "\n")
+    .map(([category, links]) => "### " + category + "\n" + links.join("\n") + "\n")
     .join("\n")
 }
 
