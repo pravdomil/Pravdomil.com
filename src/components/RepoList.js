@@ -1,5 +1,5 @@
 import * as React from "react"
-import { additionalRepos } from "../helpers/additionalRepos"
+import { additionalRepos } from "../data/additionalRepos"
 import Spacer from "./Spacer"
 
 export default function RepoList({ repos }) {

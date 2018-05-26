@@ -6,7 +6,7 @@ module.exports = {
       resolve: "gatsby-source-github-api",
       options: {
         token: process.env.GITHUB_TOKEN,
-        graphQLQuery: require("./src/helpers/query.js"),
+        graphQLQuery: require("./src/data/query.js"),
         variables: {},
       },
     },
