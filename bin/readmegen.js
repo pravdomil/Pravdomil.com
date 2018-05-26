@@ -21,10 +21,10 @@ async function editLinks() {
   const editLink = "https://github.com/pravdomil/pravdomil.com/edit/master/"
 
   const files = await glob("src/**", { nodir: true })
-  const links = files.reduce((acc, f) => {
-    const link = editLink + f
-    const name = f.replace("src/", "")
-    const category = firstUpperCase(name.split("/")[0])
+  const links = files.reduce((acc, file) => {
+    const link = editLink + file
+    const [_, categoryOrig, name] = file.match(/src\/([^/]*)\/(.*)/)
+    const category = firstUpperCase(categoryOrig)
     if (!acc[category]) {
       acc[category] = []
     }
