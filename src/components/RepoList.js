@@ -1,6 +1,5 @@
 import * as React from "react"
 import { additionalRepos } from "../helpers/additionalRepos"
-import { humanReadable } from "../helpers/humanReadable"
 import Spacer from "./Spacer"
 
 export default function RepoList({ repos }) {
@@ -80,4 +79,9 @@ function sortByStarsAndName(a, b) {
     return 1
   }
   return 0
+}
+
+function humanReadable(input) {
+  const output = input.replace(/^wp-/, "").replace(/-/g, " ")
+  return output[0].toLocaleUpperCase() + output.substr(1)
 }
