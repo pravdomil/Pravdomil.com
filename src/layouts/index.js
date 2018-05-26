@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import Spacer from "../components/Spacer"
-import "../style.less"
+import "../styles/style.less"
 
 export default function Layout({ children }) {
   return (
