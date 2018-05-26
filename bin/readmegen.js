@@ -21,13 +21,20 @@ async function editLinks() {
   const editLink = "https://github.com/pravdomil/pravdomil.com/edit/master/"
 
   const files = await glob("src/**", { nodir: true })
-  const links = files.map(f => {
+  const links = files.reduce((acc, f) => {
     const link = editLink + f
     const name = f.replace("src/", "")
-    return `- [${name}](${link})`
-  })
+    const category = firstUpperCase(name.split("/")[0])
+    if (!acc[category]) {
+      acc[category] = []
+    }
+    acc[category].push(`- [${name}](${link})`)
+    return acc
+  }, {})
 
-  return links.join("\n")
+  return Object.entries(links)
+    .map(([category, links]) => "## " + category + "\n" + links.join("\n") + "\n")
+    .join("\n")
 }
 
 function glob(pattern, options) {
@@ -36,4 +43,8 @@ function glob(pattern, options) {
     g.once("end", resolve)
     g.once("error", reject)
   })
+}
+
+function firstUpperCase(string) {
+  return string[0].toUpperCase() + string.slice(1)
 }

@@ -5,14 +5,22 @@
 </div>
 
 ## Files to edit
+## Components
 - [components/RepoList.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/RepoList.js)
 - [components/Spacer.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/Spacer.js)
-- [helpers/additionalRepos.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/additionalRepos.js)
-- [helpers/humanReadable.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/humanReadable.js)
-- [helpers/query.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/helpers/query.js)
-- [html.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/html.js)
+
+## Data
+- [data/additionalRepos.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/data/additionalRepos.js)
+- [data/query.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/data/query.js)
+
+## Layouts
 - [layouts/index.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/layouts/index.js)
+
+## Pages
 - [pages/404.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/pages/404.js)
 - [pages/index.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/pages/index.js)
-- [style.less](https://github.com/pravdomil/pravdomil.com/edit/master/src/style.less)
+
+## Styles
+- [styles/style.less](https://github.com/pravdomil/pravdomil.com/edit/master/src/styles/style.less)
+
 
