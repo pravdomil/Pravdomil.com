@@ -3,9 +3,9 @@
 set -e
 
 pages() {
+    echo "Building pages"
     gatsby build
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-        echo "Publishing to GitHub Pages"
         npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
     fi
 }
