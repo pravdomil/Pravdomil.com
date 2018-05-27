@@ -2,7 +2,8 @@
 
 set -e
 
-npm run build
+gatsby build
+node bin/readmegen
 
 if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     echo "Publishing to GitHub Pages"
