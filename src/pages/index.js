@@ -7,11 +7,7 @@ export default function Index({ data }) {
   }
   const repos = data.githubData.data.viewer.repositories.nodes
 
-  return (
-    <div>
-      <RepoList repos={repos} />
-    </div>
-  )
+  return <RepoList repos={repos} />
 }
 
 export const query = graphql`
