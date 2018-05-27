@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 export default function Spacer({ children, height = 1 }) {
   const style = {

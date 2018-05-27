@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import RepoList from "../components/RepoList"
 
 export default function Index({ data }) {

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { additionalRepos } from "../data/additionalRepos"
 import Spacer from "./Spacer"
 
