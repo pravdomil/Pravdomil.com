@@ -2,10 +2,8 @@
 
 set -e
 
-gatsby build
-node bin/readmegen
-
 pages() {
+    gatsby build
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         echo "Publishing to GitHub Pages"
         npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
@@ -15,6 +13,7 @@ pages() {
 pages
 
 readme() {
+    node bin/readmegen
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         echo "Updating readme"
         git reset
