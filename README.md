@@ -1,6 +1,6 @@
 <div align="center">
 
-# Pravdomil.com
+# Pravdomil.com [![Build Status](https://travis-ci.org/pravdomil/pravdomil.com.svg)](https://travis-ci.org/pravdomil/pravdomil.com)
 
 </div>
 
