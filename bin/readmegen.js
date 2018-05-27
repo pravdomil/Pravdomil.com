@@ -1,23 +1,18 @@
+const { readFile, writeFile } = require("fs").promises
 const Glob = require("glob")
 
 main()
 
 async function main() {
-  const links = await editLinks()
-  const readme = `<div align="center">
-
-# Pravdomil.com
-
-</div>
-
-## Files to edit
-${links}
-`
-
-  console.log(readme)
+  try {
+    const files = await getFiles()
+    await replaceInReadme("files", files)
+  } catch (e) {
+    console.log("error", e instanceof Error ? e.message : e || "")
+  }
 }
 
-async function editLinks() {
+async function getFiles() {
   const editLink = "https://github.com/pravdomil/pravdomil.com/edit/master/"
 
   const files = await glob("src/**", { nodir: true })
@@ -37,6 +32,10 @@ async function editLinks() {
     .join("\n")
 }
 
+//
+// Helpers
+//
+
 function glob(pattern, options) {
   return new Promise((resolve, reject) => {
     const g = new Glob(pattern, options)
@@ -47,4 +46,21 @@ function glob(pattern, options) {
 
 function firstUpperCase(string) {
   return string[0].toUpperCase() + string.slice(1)
+}
+
+async function replaceInReadme(section, content) {
+  try {
+    const readme = await readFile("README.md", "utf8")
+    const regex = new RegExp(
+      "(<!-- " + section + "_start -->).*(<!-- " + section + "_end -->)",
+      "s",
+    )
+    const newReadme = readme.replace(
+      regex,
+      (string, start, end) => start + "\n" + content + "\n" + end,
+    )
+    await writeFile("README.md", newReadme)
+  } catch {
+    throw new Error("Error while replacing readme")
+  }
 }
