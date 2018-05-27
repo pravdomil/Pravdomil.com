@@ -5,6 +5,8 @@ set -e
 gatsby build
 node bin/readmegen
 
+publish() {
+
 if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     echo "Publishing to GitHub Pages"
     npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
@@ -18,3 +20,6 @@ if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false
         git push "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
     fi
 fi
+}
+
+publish
