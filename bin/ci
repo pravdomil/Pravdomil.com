@@ -17,7 +17,7 @@ readme() {
     node bin/readmegen
 
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-        git reset
+        git reset --hard
         git checkout master
         git add README.md
         if [ "$(git diff --cached --stat)" != "" ]; then
