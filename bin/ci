@@ -14,7 +14,6 @@ pages
 
 readme() {
     echo "Generating README.md"
-    git reset --hard
     node bin/readmegen
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         git checkout master
