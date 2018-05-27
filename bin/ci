@@ -7,19 +7,19 @@ node bin/readmegen
 
 publish() {
 
-if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    echo "Publishing to GitHub Pages"
-    npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+    if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+        echo "Publishing to GitHub Pages"
+        npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
 
-    echo "Updating readme"
-    git reset
-    git checkout master
-    git add README.md
-    if [ "$(git diff --cached --stat)" != "" ]; then
-        git commit -m "update readme"
-        git push "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+        echo "Updating readme"
+        git reset
+        git checkout master
+        git add README.md
+        if [ "$(git diff --cached --stat)" != "" ]; then
+            git commit -m "update readme"
+            git push "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+        fi
     fi
-fi
 }
 
 publish
