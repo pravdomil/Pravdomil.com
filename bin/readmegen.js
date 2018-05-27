@@ -7,6 +7,7 @@ async function main() {
   try {
     const files = await getFiles()
     await replaceInReadme("files", files)
+    console.log("done")
   } catch (e) {
     console.log("error", e instanceof Error ? e.message : e || "")
   }
