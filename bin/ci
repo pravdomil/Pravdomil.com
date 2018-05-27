@@ -5,8 +5,8 @@ set -e
 npm run build
 
 if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    git config user.email "info@pravdomil.com"
-    git config user.name "pravdomil"
+    git config user.email ""
+    git config user.name ""
 
     echo "Publishing to GitHub Pages"
     npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
