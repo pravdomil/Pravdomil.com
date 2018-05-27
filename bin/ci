@@ -8,13 +8,13 @@ pages() {
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
     fi
-    git reset --hard
 }
 
 pages
 
 readme() {
     echo "Generating README.md"
+    git reset --hard
     node bin/readmegen
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         git checkout master
