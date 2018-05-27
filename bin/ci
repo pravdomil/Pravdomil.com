@@ -16,7 +16,6 @@ pages
 readme() {
     echo "Generating README.md"
     node bin/readmegen
-
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         git checkout master
         git add README.md
