@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { readFile, writeFile } = require("fs").promises
 const Glob = require("glob")
 
