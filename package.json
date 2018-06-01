@@ -12,12 +12,12 @@
     "gatsby-plugin-less": "^1.1.5",
     "gatsby-plugin-react-helmet": "^2.0.5",
     "gatsby-source-github-api": "^0.0.3",
+    "react": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "rembased": "github:pravdomil/rembased"
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
-    "glob": "^7.1.2",
-    "react": "^16.2.0",
-    "react-helmet": "^5.2.0"
+    "glob": "^7.1.2"
   }
 }
