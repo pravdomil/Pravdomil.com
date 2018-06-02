@@ -6,7 +6,7 @@ pages() {
     echo "Building pages"
     gatsby build
     if [ "$CONTINUOUS_INTEGRATION" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-        npx gh-pages -d public -r "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+        npx gh-pages -d public -r "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
     fi
 }
 
@@ -20,7 +20,7 @@ readme() {
         git add README.md
         if [ "$(git diff --cached --stat)" != "" ]; then
             git commit -m "update readme"
-            git push "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+            git push "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
         fi
     fi
 }
