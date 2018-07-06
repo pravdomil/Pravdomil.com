@@ -1,5 +1,9 @@
 {
   "name": "pravdomil.com",
+  "productName": "Pravdomil.com",
+  "description": "Source of this website",
+  "homepage": "https://pravdomil.com",
+  "keywords": [],
   "scripts": {
     "build": "gatsby build && node bin/readmegen",
     "start": "gatsby develop",
@@ -19,5 +23,9 @@
   "devDependencies": {
     "gh-pages": "^1.1.0",
     "glob": "^7.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pravdomil/pravdomil.com.git"
   }
 }
