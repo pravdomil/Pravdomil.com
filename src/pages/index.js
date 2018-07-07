@@ -2,7 +2,7 @@ import React from "react"
 import RepoList from "../components/RepoList"
 
 export default function Index({ data }) {
-  if (!(data && data.githubData)) {
+  if (!(data instanceof Object)) {
     throw new Error("No data from GitHub")
   }
   const repos = data.githubData.data.viewer.repositories.nodes
