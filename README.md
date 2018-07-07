@@ -11,7 +11,6 @@
 - [Spacer.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/components/Spacer.js)
 
 ### Data
-- [additionalRepos.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/data/additionalRepos.js)
 - [query.js](https://github.com/pravdomil/pravdomil.com/edit/master/src/data/query.js)
 
 ### Layouts
