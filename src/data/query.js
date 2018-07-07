@@ -8,6 +8,7 @@ query {
         
         url
         homepageUrl
+        isArchived
         
         viewerHasStarred
         stargazers {

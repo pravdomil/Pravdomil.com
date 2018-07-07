@@ -24,6 +24,7 @@ export const query = graphql`
 
               url
               homepageUrl
+              isArchived
 
               viewerHasStarred
               stargazers {

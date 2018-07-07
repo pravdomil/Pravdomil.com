@@ -40,8 +40,11 @@ function normalizeRepos(repos) {
   const topics = []
   // add repos to corresponding topics
   for (const repo of repos) {
-    const repoTopics = repo.repositoryTopics.nodes
+    if (repo.isArchived) {
+      continue
+    }
 
+    const repoTopics = repo.repositoryTopics.nodes
     const repoTopicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
     const topic = getTopic(topics, repoTopicName)
     topic.stargazers.totalCount += repo.stargazers.totalCount
