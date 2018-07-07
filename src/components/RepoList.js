@@ -80,6 +80,6 @@ function sortByStarsAndName(a, b) {
 }
 
 function humanReadable(input) {
-  const output = input.replace(/^wp-/, "").replace(/-/g, " ")
+  const output = input.replace(/-/g, " ")
   return output[0].toLocaleUpperCase() + output.substr(1)
 }
