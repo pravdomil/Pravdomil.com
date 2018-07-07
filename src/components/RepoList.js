@@ -1,30 +1,6 @@
 import React from "react"
 import Spacer from "./Spacer"
 
-function normalizeRepos(repos) {
-  // our main topic collection
-  const topics = []
-
-  // add repos to corresponding topics
-  for (const repo of repos) {
-    const repoTopics = repo.repositoryTopics.nodes
-    const repoTopicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
-
-    const topic = getTopic(topics, repoTopicName)
-    topic.stargazers.totalCount += repo.stargazers.totalCount
-    topic.repos.push(repo)
-  }
-
-  // sort topics
-  topics.sort(sortByStarsAndName)
-
-  // sort topic repos
-  for (const topic of topics) {
-    topic.repos.sort(sortByStarsAndName)
-  }
-  return topics
-}
-
 export default function RepoList({ repos }) {
   const topics = normalizeRepos(repos)
 
@@ -57,6 +33,28 @@ export default function RepoList({ repos }) {
       ))}
     </div>
   )
+}
+
+function normalizeRepos(repos) {
+  // our main topic collection
+  const topics = []
+  // add repos to corresponding topics
+  for (const repo of repos) {
+    const repoTopics = repo.repositoryTopics.nodes
+
+    const repoTopicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
+    const topic = getTopic(topics, repoTopicName)
+    topic.stargazers.totalCount += repo.stargazers.totalCount
+    topic.repos.push(repo)
+  }
+
+  // sort topics
+  topics.sort(sortByStarsAndName)
+  // sort topic repos
+  for (const topic of topics) {
+    topic.repos.sort(sortByStarsAndName)
+  }
+  return topics
 }
 
 function getTopic(topics, name) {
