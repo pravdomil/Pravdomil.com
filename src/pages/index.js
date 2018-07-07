@@ -2,12 +2,14 @@ import React from "react"
 import RepoList from "../components/RepoList"
 
 export default function({ data }) {
+  let repos
   try {
-    const repos = data.githubData.data.viewer.repositories.nodes
-    return <RepoList repos={repos} />
+    repos = data.githubData.data.viewer.repositories.nodes
   } catch (e) {
     throw new Error("No data from GitHub")
   }
+
+  return <RepoList repos={repos} />
 }
 
 export const query = graphql`
