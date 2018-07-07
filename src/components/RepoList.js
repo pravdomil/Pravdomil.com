@@ -1,5 +1,4 @@
 import React from "react"
-import { additionalRepos } from "../data/additionalRepos"
 import Spacer from "./Spacer"
 
 export default function RepoList({ repos }) {
@@ -7,8 +6,7 @@ export default function RepoList({ repos }) {
   const topics = []
 
   // add repos to corresponding topics
-  const allRepos = [...repos, ...additionalRepos]
-  for (const repo of allRepos) {
+  for (const repo of repos) {
     const repoTopics = repo.repositoryTopics.nodes
     const repoTopicName = repoTopics.length ? repoTopics[0].topic.name : "uncategorized"
 
