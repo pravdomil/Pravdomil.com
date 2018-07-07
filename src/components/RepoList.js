@@ -39,7 +39,11 @@ export default function RepoList({ repos }) {
             {repos.map(({ homepageUrl, url, name, description, stargazers }, c) => (
               <li key={c} title={stargazers.totalCount + " ★"}>
                 <a
-                  href={homepageUrl && !homepageUrl.includes("://pravdomil.com") ? homepageUrl : url + "#readme"}
+                  href={
+                    homepageUrl && !homepageUrl.includes("://pravdomil.com")
+                      ? homepageUrl
+                      : url + "#readme"
+                  }
                   target="_blank"
                 >
                   <span className="title">{humanReadable(name)}</span>
