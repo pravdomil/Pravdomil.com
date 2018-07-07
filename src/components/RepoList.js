@@ -40,7 +40,7 @@ function normalizeRepos(repos) {
   const topics = []
   // add repos to corresponding topics
   for (const repo of repos) {
-    if (repo.isArchived) {
+    if (!repo.description) {
       continue
     }
 
