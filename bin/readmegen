@@ -11,7 +11,7 @@ async function main() {
     await replaceInReadme("files", files)
     console.log("done")
   } catch (e) {
-    console.log("error", e instanceof Error ? e.message : typeof e === "string" ? e : "😞")
+    console.error(e instanceof Error ? e.message : typeof e === "string" ? e : "😞")
   }
 }
 
