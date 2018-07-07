@@ -1,7 +1,7 @@
 import React from "react"
 import Spacer from "./Spacer"
 
-export default function RepoList({ repos }) {
+function normalizeRepos(repos) {
   // our main topic collection
   const topics = []
 
@@ -22,6 +22,11 @@ export default function RepoList({ repos }) {
   for (const topic of topics) {
     topic.repos.sort(sortByStarsAndName)
   }
+  return topics
+}
+
+export default function RepoList({ repos }) {
+  const topics = normalizeRepos(repos)
 
   return (
     <div className="topics">
