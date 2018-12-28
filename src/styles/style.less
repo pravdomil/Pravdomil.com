@@ -3,11 +3,12 @@
 @import "https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin-ext";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 
+@a: 4 / 3;
 @fs1: 12px;
-@fs2: 12px * 1.5;
-@fs3: 12px * 1.5 * 1.5;
-@fs4: 12px * 1.5 * 1.5 * 1.5;
-@fs5: 12px * 1.5 * 1.5 * 1.5 * 1.5;
+@fs2: 12px * @a;
+@fs3: 12px * @a * @a;
+@fs4: 12px * @a * @a * @a;
+@fs5: 12px * @a * @a * @a * @a;
 
 html.mobile {
   -webkit-text-size-adjust: 120%;
