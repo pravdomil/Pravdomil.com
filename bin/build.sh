@@ -4,7 +4,7 @@ set -e
 cd "${0%/*}"
 
 cat query/repos.json \
-    | curl -H "Authorization: bearer "${GH_TOKEN} -X POST -d @- https://api.github.com/graphql \
+    | curl -H "Authorization: bearer "${GITHUB_TOKEN} -X POST -d @- https://api.github.com/graphql \
     | cat <(printf -- "---\ndata: ") - <(printf -- "---\n") \
     > ../_pages/index.md
 
