@@ -1,0 +1,20 @@
+// Font
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin-ext);
+
+// Bootstrap
+$blue: #0000cd;
+$body-color: $blue;
+$border-color: $blue;
+$font-family-base: Playfair Display, sans-serif;
+$link-hover-decoration: none;
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// FontAwesome
+$fa-font-path: "fonts";
+@import "../node_modules/font-awesome/scss/font-awesome";
