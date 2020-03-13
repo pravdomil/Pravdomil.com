@@ -34,7 +34,7 @@ normalizeTopicName a =
 
 normalizeRepoName : String -> String
 normalizeRepoName a =
-    a |> String.replace "-" " " |> firstToUpper
+    a |> String.replace "-" " "
 
 
 firstToUpper : String -> String
