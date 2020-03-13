@@ -168,7 +168,7 @@ viewRepos page =
     let
         allRepos : List Repo
         allRepos =
-            List.filter (\v -> not v.isArchived) <| Result.withDefault [] (Decode.decodeString decodeData page.data)
+            List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com") <| Result.withDefault [] (Decode.decodeString decodeData page.data)
 
         reposByTopic : Dict TopicName (List Repo)
         reposByTopic =
