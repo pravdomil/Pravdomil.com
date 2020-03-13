@@ -142,6 +142,9 @@ viewHeader _ =
             , a [ class "btn btn-link", href "https://youtube.com/pravdomil" ]
                 [ i [ class "fa fa-youtube-play" ] []
                 ]
+            , a [ class "btn btn-link", href "https://vimeo.com/pravdomil" ]
+                [ i [ class "fa fa-vimeo" ] []
+                ]
             ]
         ]
 
