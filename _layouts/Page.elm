@@ -147,14 +147,7 @@ viewHeader _ =
                     ]
                 ]
             ]
-        , p [ class "mb-5" ]
-            [ span [ class "d-inline-block" ] [ text "And here are all my projects" ]
-            , span [ class "d-inline-block" ]
-                [ a [ href "https://github.com/search?q=user%3Apravdomil&s=stars&type=Repositories" ]
-                    [ text "\u{00A0}sorted by popularity" ]
-                , text ":"
-                ]
-            ]
+        , p [ class "mb-5" ] [ text "And here are most of my projects:" ]
         ]
 
 
@@ -178,7 +171,14 @@ viewRepos page =
     let
         allRepos : List Repo
         allRepos =
-            List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com") <| Result.withDefault [] (Decode.decodeString decodeData page.data)
+            let
+                data =
+                    Result.withDefault [] (Decode.decodeString decodeData page.data)
+
+                data2 =
+                    Result.withDefault [] (Decode.decodeString (Decode.list decodeRepo) page.data2)
+            in
+            List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com") <| List.concat [ data, data2 ]
 
         reposByTopic : Dict TopicName (List Repo)
         reposByTopic =
@@ -199,10 +199,22 @@ viewRepos page =
                 , div [ class "row" ] (List.map viewRepo repos)
                 ]
 
+        getRepoLink : Repo -> String
+        getRepoLink a =
+            case a.homepageUrl of
+                Just "https://pravdomil.com" ->
+                    a.url ++ "#readme"
+
+                Just url ->
+                    url
+
+                Nothing ->
+                    a.url ++ "#readme"
+
         viewRepo : Repo -> Html msg
         viewRepo repo =
             div [ class "col-12 col-md-4 mb-3" ]
-                [ a [ class "d-block", href (repo.url ++ "#readme") ]
+                [ a [ class "d-block", href (getRepoLink repo) ]
                     [ h5 [ class "border-bottom mb-0" ] [ text (normalizeRepoName repo.name) ]
                     , text (Maybe.withDefault "" repo.description)
                     ]

@@ -4,12 +4,17 @@ module Types exposing (..)
 type alias Page =
     { siteTitle : String
     , pageFileName : String
-    , format : String
+
+    --, format : String
     , layout : String
     , mtime : String
     , excerpt : String
     , markdown : String
     , data : String
+    , data2 : String
+
+    --, inputPath : String
+    --, outputPath : String
     }
 
 
