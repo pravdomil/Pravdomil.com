@@ -1,1 +1,4 @@
-console.log(JSON.stringify({ query: require("fs").readFileSync("./repos.graphql", "utf-8") }))
+require("fs").writeFileSync(
+  __dirname + "/repos.json",
+  JSON.stringify({ query: require("fs").readFileSync(__dirname + "/repos.graphql", "utf-8") })
+)

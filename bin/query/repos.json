@@ -1,3 +1,1 @@
-{
-  "query": "query {\n  viewer {\n    repositories(isFork: false, privacy: PUBLIC, first: 100) {\n      nodes {\n        name\n        description\n\n        url\n        homepageUrl\n        isArchived\n\n        viewerHasStarred\n        stargazers {\n          totalCount\n        }\n\n        repositoryTopics(first: 100) {\n          nodes {\n            topic {\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
-}
+{"query":"query {\n  viewer {\n    repositories(isFork: false, privacy: PUBLIC, first: 100) {\n      nodes {\n        name\n        description\n\n        url\n        homepageUrl\n        isArchived\n\n        viewerHasStarred\n        stargazers {\n          totalCount\n        }\n\n        repositoryTopics(first: 100) {\n          nodes {\n            topic {\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"}
