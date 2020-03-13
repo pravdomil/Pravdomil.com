@@ -27,8 +27,13 @@ type alias TopicName =
     String
 
 
-normalizeName : String -> String
-normalizeName a =
+normalizeTopicName : String -> String
+normalizeTopicName a =
+    a |> String.split "-" |> List.map firstToUpper |> String.join " "
+
+
+normalizeRepoName : String -> String
+normalizeRepoName a =
     a |> String.replace "-" " " |> firstToUpper
 
 
@@ -177,7 +182,7 @@ viewRepos page =
         viewTopic : ( TopicName, List Repo ) -> Html msg
         viewTopic ( topic, repos ) =
             div [ class "col-12 mb-5" ]
-                [ h2 [ class "mb-3" ] [ text (normalizeName topic) ]
+                [ h2 [ class "mb-3" ] [ text (normalizeTopicName topic) ]
                 , div [ class "row" ] (List.map viewRepo repos)
                 ]
 
@@ -185,7 +190,7 @@ viewRepos page =
         viewRepo repo =
             div [ class "col-12 col-md-4 mb-3" ]
                 [ a [ class "d-block", href repo.url ]
-                    [ h5 [ class "border-bottom mb-0" ] [ text (normalizeName repo.name) ]
+                    [ h5 [ class "border-bottom mb-0" ] [ text (normalizeRepoName repo.name) ]
                     , text (Maybe.withDefault "" repo.description)
                     ]
                 ]
