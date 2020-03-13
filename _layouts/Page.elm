@@ -189,7 +189,7 @@ viewRepos page =
         viewRepo : Repo -> Html msg
         viewRepo repo =
             div [ class "col-12 col-md-4 mb-3" ]
-                [ a [ class "d-block", href repo.url ]
+                [ a [ class "d-block", href (repo.url ++ "#readme") ]
                     [ h5 [ class "border-bottom mb-0" ] [ text (normalizeRepoName repo.name) ]
                     , text (Maybe.withDefault "" repo.description)
                     ]
