@@ -147,7 +147,7 @@ viewHeader _ =
                     ]
                 ]
             ]
-        , p [ class "mb-5" ] [ text "And here are most of my projects:" ]
+        , p [ class "mb-5" ] [ text "And here are my projects:" ]
         ]
 
 
