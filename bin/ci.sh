@@ -1,9 +1,22 @@
 #!/usr/bin/env bash
 
-set -ex
-cd "${0%/*}"
+# To stop if something fails.
+set -e
 
+# To show what we are doing.
+set -x
+
+# To be always in project root.
+cd "${0%/*}/.."
+
+# To have npm dependencies from.
 npm i -g elm elmstatic sass gh-pages
 
-./build.sh
-gh-pages -u "ci <ci@pravdomil.com>" -d ../dist -r "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+# To actually build the site.
+bin/build.sh
+
+# To publish site to GitHub pages.
+gh-pages \
+  -d dist \
+  -u "ci <ci@pravdomil.com>" \
+  -r "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"

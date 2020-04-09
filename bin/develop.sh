@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
+# To stop if something fails.
 set -e
-cd "${0%/*}"
 
-cd ..
+# To be always in project root.
+cd "${0%/*}/.."
 
+# To check if site is built.
+[ -f dist/style.css ] || (echo "Run build script first." && exit 1)
+
+# To start http server, build the site and watch for file changes.
 elmstatic watch &
 http-server dist -c-1 &
 wait

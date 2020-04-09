@@ -2,13 +2,15 @@ module Page exposing (..)
 
 import Browser exposing (Document)
 import Dict exposing (Dict)
+import Generated.Types.PageDecode exposing (pageDecoder, repoDecoder)
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, href, name, rel, style)
-import Interop.TypesDecode exposing (decodePage, decodeRepo)
 import Json.Decode as Decode exposing (Decoder)
-import Types exposing (Page, Repo)
+import Types.Page exposing (Page, Repo)
 
 
+{-| To get site shown.
+-}
 main : Program Decode.Value Decode.Value Never
 main =
     Browser.document
@@ -19,100 +21,55 @@ main =
         }
 
 
-
---
-
-
-type alias TopicName =
-    String
-
-
-normalizeTopicName : String -> String
-normalizeTopicName a =
-    a |> String.split "-" |> List.map firstToUpper |> String.join " "
-
-
-normalizeRepoName : String -> String
-normalizeRepoName a =
-    a |> String.replace "-" " "
-
-
-firstToUpper : String -> String
-firstToUpper a =
-    case String.toList a of
-        x :: xs ->
-            String.fromList (Char.toUpper x :: xs)
-
-        _ ->
-            a
-
-
-groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
-groupBy toGroupName a =
-    let
-        fold v acc =
-            let
-                name =
-                    toGroupName v
-            in
-            Dict.insert name (v :: (Maybe.withDefault [] <| Dict.get name acc)) acc
-    in
-    List.foldr fold Dict.empty a
-
-
-decodeData : Decoder (List Repo)
-decodeData =
-    Decode.at [ "data", "viewer", "repositories", "nodes" ] (Decode.list decodeRepo)
-
-
-
---
-
-
+{-| To show page.
+-}
 view : Decode.Value -> Document msg
 view value =
+    let
+        page =
+            value |> Decode.decodeValue pageDecoder |> Result.toMaybe
+    in
     { title = ""
     , body =
-        [ case Decode.decodeValue decodePage value of
-            Ok a ->
-                viewHtml a
-
-            Err a ->
-                pre [] [ text (Decode.errorToString a) ]
-        ]
+        [ node "html" [] [ viewHead page, viewBody page ] ]
     }
 
 
-viewHtml : Page -> Html msg
-viewHtml page =
-    node "html"
+{-| To show head.
+-}
+viewHead : Maybe Page -> Html msg
+viewHead _ =
+    node "head"
         []
-        [ node "head"
-            []
-            [ node "meta" [ attribute "charset" "utf-8" ] []
-            , node "meta" [ name "viewport", attribute "content" "width=device-width" ] []
-            , node "link" [ rel "stylesheet", href "style.css" ] []
-            , node "title" [] [ text "Pravdomil.com" ]
-            , node "citatsmle-script" [] [ text "if(!('ontouchstart' in window))document.documentElement.style.fontSize='14px'" ]
-            ]
-        , node "body" [] [ viewBody page ]
+        [ node "meta" [ attribute "charset" "utf-8" ] []
+        , node "meta" [ name "viewport", attribute "content" "width=device-width" ] []
+        , node "link" [ rel "stylesheet", href "style.css" ] []
+        , node "title" [] [ text "Pravdomil.com" ]
+        , node "citatsmle-script" [] [ text "if(!('ontouchstart' in window))document.documentElement.style.fontSize='14px'" ]
         ]
 
 
-viewBody : Page -> Html msg
+{-| To show body.
+-}
+viewBody : Maybe Page -> Html msg
 viewBody page =
-    div [ class "p-2" ]
-        [ div [ class "border m-auto rounded", style "max-width" "870px" ]
-            [ div [ class "container-fluid my-3", style "max-width" "690px" ]
-                [ div [ class "row" ] [ div [ class "col-12" ] [ viewHeader page ] ]
-                , div [ class "row" ] [ div [ class "col-12" ] [ viewRepos page ] ]
-                , div [ class "row" ] [ div [ class "col-12" ] [ viewFooter page ] ]
+    node "body"
+        []
+        [ div [ class "p-2" ]
+            [ div [ class "border m-auto rounded", style "max-width" "870px" ]
+                [ div [ class "container-fluid my-3", style "max-width" "690px" ]
+                    [ div [ class "row" ] [ div [ class "col-12" ] [ viewHeader page ] ]
+                    , div [ class "row" ] [ div [ class "col-12" ] [ maybeViewRepos page ] ]
+                    , div [ class "row" ] [ div [ class "col-12" ] [ viewFooter page ] ]
+                    ]
                 ]
             ]
         ]
 
 
-viewHeader : Page -> Html msg
+{-| To show header.
+-}
+viewHeader : Maybe Page -> Html msg
 viewHeader _ =
     div [ class "text-center" ]
         [ p [ class "mb-4" ] []
@@ -151,7 +108,9 @@ viewHeader _ =
         ]
 
 
-viewFooter : Page -> Html msg
+{-| To show footer.
+-}
+viewFooter : Maybe Page -> Html msg
 viewFooter _ =
     p [ class "text-center small mt-2" ]
         [ text "Made with help of "
@@ -166,19 +125,26 @@ viewFooter _ =
         ]
 
 
+{-| To show repos if available.
+-}
+maybeViewRepos : Maybe Page -> Html msg
+maybeViewRepos page =
+    case page of
+        Just a ->
+            viewRepos a
+
+        Nothing ->
+            text ""
+
+
+{-| To show repos.
+-}
 viewRepos : Page -> Html msg
 viewRepos page =
     let
         allRepos : List Repo
         allRepos =
-            let
-                data =
-                    Result.withDefault [] (Decode.decodeString decodeData page.data)
-
-                data2 =
-                    Result.withDefault [] (Decode.decodeString (Decode.list decodeRepo) page.data2)
-            in
-            List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com") <| List.concat [ data, data2 ]
+            page.repos |> List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com")
 
         reposByTopic : Dict TopicName (List Repo)
         reposByTopic =
@@ -224,3 +190,44 @@ viewRepos page =
                 ]
     in
     div [ class "row" ] (List.map viewTopic reposByTopicSorted)
+
+
+
+-- Helper functions
+
+
+type alias TopicName =
+    String
+
+
+normalizeTopicName : String -> String
+normalizeTopicName a =
+    a |> String.split "-" |> List.map firstToUpper |> String.join " "
+
+
+normalizeRepoName : String -> String
+normalizeRepoName a =
+    a |> String.replace "-" " "
+
+
+firstToUpper : String -> String
+firstToUpper a =
+    case String.toList a of
+        x :: xs ->
+            String.fromList (Char.toUpper x :: xs)
+
+        _ ->
+            a
+
+
+groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
+groupBy toGroupName a =
+    let
+        fold v acc =
+            let
+                name =
+                    toGroupName v
+            in
+            Dict.insert name (v :: (Maybe.withDefault [] <| Dict.get name acc)) acc
+    in
+    List.foldr fold Dict.empty a

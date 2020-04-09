@@ -1,18 +1,19 @@
-module Types exposing (..)
+module Types.Page exposing (..)
 
 
 type alias Page =
     { siteTitle : String
     , pageFileName : String
-
-    --, format : String
+    , format : String
     , layout : String
     , mtime : String
-    , excerpt : String
-    , markdown : String
-    , data : String
-    , data2 : String
 
+    -- From index.md
+    , repos : List Repo
+
+    --, excerpt : String
+    --, markdown : String
+    --, content: String
     --, inputPath : String
     --, outputPath : String
     }
