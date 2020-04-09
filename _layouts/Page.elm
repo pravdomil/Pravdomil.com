@@ -47,7 +47,7 @@ firstToUpper a =
             a
 
 
-groupBy : (a -> String) -> List a -> Dict String (List a)
+groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
 groupBy toGroupName a =
     let
         fold v acc =
