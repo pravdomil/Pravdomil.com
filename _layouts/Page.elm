@@ -205,11 +205,14 @@ viewRepos page =
                 Just "https://pravdomil.com" ->
                     a.url ++ "#readme"
 
-                Just url ->
-                    url
+                Just "" ->
+                    a.url ++ "#readme"
 
                 Nothing ->
                     a.url ++ "#readme"
+
+                Just url ->
+                    url
 
         viewRepo : Repo -> Html msg
         viewRepo repo =
