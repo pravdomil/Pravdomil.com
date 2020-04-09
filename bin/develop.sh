@@ -5,4 +5,6 @@ cd "${0%/*}"
 
 cd ..
 
-http-server dist -c-1
+elmstatic watch &
+http-server dist -c-1 &
+wait
