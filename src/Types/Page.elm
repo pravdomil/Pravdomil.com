@@ -13,7 +13,7 @@ type alias Page =
 
     --, excerpt : String
     --, markdown : String
-    --, content: String
+    --, content: String -- deprecated
     --, inputPath : String
     --, outputPath : String
     }
