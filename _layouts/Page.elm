@@ -104,7 +104,6 @@ viewHeader _ =
                     ]
                 ]
             ]
-        , p [ class "mb-5" ] [ text "And here are my projects:" ]
         ]
 
 
@@ -189,7 +188,10 @@ viewRepos page =
                     ]
                 ]
     in
-    div [ class "row" ] (List.map viewTopic reposByTopicSorted)
+    div []
+        [ p [ class "mb-5 text-center" ] [ text "And here are my projects:" ]
+        , div [ class "row" ] (List.map viewTopic reposByTopicSorted)
+        ]
 
 
 
