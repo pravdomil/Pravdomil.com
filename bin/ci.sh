@@ -3,6 +3,9 @@
 # To stop if something fails.
 set -e
 
+# To stop on unset variables.
+set -u
+
 # To show what we are doing.
 set -x
 

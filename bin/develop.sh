@@ -3,6 +3,9 @@
 # To stop if something fails.
 set -e
 
+# To stop on unset variables.
+set -u
+
 # To be always in project root.
 cd "${0%/*}/.."
 
