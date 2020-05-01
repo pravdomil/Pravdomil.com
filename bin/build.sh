@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# To stop if something fails.
+# To stop if any command fails.
 set -e
 
 # To stop on unset variables.
