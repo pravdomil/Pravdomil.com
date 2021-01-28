@@ -9,8 +9,7 @@ import Json.Decode as Decode exposing (Decoder)
 import Types.Page exposing (Page, Repo)
 
 
-{-| To get site shown.
--}
+{-| -}
 main : Program Decode.Value Decode.Value Never
 main =
     Browser.document
@@ -21,8 +20,7 @@ main =
         }
 
 
-{-| To show page.
--}
+{-| -}
 view : Decode.Value -> Document msg
 view value =
     let
@@ -35,8 +33,7 @@ view value =
     }
 
 
-{-| To show head.
--}
+{-| -}
 viewHead : Maybe Page -> Html msg
 viewHead _ =
     node "head"
@@ -49,8 +46,7 @@ viewHead _ =
         ]
 
 
-{-| To show body.
--}
+{-| -}
 viewBody : Maybe Page -> Html msg
 viewBody page =
     node "body"
@@ -67,8 +63,7 @@ viewBody page =
         ]
 
 
-{-| To show header.
--}
+{-| -}
 viewHeader : Maybe Page -> Html msg
 viewHeader _ =
     div [ class "text-center" ]
@@ -107,8 +102,7 @@ viewHeader _ =
         ]
 
 
-{-| To show footer.
--}
+{-| -}
 viewFooter : Maybe Page -> Html msg
 viewFooter _ =
     p [ class "text-center small mt-2" ]
@@ -124,8 +118,7 @@ viewFooter _ =
         ]
 
 
-{-| To show repos if available.
--}
+{-| -}
 maybeViewRepos : Maybe Page -> Html msg
 maybeViewRepos page =
     case page of
@@ -136,8 +129,7 @@ maybeViewRepos page =
             text ""
 
 
-{-| To show repos.
--}
+{-| -}
 viewRepos : Page -> Html msg
 viewRepos page =
     let
@@ -194,24 +186,24 @@ viewRepos page =
         ]
 
 
-
--- Helper functions
-
-
+{-| -}
 type alias TopicName =
     String
 
 
+{-| -}
 normalizeTopicName : String -> String
 normalizeTopicName a =
     a |> String.split "-" |> List.map firstToUpper |> String.join " "
 
 
+{-| -}
 normalizeRepoName : String -> String
 normalizeRepoName a =
     a |> String.replace "-" " "
 
 
+{-| -}
 firstToUpper : String -> String
 firstToUpper a =
     case String.toList a of
@@ -222,6 +214,7 @@ firstToUpper a =
             a
 
 
+{-| -}
 groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
 groupBy toGroupName a =
     let
