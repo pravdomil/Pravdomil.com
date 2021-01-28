@@ -1,5 +1,6 @@
 module Page exposing (..)
 
+import App.App.App exposing (..)
 import Browser exposing (Document)
 import Dict exposing (Dict)
 import Html exposing (..)
@@ -8,14 +9,34 @@ import Json.Decode as Decode exposing (Decoder)
 
 
 {-| -}
-main : Program Decode.Value Decode.Value Never
-main =
-    Browser.document
-        { init = \contentJson -> ( contentJson, Cmd.none )
-        , view = view
-        , update = \_ contentJson -> ( contentJson, Cmd.none )
-        , subscriptions = \_ -> Sub.none
-        }
+init : ( Model, Cmd Msg )
+init =
+    ( { repositories = Err Loading
+      }
+    , Cmd.none
+    )
+
+
+{-| -}
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotRepositories b ->
+            ( { model | repositories = Ok b }
+            , Cmd.none
+            )
+
+        UrlRequested _ ->
+            ( model, Cmd.none )
+
+        UrlChanged _ ->
+            ( model, Cmd.none )
+
+
+{-| -}
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Sub.none
 
 
 {-| -}
