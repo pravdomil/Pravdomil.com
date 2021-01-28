@@ -5,8 +5,9 @@ import App.App.Repository.Repository exposing (Repository)
 import Browser exposing (Document)
 import Dict exposing (Dict)
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class, href, name, rel, style)
-import Json.Decode as Decode exposing (Decoder)
+import Html.Attributes exposing (class, href, name, style)
+import Styles.C as C
+import View.Rem as Rem
 
 
 {-| -}
@@ -41,33 +42,18 @@ subscriptions _ =
 
 
 {-| -}
-view : Decode.Value -> Document msg
-view value =
-    let
-        page =
-            value |> Decode.decodeValue pageDecoder |> Result.toMaybe
-    in
-    { title = ""
+view : Model -> Document msg
+view model =
+    { title = "Pravdomil.com"
     , body =
-        [ node "html" [] [ viewHead page, viewBody page ] ]
+        [ Rem.adjust model.touchInput
+        , viewBody model
+        ]
     }
 
 
 {-| -}
-viewHead : Maybe Page -> Html msg
-viewHead _ =
-    node "head"
-        []
-        [ node "meta" [ attribute "charset" "utf-8" ] []
-        , node "meta" [ name "viewport", attribute "content" "width=device-width" ] []
-        , node "link" [ rel "stylesheet", href "style.css" ] []
-        , node "title" [] [ text "Pravdomil.com" ]
-        , node "citatsmle-script" [] [ text "if(!('ontouchstart' in window))document.documentElement.style.fontSize='14px'" ]
-        ]
-
-
-{-| -}
-viewBody : Maybe Page -> Html msg
+viewBody : Model -> Html msg
 viewBody page =
     node "body"
         []
