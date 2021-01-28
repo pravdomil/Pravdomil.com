@@ -1,18 +1,21 @@
-module Page exposing (..)
+module App.App.App_ exposing (..)
 
 import App.App.App exposing (..)
 import App.App.Repository.Repository exposing (Repository)
 import Browser exposing (Document)
+import Browser.Navigation as Navigation
 import Dict exposing (Dict)
 import Html exposing (..)
-import Html.Attributes exposing (class, href, name, style)
+import Html.Attributes exposing (href)
+import Json.Decode as Decode
 import Styles.C as C
+import Url exposing (Url)
 import View.Rem as Rem
 
 
 {-| -}
-init : ( Model, Cmd Msg )
-init =
+init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
+init _ _ _ =
     ( { touchInput = True
       , repositories = Err Loading
       }
@@ -55,54 +58,51 @@ view model =
 
 {-| -}
 viewBody : Model -> Html msg
-viewBody page =
-    node "body"
-        []
-        [ div [ class "p-2" ]
-            [ div [ class "border m-auto rounded", style "max-width" "870px" ]
-                [ div [ class "container-fluid my-3", style "max-width" "690px" ]
-                    [ div [ class "row" ] [ div [ class "col-12" ] [ viewHeader page ] ]
-                    , div [ class "row" ] [ div [ class "col-12" ] [ maybeViewRepos page ] ]
-                    , div [ class "row" ] [ div [ class "col-12" ] [ viewFooter page ] ]
-                    ]
+viewBody model =
+    div [ C.p2 ]
+        [ div [ C.border, C.mAuto, C.rounded, C.maxWidth 54 ]
+            [ div [ C.containerFluid, C.maxWidth 43 ]
+                [ div [ C.mb4 ] []
+                , viewHeader model
+                , viewRepositories model
+                , viewFooter model
                 ]
             ]
         ]
 
 
 {-| -}
-viewHeader : Maybe Page -> Html msg
+viewHeader : Model -> Html msg
 viewHeader _ =
-    div [ class "text-center" ]
-        [ p [ class "mb-4" ] []
-        , p [ class "mb-4" ] [ text "Welcome to" ]
-        , h2 [ class "mb-5" ] [ a [ href "/" ] [ text "Pravdomil's Webpage" ] ]
-        , p [ class "mb-5" ]
+    div [ C.textCenter ]
+        [ p [ C.mb4 ] [ text "Welcome to" ]
+        , h2 [ C.mb5 ] [ a [ href "/" ] [ text "Pravdomil's Webpage" ] ]
+        , p [ C.mb5 ]
             [ text "You can also find me at:"
             , br [] []
-            , span [ class "d-inline-block" ]
-                [ a [ class "btn btn-link", href "mailto:info@pravdomil.com" ]
-                    [ i [ class "fa fa-envelope" ] []
+            , span [ C.dInlineBlock ]
+                [ a [ C.btn, C.btnLink, href "mailto:info@pravdomil.com" ]
+                    [ i [ C.fa, C.faEnvelope ] []
                     ]
-                , a [ class "btn btn-link", href "https://twitter.com/pravdomil" ]
-                    [ i [ class "fa fa-twitter" ] []
+                , a [ C.btn, C.btnLink, href "https://twitter.com/pravdomil" ]
+                    [ i [ C.fa, C.faTwitter ] []
                     ]
-                , a [ class "btn btn-link", href "https://github.com/pravdomil" ]
-                    [ i [ class "fa fa-github" ] []
+                , a [ C.btn, C.btnLink, href "https://github.com/pravdomil" ]
+                    [ i [ C.fa, C.faGithub ] []
                     ]
-                , a [ class "btn btn-link", href "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer" ]
-                    [ i [ class "fa fa-paypal" ] []
+                , a [ C.btn, C.btnLink, href "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer" ]
+                    [ i [ C.fa, C.faPaypal ] []
                     ]
                 ]
-            , span [ class "d-inline-block" ]
-                [ a [ class "btn btn-link", href "https://stackoverflow.com/users/3748498/pravdomil" ]
-                    [ i [ class "fa fa-stack-overflow" ] []
+            , span [ C.dInlineBlock ]
+                [ a [ C.btn, C.btnLink, href "https://stackoverflow.com/users/3748498/pravdomil" ]
+                    [ i [ C.fa, C.faStackOverflow ] []
                     ]
-                , a [ class "btn btn-link", href "https://youtube.com/pravdomil" ]
-                    [ i [ class "fa fa-youtube-play" ] []
+                , a [ C.btn, C.btnLink, href "https://youtube.com/pravdomil" ]
+                    [ i [ C.fa, C.faYoutubePlay ] []
                     ]
-                , a [ class "btn btn-link", href "https://vimeo.com/pravdomil" ]
-                    [ i [ class "fa fa-vimeo" ] []
+                , a [ C.btn, C.btnLink, href "https://vimeo.com/pravdomil" ]
+                    [ i [ C.fa, C.faVimeo ] []
                     ]
                 ]
             ]
@@ -110,11 +110,11 @@ viewHeader _ =
 
 
 {-| -}
-viewFooter : Maybe Page -> Html msg
+viewFooter : Model -> Html msg
 viewFooter _ =
-    p [ class "text-center small mt-2" ]
+    p [ C.textCenter, C.small ]
         [ text "Made with help of "
-        , a [ href "https://github.com/alexkorban/elmstatic" ] [ text "Elmstatic" ]
+        , a [ href "https://elm-lang.org" ] [ text "Elm Programming Language" ]
         , text ", "
         , a [ href "https://github.com" ] [ text "GitHub" ]
         , text " and "
@@ -126,23 +126,12 @@ viewFooter _ =
 
 
 {-| -}
-maybeViewRepos : Maybe Page -> Html msg
-maybeViewRepos page =
-    case page of
-        Just a ->
-            viewRepos a
-
-        Nothing ->
-            text ""
-
-
-{-| -}
-viewRepos : Page -> Html msg
-viewRepos page =
+viewRepositories : Model -> Html msg
+viewRepositories model =
     let
         allRepos : List Repository
         allRepos =
-            page.repos |> List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com")
+            model.repositories |> List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com")
 
         reposByTopic : Dict TopicName (List Repository)
         reposByTopic =
@@ -158,9 +147,9 @@ viewRepos page =
 
         viewTopic : ( TopicName, List Repository ) -> Html msg
         viewTopic ( topic, repos ) =
-            div [ class "col-12 mb-5" ]
-                [ h2 [ class "mb-3" ] [ text (normalizeTopicName topic) ]
-                , div [ class "row" ] (List.map viewRepo repos)
+            div [ C.col12, C.mb5 ]
+                [ h2 [ C.mb3 ] [ text (normalizeTopicName topic) ]
+                , div [ C.row ] (List.map viewRepo repos)
                 ]
 
         getRepoLink : Repository -> String
@@ -180,16 +169,16 @@ viewRepos page =
 
         viewRepo : Repository -> Html msg
         viewRepo repo =
-            div [ class "col-12 col-md-4 mb-3" ]
-                [ a [ class "d-block", href (getRepoLink repo) ]
-                    [ h5 [ class "border-bottom mb-0" ] [ text (normalizeRepoName repo.name) ]
+            div [ C.col12, C.colMd4, C.mb3 ]
+                [ a [ C.dBlock, href (getRepoLink repo) ]
+                    [ h5 [ C.borderBottom, C.mb0 ] [ text (normalizeRepoName repo.name) ]
                     , text (Maybe.withDefault "" repo.description)
                     ]
                 ]
     in
     div []
-        [ p [ class "mb-5 text-center" ] [ text "And here are my projects:" ]
-        , div [ class "row" ] (List.map viewTopic reposByTopicSorted)
+        [ p [ C.mb5, C.textCenter ] [ text "And here are my projects:" ]
+        , div [ C.row ] (List.map viewTopic reposByTopicSorted)
         ]
 
 
