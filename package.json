@@ -1,9 +1,6 @@
 {
   "dependencies": {
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^5.0.0-beta1",
     "font-awesome": "^4.7.0"
-  },
-  "devDependencies": {
-    "node-fetch": "^2.6.0"
   }
 }
