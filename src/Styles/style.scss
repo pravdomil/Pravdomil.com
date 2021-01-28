@@ -13,8 +13,8 @@ $grid-breakpoints: (
         md: 768px
 );
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 // FontAwesome
 $fa-font-path: "fonts";
-@import "../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome";
