@@ -14,7 +14,6 @@ import Json.Encode as Encode
 import Styles.C as C
 import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
-import View.Rem as Rem
 
 
 {-| -}
@@ -111,8 +110,7 @@ view : Model -> Document msg
 view model =
     { title = "Pravdomil.com"
     , body =
-        [ Rem.adjust model.touchInput
-        , viewBody model
+        [ viewBody model
         ]
     }
 
