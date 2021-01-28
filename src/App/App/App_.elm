@@ -188,8 +188,8 @@ viewRepositories model =
                 |> Maybe.map Result.toMaybe
                 |> Maybe.andThen identity
                 |> Maybe.withDefault []
+                |> List.filter (\v -> v.name /= "Pravdomil.com")
                 |> (++) Repository.additional
-                |> List.filter (\v -> (v.isArchived |> not) && (v.name /= "Pravdomil.com"))
 
         categories : List ( String, List Repository )
         categories =

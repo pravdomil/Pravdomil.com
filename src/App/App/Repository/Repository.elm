@@ -21,13 +21,8 @@ type alias Repository =
     , description : Maybe String
     , url : String
     , homepageUrl : Maybe String
-    , isArchived : Bool
-    , viewerHasStarred : Bool
 
     --
-    , stargazers :
-        { totalCount : Int
-        }
     , repositoryTopics :
         { nodes :
             List
@@ -49,15 +44,8 @@ query {
       nodes {
         name
         description
-
         url
         homepageUrl
-        isArchived
-
-        viewerHasStarred
-        stargazers {
-          totalCount
-        }
 
         repositoryTopics(first: 100) {
           nodes {
@@ -80,18 +68,12 @@ additional =
       , description = Just "My first book."
       , url = ""
       , homepageUrl = Just "https://prijimackyumprum.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
       , repositoryTopics = { nodes = [] }
       }
     , { name = "Photography"
       , description = Just "Nice photos."
       , url = ""
       , homepageUrl = Just "https://www.icloud.com/sharedalbum/#B0P5oqs3qkAGn;30709E02-4714-4CEA-B4DE-17C88DB668FC"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
       , repositoryTopics = { nodes = [] }
       }
     ]
