@@ -7,8 +7,8 @@ module App.App.Repository.Repository exposing (..)
 type alias Repository =
     { name : String
     , description : Maybe String
-    , homepageUrl : Maybe String
     , url : String
+    , homepageUrl : Maybe String
     , isArchived : Bool
     , viewerHasStarred : Bool
 
