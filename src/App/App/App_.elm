@@ -1,7 +1,7 @@
 module App.App.App_ exposing (..)
 
 import App.App.App exposing (..)
-import App.App.Repository.Repository exposing (Repository)
+import App.App.Repository.Repository as Repository exposing (Repository)
 import Browser exposing (Document)
 import Browser.Navigation as Navigation
 import Dict exposing (Dict)
@@ -158,6 +158,7 @@ viewRepositories model =
                 |> Maybe.map Result.toMaybe
                 |> Maybe.andThen identity
                 |> Maybe.withDefault []
+                |> (++) Repository.additional
                 |> List.filter (\v -> (v.isArchived |> not) && (v.name /= "Pravdomil.com"))
 
         categories : List ( String, List Repository )
