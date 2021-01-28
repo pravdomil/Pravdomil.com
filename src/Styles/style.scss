@@ -1,6 +1,10 @@
 // Font
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin-ext);
 
+// FontAwesome
+$fa-font-path: "fonts";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
 // Bootstrap
 $blue: #0000cd;
 $body-color: $blue;
@@ -12,9 +16,4 @@ $grid-breakpoints: (
         sm: 576px,
         md: 768px
 );
-
 @import "../../node_modules/bootstrap/scss/bootstrap";
-
-// FontAwesome
-$fa-font-path: "fonts";
-@import "../../node_modules/font-awesome/scss/font-awesome";
