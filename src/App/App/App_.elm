@@ -121,8 +121,8 @@ view model =
 viewBody : Model -> Html msg
 viewBody model =
     div [ C.p2 ]
-        [ div [ C.border, C.mAuto, C.rounded, C.maxWidth 54 ]
-            [ div [ C.containerFluid, C.maxWidth 43 ]
+        [ div [ C.border, C.mAuto, C.rounded, C.maxWidth 60 ]
+            [ div [ C.containerFluid, C.maxWidth 48 ]
                 [ div [ C.mb5 ] []
                 , viewHeader model
                 , viewRepositories model
