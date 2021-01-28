@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# To stop if any command fails.
+set -e
+
+# To stop on unset variables.
+set -u
+
+# To be in project root.
+cd "${0%/*}/.."
+
+# To build app first.
+source bin/build
+
+# To start development server.
+elm-live src/Main.elm --open --dir dist --hot -- --output="dist/static/$VERSION/elm.js"

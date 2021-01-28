@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# To stop if any command fails.
+set -e
+
+# To stop on unset variables.
+set -u
+
+# To be in project root.
+cd "${0%/*}/.."
+
+# To have dependencies from npm ready.
+npm i
+
+# To define what version we are building.
+VERSION=$(date +%s)
+
+# To have clean distribution directory.
+rm -r dist || true
+
+# To copy static resources.
+cp -r src/_dist dist
+mv dist/static/VERSION "dist/static/$VERSION"
+
+# To pass version to the app.
+sed -i "" "s/VERSION/$VERSION/g" dist/index.html
+
+# To build styles.
+cp -r node_modules/font-awesome/fonts dist/static/"$VERSION"
+sass src/Styles/style.scss dist/static/"$VERSION"/style.css --style compressed --no-source-map
+
+# To compile our app.
+elm make src/Main.elm --optimize --output "dist/static/$VERSION/elm.js"
