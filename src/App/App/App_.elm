@@ -1,6 +1,7 @@
 module App.App.App_ exposing (..)
 
 import App.App.App exposing (..)
+import App.App.Repository.Decode
 import App.App.Repository.Repository as Repository exposing (Repository)
 import Browser exposing (Document)
 import Browser.Navigation as Navigation
@@ -9,6 +10,7 @@ import Html exposing (..)
 import Html.Attributes exposing (href)
 import Http
 import Json.Decode as Decode
+import Json.Encode as Encode
 import Styles.C as C
 import Url exposing (Url)
 import View.Rem as Rem
@@ -23,11 +25,16 @@ init flags _ _ =
             flags
                 |> Decode.decodeValue (Decode.field "touchInput" Decode.bool)
                 |> Result.withDefault False
+
+        model : Model
+        model =
+            { touchInput = touchInput
+            , githubToken = githubToken
+            , repositories = Err Loading
+            }
     in
-    ( { touchInput = touchInput
-      , repositories = Err Loading
-      }
-    , Cmd.none
+    ( model
+    , getRepositories model
     )
 
 
@@ -47,6 +54,31 @@ update msg model =
 
 
 --
+
+
+{-| -}
+getRepositories : Model -> Cmd Msg
+getRepositories model =
+    let
+        headers : List Http.Header
+        headers =
+            model.githubToken
+                |> Maybe.map (\v -> [ Http.header "Authorization" ("bearer " ++ v) ])
+                |> Maybe.withDefault []
+
+        body : Encode.Value
+        body =
+            Encode.object [ ( "query", Encode.string Repository.query ) ]
+    in
+    Http.request
+        { method = "POST"
+        , headers = headers
+        , url = "https://api.github.com/graphql"
+        , body = Http.jsonBody body
+        , expect = Http.expectJson GotRepositories (Decode.list App.App.Repository.Decode.repository)
+        , timeout = Nothing
+        , tracker = Nothing
+        }
 
 
 {-| -}
