@@ -13,7 +13,8 @@ import View.Rem as Rem
 {-| -}
 init : ( Model, Cmd Msg )
 init =
-    ( { repositories = Err Loading
+    ( { touchInput = True
+      , repositories = Err Loading
       }
     , Cmd.none
     )
