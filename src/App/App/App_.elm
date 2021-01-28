@@ -2,11 +2,9 @@ module Page exposing (..)
 
 import Browser exposing (Document)
 import Dict exposing (Dict)
-import Generated.Types.PageDecode exposing (pageDecoder, repoDecoder)
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, href, name, rel, style)
 import Json.Decode as Decode exposing (Decoder)
-import Types.Page exposing (Page, Repo)
 
 
 {-| -}
