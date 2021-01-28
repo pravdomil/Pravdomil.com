@@ -9,8 +9,13 @@ import Url exposing (Url)
 {-| To define things we keep.
 -}
 type alias Model =
-    { repositories : Result Http.Error (List Repository)
+    { repositories : Result Error (Result Http.Error (List Repository))
     }
+
+
+{-| -}
+type Error
+    = Loading
 
 
 {-| To define what can happen.
