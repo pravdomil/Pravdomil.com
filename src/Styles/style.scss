@@ -8,8 +8,8 @@ $body-color: $blue;
 $border-color: $blue;
 $link-decoration: none;
 $grid-breakpoints: (
-        xs: 0,
-        sm: 576px,
-        md: 768px
+  xs: 0,
+  sm: 576px,
+  md: 768px,
 );
 @import "../../node_modules/bootstrap/scss/bootstrap";
