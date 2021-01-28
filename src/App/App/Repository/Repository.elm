@@ -76,61 +76,7 @@ query {
 {-| -}
 additional : List Repository
 additional =
-    [ { name = "Services"
-      , description = Just "That's what I do for living."
-      , url = ""
-      , homepageUrl = Just "https://services.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another" } } ] }
-      }
-    , { name = "Whetstone"
-      , description = Just "Image processing application for macOS with no UI."
-      , url = ""
-      , homepageUrl = Just "https://whetstone.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another-applications" } } ] }
-      }
-    , { name = "Nodepad"
-      , description = Just "Different developer tool."
-      , url = ""
-      , homepageUrl = Just "https://nodepad.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another-applications" } } ] }
-      }
-    , { name = "PaperCut"
-      , description = Just "Video editor concept."
-      , url = ""
-      , homepageUrl = Just "https://papercut.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another-applications" } } ] }
-      }
-    , { name = "Mac-Keyboard-Piano"
-      , description = Just "Use your Mac keyboard as piano keys."
-      , url = ""
-      , homepageUrl = Just "https://mackeyboardpiano.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another-applications" } } ] }
-      }
-    , { name = "Pravdomil Piano"
-      , description = Just "My custom designed piano."
-      , url = ""
-      , homepageUrl = Just "https://piano.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
-      }
-    , { name = "Přijímačky UMPRUM"
+    [ { name = "Přijímačky UMPRUM"
       , description = Just "My first book."
       , url = ""
       , homepageUrl = Just "https://prijimackyumprum.pravdomil.com"
@@ -138,15 +84,6 @@ additional =
       , isArchived = False
       , stargazers = { totalCount = 0 }
       , repositoryTopics = { nodes = [ { topic = { name = "another" } } ] }
-      }
-    , { name = "Prawood"
-      , description = Just "DIY wooden furniture."
-      , url = ""
-      , homepageUrl = Just "https://prawood.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
       }
     , { name = "Photography"
       , description = Just "Nice photos."
@@ -156,59 +93,5 @@ additional =
       , isArchived = False
       , stargazers = { totalCount = 0 }
       , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
-      }
-    , { name = "Graphic-Design"
-      , description = Just "Posters, logos, brand identity I have created."
-      , url = ""
-      , homepageUrl = Just "https://graphic.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
-      }
-    , { name = "Web-Development"
-      , description = Just "That's what I used to do for living."
-      , url = ""
-      , homepageUrl = Just "https://web.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another" } } ] }
-      }
-    , { name = "3D-Print"
-      , description = Just "My experiences with 3D printing."
-      , url = ""
-      , homepageUrl = Just "https://3dprint.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
-      }
-    , { name = "Sound"
-      , description = Just "My sound experiments."
-      , url = ""
-      , homepageUrl = Just "https://sound.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
-      }
-    , { name = "Magic-Lantern"
-      , description = Just "Hacks for Canon cameras."
-      , url = ""
-      , homepageUrl = Just "https://magiclantern.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another" } } ] }
-      }
-    , { name = "Newton-Laws"
-      , description = Just "Newton’s laws experiments."
-      , url = ""
-      , homepageUrl = Just "https://newton-law.pravdomil.com"
-      , viewerHasStarred = False
-      , isArchived = False
-      , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another" } } ] }
       }
     ]
