@@ -3,7 +3,9 @@ addEventListener("DOMContentLoaded", main)
 function main() {
   const app = Elm.Main.init({
     node: element(document.body, "div"),
-    flags: {},
+    flags: {
+      touchInput: "ontouchstart" in window,
+    },
   })
 }
 

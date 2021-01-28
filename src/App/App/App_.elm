@@ -15,8 +15,15 @@ import View.Rem as Rem
 
 {-| -}
 init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
-init _ _ _ =
-    ( { touchInput = True
+init flags _ _ =
+    let
+        touchInput : Bool
+        touchInput =
+            flags
+                |> Decode.decodeValue (Decode.field "touchInput" Decode.bool)
+                |> Result.withDefault False
+    in
+    ( { touchInput = touchInput
       , repositories = Err Loading
       }
     , Cmd.none
