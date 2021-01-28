@@ -1,6 +1,7 @@
 module Page exposing (..)
 
 import App.App.App exposing (..)
+import App.App.Repository.Repository exposing (Repository)
 import Browser exposing (Document)
 import Dict exposing (Dict)
 import Html exposing (..)
@@ -152,15 +153,15 @@ maybeViewRepos page =
 viewRepos : Page -> Html msg
 viewRepos page =
     let
-        allRepos : List Repo
+        allRepos : List Repository
         allRepos =
             page.repos |> List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com")
 
-        reposByTopic : Dict TopicName (List Repo)
+        reposByTopic : Dict TopicName (List Repository)
         reposByTopic =
             groupBy (\v -> Maybe.withDefault "uncategorized" <| Maybe.map (\topic -> topic.topic.name) <| List.head v.repositoryTopics.nodes) allRepos
 
-        reposByTopicSorted : List ( TopicName, List Repo )
+        reposByTopicSorted : List ( TopicName, List Repository )
         reposByTopicSorted =
             reposByTopic
                 |> Dict.toList
@@ -168,14 +169,14 @@ viewRepos page =
                 |> List.sortBy (\( _, v ) -> v |> List.map (\vv -> vv.stargazers.totalCount) |> List.foldr (+) 0)
                 |> List.reverse
 
-        viewTopic : ( TopicName, List Repo ) -> Html msg
+        viewTopic : ( TopicName, List Repository ) -> Html msg
         viewTopic ( topic, repos ) =
             div [ class "col-12 mb-5" ]
                 [ h2 [ class "mb-3" ] [ text (normalizeTopicName topic) ]
                 , div [ class "row" ] (List.map viewRepo repos)
                 ]
 
-        getRepoLink : Repo -> String
+        getRepoLink : Repository -> String
         getRepoLink a =
             case a.homepageUrl of
                 Just "https://pravdomil.com" ->
@@ -190,7 +191,7 @@ viewRepos page =
                 Just url ->
                     url
 
-        viewRepo : Repo -> Html msg
+        viewRepo : Repository -> Html msg
         viewRepo repo =
             div [ class "col-12 col-md-4 mb-3" ]
                 [ a [ class "d-block", href (getRepoLink repo) ]
