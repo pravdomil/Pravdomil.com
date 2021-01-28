@@ -18,7 +18,7 @@ import Utils.Json.Decode_ as Decode_
 
 {-| -}
 init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
-init flags _ _ =
+init flags _ key =
     let
         touchInput : Bool
         touchInput =
@@ -34,7 +34,8 @@ init flags _ _ =
 
         model : Model
         model =
-            { touchInput = touchInput
+            { navigationKey = key
+            , touchInput = touchInput
             , githubToken = githubToken
             , repositories = Err Loading
             }
