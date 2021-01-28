@@ -9,7 +9,8 @@ import Url exposing (Url)
 {-| To define things we keep.
 -}
 type alias Model =
-    { repositories : Result Error (Result Http.Error (List Repository))
+    { touchInput : Bool
+    , repositories : Result Error (Result Http.Error (List Repository))
     }
 
 
