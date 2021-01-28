@@ -129,96 +129,107 @@ viewFooter _ =
 viewRepositories : Model -> Html msg
 viewRepositories model =
     let
-        allRepos : List Repository
-        allRepos =
-            model.repositories |> List.filter (\v -> not v.isArchived && v.name /= "Pravdomil.com")
+        repositories : List Repository
+        repositories =
+            model.repositories
+                |> Result.toMaybe
+                |> Maybe.map Result.toMaybe
+                |> Maybe.andThen identity
+                |> Maybe.withDefault []
+                |> List.filter (\v -> (v.isArchived |> not) && (v.name /= "Pravdomil.com"))
 
-        reposByTopic : Dict TopicName (List Repository)
-        reposByTopic =
-            groupBy (\v -> Maybe.withDefault "uncategorized" <| Maybe.map (\topic -> topic.topic.name) <| List.head v.repositoryTopics.nodes) allRepos
-
-        reposByTopicSorted : List ( TopicName, List Repository )
-        reposByTopicSorted =
-            reposByTopic
+        categories : List ( String, List Repository )
+        categories =
+            repositories
+                |> groupBy
+                    (\v ->
+                        v.repositoryTopics.nodes
+                            |> List.head
+                            |> Maybe.map (.topic >> .name)
+                            |> Maybe.withDefault "uncategorized"
+                    )
                 |> Dict.toList
-                |> List.map (\( k, v ) -> ( k, v |> List.sortBy (\vv -> vv.stargazers.totalCount) |> List.reverse ))
-                |> List.sortBy (\( _, v ) -> v |> List.map (\vv -> vv.stargazers.totalCount) |> List.foldr (+) 0)
-                |> List.reverse
-
-        viewTopic : ( TopicName, List Repository ) -> Html msg
-        viewTopic ( topic, repos ) =
-            div [ C.col12, C.mb5 ]
-                [ h2 [ C.mb3 ] [ text (normalizeTopicName topic) ]
-                , div [ C.row ] (List.map viewRepo repos)
-                ]
-
-        getRepoLink : Repository -> String
-        getRepoLink a =
-            case a.homepageUrl of
-                Just "https://pravdomil.com" ->
-                    a.url ++ "#readme"
-
-                Just "" ->
-                    a.url ++ "#readme"
-
-                Nothing ->
-                    a.url ++ "#readme"
-
-                Just url ->
-                    url
-
-        viewRepo : Repository -> Html msg
-        viewRepo repo =
-            div [ C.col12, C.colMd4, C.mb3 ]
-                [ a [ C.dBlock, href (getRepoLink repo) ]
-                    [ h5 [ C.borderBottom, C.mb0 ] [ text (normalizeRepoName repo.name) ]
-                    , text (Maybe.withDefault "" repo.description)
-                    ]
-                ]
+                |> List.map (Tuple.mapSecond (List.sortBy (.stargazers >> .totalCount >> negate)))
+                |> List.sortBy (Tuple.second >> (List.map (.stargazers >> .totalCount >> negate) >> List.foldr (+) 0))
     in
     div []
         [ p [ C.mb5, C.textCenter ] [ text "And here are my projects:" ]
-        , div [ C.row ] (List.map viewTopic reposByTopicSorted)
+        , div [ C.row ] (categories |> List.map viewCategory)
         ]
 
 
 {-| -}
-type alias TopicName =
-    String
+viewCategory : ( String, List Repository ) -> Html msg
+viewCategory ( category, a ) =
+    let
+        humanize : String -> String
+        humanize b =
+            b |> String.split "-" |> List.map firstToUpper |> String.join " "
+    in
+    div [ C.col12, C.mb5 ]
+        [ h2 [ C.mb3 ] [ text (humanize category) ]
+        , div [ C.row ] (a |> List.map viewRepository)
+        ]
 
 
 {-| -}
-normalizeTopicName : String -> String
-normalizeTopicName a =
-    a |> String.split "-" |> List.map firstToUpper |> String.join " "
+viewRepository : Repository -> Html msg
+viewRepository b =
+    let
+        link : Repository -> String
+        link c =
+            case c.homepageUrl of
+                Just "https://pravdomil.com" ->
+                    c.url ++ "#readme"
+
+                Just "" ->
+                    c.url ++ "#readme"
+
+                Nothing ->
+                    c.url ++ "#readme"
+
+                Just d ->
+                    d
+    in
+    div [ C.col12, C.colMd4, C.mb3 ]
+        [ a [ C.dBlock, href (link b) ]
+            [ h5 [ C.borderBottom, C.mb0 ] [ text (b.name |> String.replace "-" " ") ]
+            , text (b.description |> Maybe.withDefault "")
+            ]
+        ]
 
 
-{-| -}
-normalizeRepoName : String -> String
-normalizeRepoName a =
-    a |> String.replace "-" " "
+
+--
 
 
 {-| -}
 firstToUpper : String -> String
 firstToUpper a =
-    case String.toList a of
-        x :: xs ->
-            String.fromList (Char.toUpper x :: xs)
+    a |> mapFirstLetter String.toUpper
 
-        _ ->
-            a
+
+{-| -}
+mapFirstLetter : (String -> String) -> String -> String
+mapFirstLetter fn a =
+    (a |> String.left 1 |> fn) ++ (a |> String.dropLeft 1)
 
 
 {-| -}
 groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
-groupBy toGroupName a =
+groupBy toKey a =
     let
+        fold : a -> Dict comparable (List a) -> Dict comparable (List a)
         fold v acc =
             let
-                name =
-                    toGroupName v
+                key : comparable
+                key =
+                    v |> toKey
+
+                value : List a
+                value =
+                    v :: (acc |> Dict.get key |> Maybe.withDefault [])
             in
-            Dict.insert name (v :: (Maybe.withDefault [] <| Dict.get name acc)) acc
+            acc |> Dict.insert key value
     in
-    List.foldr fold Dict.empty a
+    a |> List.foldr fold Dict.empty
