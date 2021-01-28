@@ -174,15 +174,7 @@ viewHeader _ =
 viewFooter : Model -> Html msg
 viewFooter _ =
     p [ C.textCenter, C.small ]
-        [ text "Made with help of "
-        , a [ href "https://elm-lang.org" ] [ text "Elm Programming Language" ]
-        , text ", "
-        , a [ href "https://github.com" ] [ text "GitHub" ]
-        , text " and "
-        , a [ href "https://cloudflare.com" ] [ text "CloudFlare" ]
-        , text ". "
-        , a [ href "https://github.com/pravdomil/pravdomil.com" ] [ text "Site source code" ]
-        , text "."
+        [ text "That's all for now."
         ]
 
 
