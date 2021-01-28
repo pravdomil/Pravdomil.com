@@ -13,6 +13,7 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import Styles.C as C
 import Url exposing (Url)
+import Utils.Json.Decode_ as Decode_
 import View.Rem as Rem
 
 
@@ -25,6 +26,12 @@ init flags _ _ =
             flags
                 |> Decode.decodeValue (Decode.field "touchInput" Decode.bool)
                 |> Result.withDefault False
+
+        githubToken : Maybe String
+        githubToken =
+            flags
+                |> Decode.decodeValue (Decode.field "githubToken" (Decode_.maybe Decode.string))
+                |> Result.withDefault Nothing
 
         model : Model
         model =
