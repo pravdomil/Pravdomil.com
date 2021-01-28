@@ -7,6 +7,7 @@ import Browser.Navigation as Navigation
 import Dict exposing (Dict)
 import Html exposing (..)
 import Html.Attributes exposing (href)
+import Http
 import Json.Decode as Decode
 import Styles.C as C
 import Url exposing (Url)
@@ -35,15 +36,29 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GotRepositories b ->
-            ( { model | repositories = Ok b }
-            , Cmd.none
-            )
+            gotRepositories b model
 
         UrlRequested _ ->
             ( model, Cmd.none )
 
         UrlChanged _ ->
             ( model, Cmd.none )
+
+
+
+--
+
+
+{-| -}
+gotRepositories : Result Http.Error (List Repository) -> Model -> ( Model, Cmd msg )
+gotRepositories a model =
+    ( { model | repositories = Ok a }
+    , Cmd.none
+    )
+
+
+
+--
 
 
 {-| -}
