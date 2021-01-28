@@ -5,6 +5,7 @@ function main() {
     node: element(document.body, "div"),
     flags: {
       touchInput: "ontouchstart" in window,
+      githubToken: localStorage.getItem("githubToken"),
     },
   })
 }
