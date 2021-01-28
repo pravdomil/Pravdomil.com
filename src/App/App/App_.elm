@@ -202,8 +202,9 @@ viewRepositories model =
                             |> Maybe.withDefault "The Rest"
                     )
                 |> Dict.toList
-                |> List.map (Tuple.mapSecond (List.sortBy (.stargazers >> .totalCount >> negate)))
-                |> List.sortBy (Tuple.second >> (List.map (.stargazers >> .totalCount >> negate) >> List.foldr (+) 0))
+                |> List.map (Tuple.mapSecond (List.sortBy .name))
+                |> List.sortBy Tuple.first
+                |> List.reverse
     in
     div []
         [ p [ C.mb5, C.textCenter ] [ text "And here are my projects:" ]
