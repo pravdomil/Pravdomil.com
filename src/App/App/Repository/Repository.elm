@@ -83,7 +83,7 @@ additional =
       , viewerHasStarred = False
       , isArchived = False
       , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "another" } } ] }
+      , repositoryTopics = { nodes = [] }
       }
     , { name = "Photography"
       , description = Just "Nice photos."
@@ -92,6 +92,6 @@ additional =
       , viewerHasStarred = False
       , isArchived = False
       , stargazers = { totalCount = 0 }
-      , repositoryTopics = { nodes = [ { topic = { name = "art" } } ] }
+      , repositoryTopics = { nodes = [] }
       }
     ]

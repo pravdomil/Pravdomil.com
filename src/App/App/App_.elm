@@ -198,7 +198,7 @@ viewRepositories model =
                         v.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
-                            |> Maybe.withDefault "uncategorized"
+                            |> Maybe.withDefault "The Rest"
                     )
                 |> Dict.toList
                 |> List.map (Tuple.mapSecond (List.sortBy (.stargazers >> .totalCount >> negate)))
