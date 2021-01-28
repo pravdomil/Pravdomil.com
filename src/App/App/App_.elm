@@ -82,16 +82,16 @@ getRepositories model =
         , headers = headers
         , url = "https://api.github.com/graphql"
         , body = Http.jsonBody body
-        , expect = Http.expectJson GotRepositories (Decode.list App.App.Repository.Decode.repository)
+        , expect = Http.expectJson GotRepositories App.App.Repository.Decode.response
         , timeout = Nothing
         , tracker = Nothing
         }
 
 
 {-| -}
-gotRepositories : Result Http.Error (List Repository) -> Model -> ( Model, Cmd msg )
+gotRepositories : Result Http.Error Repository.Response -> Model -> ( Model, Cmd msg )
 gotRepositories a model =
-    ( { model | repositories = Ok a }
+    ( { model | repositories = a |> Result.map (.data >> .viewer >> .repositories >> .nodes) |> Ok }
     , Cmd.none
     )
 

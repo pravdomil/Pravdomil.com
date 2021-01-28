@@ -1,6 +1,6 @@
 module App.App.App exposing (..)
 
-import App.App.Repository.Repository exposing (Repository)
+import App.App.Repository.Repository as Repository exposing (Repository)
 import Browser exposing (UrlRequest)
 import Http
 import Url exposing (Url)
@@ -23,6 +23,6 @@ type Error
 {-| To define what can happen.
 -}
 type Msg
-    = GotRepositories (Result Http.Error (List Repository))
+    = GotRepositories (Result Http.Error Repository.Response)
     | UrlRequested UrlRequest
     | UrlChanged Url
