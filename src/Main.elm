@@ -1,4 +1,4 @@
-module Main exposing (main)
+module Main exposing (..)
 
 import App.App.App exposing (..)
 import App.App.App_ exposing (..)
