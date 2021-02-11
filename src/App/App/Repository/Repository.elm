@@ -40,7 +40,7 @@ query =
     """
 query {
   viewer {
-    repositories(isFork: false, privacy: PUBLIC, first: 100) {
+    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, isFork: false, first: 100) {
       nodes {
         name
         description
