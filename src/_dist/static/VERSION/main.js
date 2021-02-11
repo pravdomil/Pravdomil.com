@@ -4,7 +4,6 @@ function main() {
   const app = Elm.Main.init({
     node: element(document.body, "div"),
     flags: {
-      touchInput: "ontouchstart" in window,
       githubToken: localStorage.getItem("githubToken"),
     },
   })

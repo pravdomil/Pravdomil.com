@@ -11,7 +11,6 @@ import Url exposing (Url)
 -}
 type alias Model =
     { navigationKey : Navigation.Key
-    , touchInput : Bool
     , githubToken : Maybe String
     , repositories : Result Error (Result Http.Error (List Repository))
     }

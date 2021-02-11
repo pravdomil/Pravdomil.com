@@ -20,12 +20,6 @@ import Utils.Json.Decode_ as Decode_
 init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
 init flags _ key =
     let
-        touchInput : Bool
-        touchInput =
-            flags
-                |> Decode.decodeValue (Decode.field "touchInput" Decode.bool)
-                |> Result.withDefault False
-
         githubToken : Maybe String
         githubToken =
             flags
@@ -35,7 +29,6 @@ init flags _ key =
         model : Model
         model =
             { navigationKey = key
-            , touchInput = touchInput
             , githubToken = githubToken
             , repositories = Err Loading
             }
