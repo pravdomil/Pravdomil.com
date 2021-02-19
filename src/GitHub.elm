@@ -1,9 +1,6 @@
-module App.App.Repository.Repository exposing (..)
-
-{-| -}
+module GitHub exposing (..)
 
 
-{-| -}
 type alias Response =
     { data :
         { viewer :
@@ -15,7 +12,6 @@ type alias Response =
     }
 
 
-{-| -}
 type alias Repository =
     { name : String
     , description : Maybe String
@@ -34,7 +30,6 @@ type alias Repository =
     }
 
 
-{-| -}
 query : String
 query =
     """
@@ -61,7 +56,6 @@ query {
 """
 
 
-{-| -}
 additional : List Repository
 additional =
     [ { name = "Přijímačky UMPRUM"
