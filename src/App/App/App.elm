@@ -16,7 +16,6 @@ type alias Model =
     }
 
 
-{-| -}
 type Error
     = Loading
 

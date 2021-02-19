@@ -16,7 +16,6 @@ import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
 
 
-{-| -}
 init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
 init flags _ key =
     let
@@ -38,7 +37,6 @@ init flags _ key =
     )
 
 
-{-| -}
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
@@ -56,7 +54,6 @@ update msg model =
 --
 
 
-{-| -}
 getRepositories : Model -> Cmd Msg
 getRepositories model =
     let
@@ -81,7 +78,6 @@ getRepositories model =
         }
 
 
-{-| -}
 gotRepositories : Result Http.Error Repository.Response -> Model -> ( Model, Cmd msg )
 gotRepositories a model =
     ( { model | repositories = a |> Result.map (.data >> .viewer >> .repositories >> .nodes) |> Ok }
@@ -93,13 +89,11 @@ gotRepositories a model =
 --
 
 
-{-| -}
 subscriptions : Model -> Sub Msg
 subscriptions _ =
     Sub.none
 
 
-{-| -}
 view : Model -> Document msg
 view model =
     { title = "Pravdomil.com"
@@ -109,7 +103,6 @@ view model =
     }
 
 
-{-| -}
 viewBody : Model -> Html msg
 viewBody model =
     div [ C.p2 ]
@@ -124,7 +117,6 @@ viewBody model =
         ]
 
 
-{-| -}
 viewHeader : Model -> Html msg
 viewHeader _ =
     div [ C.textCenter ]
@@ -162,7 +154,6 @@ viewHeader _ =
         ]
 
 
-{-| -}
 viewFooter : Model -> Html msg
 viewFooter _ =
     p [ C.textCenter, C.small ]
@@ -170,7 +161,6 @@ viewFooter _ =
         ]
 
 
-{-| -}
 viewRepositories : Model -> Html msg
 viewRepositories model =
     let
@@ -205,7 +195,6 @@ viewRepositories model =
         ]
 
 
-{-| -}
 viewCategory : ( String, List Repository ) -> Html msg
 viewCategory ( category, a ) =
     let
@@ -219,7 +208,6 @@ viewCategory ( category, a ) =
         ]
 
 
-{-| -}
 viewRepository : Repository -> Html msg
 viewRepository b =
     let
@@ -250,19 +238,16 @@ viewRepository b =
 --
 
 
-{-| -}
 firstToUpper : String -> String
 firstToUpper a =
     a |> mapFirstLetter String.toUpper
 
 
-{-| -}
 mapFirstLetter : (String -> String) -> String -> String
 mapFirstLetter fn a =
     (a |> String.left 1 |> fn) ++ (a |> String.dropLeft 1)
 
 
-{-| -}
 groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
 groupBy toKey a =
     let
