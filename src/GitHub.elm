@@ -30,32 +30,6 @@ type alias Repository =
     }
 
 
-query : String
-query =
-    """
-query {
-  viewer {
-    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, isFork: false, first: 100) {
-      nodes {
-        name
-        description
-        url
-        homepageUrl
-
-        repositoryTopics(first: 100) {
-          nodes {
-            topic {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-}
-"""
-
-
 additional : List Repository
 additional =
     [ { name = "Přijímačky UMPRUM"

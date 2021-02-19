@@ -4,13 +4,13 @@ import Browser exposing (Document, UrlRequest)
 import Browser.Navigation as Navigation
 import Dict exposing (Dict)
 import GitHub exposing (Repository)
-import GitHub.Decode
+import GitHub.Request as Request
 import Html exposing (..)
 import Html.Attributes exposing (href)
 import Http
 import Json.Decode as Decode
-import Json.Encode as Encode
 import Styles.C as C
+import Task
 import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
 
@@ -59,32 +59,8 @@ init flags _ key =
             }
     in
     ( model
-    , getRepositories model
+    , Request.request model.githubToken |> Task.attempt GotRepositories
     )
-
-
-getRepositories : Model -> Cmd Msg
-getRepositories model =
-    let
-        headers : List Http.Header
-        headers =
-            model.githubToken
-                |> Maybe.map (\v -> [ Http.header "Authorization" ("bearer " ++ v) ])
-                |> Maybe.withDefault []
-
-        body : Encode.Value
-        body =
-            Encode.object [ ( "query", Encode.string GitHub.query ) ]
-    in
-    Http.request
-        { method = "POST"
-        , headers = headers
-        , url = "https://api.github.com/graphql"
-        , body = Http.jsonBody body
-        , expect = Http.expectJson GotRepositories GitHub.Decode.response
-        , timeout = Nothing
-        , tracker = Nothing
-        }
 
 
 
