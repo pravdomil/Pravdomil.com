@@ -30,8 +30,8 @@ type alias Repository =
     }
 
 
-additional : List Repository
-additional =
+externalRepositories : List Repository
+externalRepositories =
     [ { name = "Přijímačky UMPRUM"
       , description = Just "My book."
       , url = ""

@@ -185,7 +185,7 @@ viewRepositories model =
                 |> Maybe.andThen identity
                 |> Maybe.withDefault []
                 |> List.filter (\v -> v.name /= "Pravdomil.com")
-                |> (++) GitHub.additional
+                |> (++) GitHub.externalRepositories
 
         categories : List ( String, List Repository )
         categories =
