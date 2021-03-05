@@ -8,8 +8,11 @@ import Json.Decode as D exposing (Decoder)
 import Set exposing (Set)
 
 
-{-| To decode char.
--}
+unit : Decoder ()
+unit =
+    D.succeed ()
+
+
 char : Decoder Char
 char =
     D.string
@@ -20,69 +23,19 @@ char =
                         D.succeed b
 
                     _ ->
-                        D.fail "I was expecting exactly one char."
+                        D.fail "I was expecting exactly one character."
             )
 
 
-{-| -}
-unit : Decoder ()
-unit =
-    D.succeed ()
+
+--
 
 
-{-| -}
-tuple : Decoder a -> Decoder b -> Decoder ( a, b )
-tuple a b =
-    D.map2 Tuple.pair (D.field "a" a) (D.field "b" b)
-
-
-{-| -}
-tuple3 : Decoder a -> Decoder b -> Decoder c -> Decoder ( a, b, c )
-tuple3 a b c =
-    D.map3 (\a_ b_ c_ -> ( a_, b_, c_ )) (D.field "a" a) (D.field "b" b) (D.field "c" c)
-
-
-{-| -}
 maybe : Decoder a -> Decoder (Maybe a)
 maybe =
     D.nullable
 
 
-{-| To decode set.
--}
-set : Decoder comparable -> Decoder (Set comparable)
-set a =
-    D.map Set.fromList (D.list a)
-
-
-{-| To decode dictionary.
--}
-dict : Decoder comparable -> Decoder v -> Decoder (Dict comparable v)
-dict k v =
-    D.map Dict.fromList (D.list (D.map2 Tuple.pair (D.index 0 k) (D.index 1 v)))
-
-
-{-| To maybe decode field.
--}
-maybeField : String -> Decoder (Maybe a) -> Decoder (Maybe a)
-maybeField name a =
-    D.oneOf
-        [ D.map Just (D.field name D.value)
-        , D.succeed Nothing
-        ]
-        |> D.andThen
-            (\v ->
-                case v of
-                    Just _ ->
-                        D.field name a
-
-                    Nothing ->
-                        D.succeed Nothing
-            )
-
-
-{-| To decode result.
--}
 result : Decoder e -> Decoder v -> Decoder (Result e v)
 result e v =
     D.field "_" D.int
@@ -104,267 +57,51 @@ result e v =
 --
 
 
-{-| -}
+set : Decoder comparable -> Decoder (Set comparable)
+set a =
+    D.map Set.fromList (D.list a)
+
+
+dict : Decoder comparable -> Decoder v -> Decoder (Dict comparable v)
+dict k v =
+    D.map Dict.fromList (D.list (D.map2 Tuple.pair (D.index 0 k) (D.index 1 v)))
+
+
+
+--
+
+
+tuple : Decoder a -> Decoder b -> Decoder ( a, b )
+tuple a b =
+    D.map2 Tuple.pair (D.field "a" a) (D.field "b" b)
+
+
+tuple3 : Decoder a -> Decoder b -> Decoder c -> Decoder ( a, b, c )
+tuple3 a b c =
+    D.map3 (\a_ b_ c_ -> ( a_, b_, c_ )) (D.field "a" a) (D.field "b" b) (D.field "c" c)
+
+
+maybeField : String -> Decoder (Maybe a) -> Decoder (Maybe a)
+maybeField name a =
+    D.oneOf
+        [ D.map Just (D.field name D.value)
+        , D.succeed Nothing
+        ]
+        |> D.andThen
+            (\v ->
+                case v of
+                    Just _ ->
+                        D.field name a
+
+                    Nothing ->
+                        D.succeed Nothing
+            )
+
+
+
+--
+
+
 apply : Decoder a -> Decoder (a -> b) -> Decoder b
 apply decoder a =
     D.map2 (\fn v -> fn v) a decoder
-
-
-map9 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder value
-map9 fn a b c d e f g h i =
-    D.map8 fn a b c d e f g h
-        |> apply i
-
-
-map10 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder value
-map10 fn a b c d e f g h i j =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-
-
-map11 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder value
-map11 fn a b c d e f g h i j k =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-
-
-map12 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder value
-map12 fn a b c d e f g h i j k l =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-
-
-map13 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder m
-    -> Decoder value
-map13 fn a b c d e f g h i j k l m =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-        |> apply m
-
-
-map14 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> n -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder m
-    -> Decoder n
-    -> Decoder value
-map14 fn a b c d e f g h i j k l m n =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-        |> apply m
-        |> apply n
-
-
-map15 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> n -> o -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder m
-    -> Decoder n
-    -> Decoder o
-    -> Decoder value
-map15 fn a b c d e f g h i j k l m n o =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-        |> apply m
-        |> apply n
-        |> apply o
-
-
-map16 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> n -> o -> p -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder m
-    -> Decoder n
-    -> Decoder o
-    -> Decoder p
-    -> Decoder value
-map16 fn a b c d e f g h i j k l m n o p =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-        |> apply m
-        |> apply n
-        |> apply o
-        |> apply p
-
-
-map17 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> n -> o -> p -> q -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder m
-    -> Decoder n
-    -> Decoder o
-    -> Decoder p
-    -> Decoder q
-    -> Decoder value
-map17 fn a b c d e f g h i j k l m n o p q =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-        |> apply m
-        |> apply n
-        |> apply o
-        |> apply p
-        |> apply q
-
-
-map18 :
-    (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> n -> o -> p -> q -> r -> value)
-    -> Decoder a
-    -> Decoder b
-    -> Decoder c
-    -> Decoder d
-    -> Decoder e
-    -> Decoder f
-    -> Decoder g
-    -> Decoder h
-    -> Decoder i
-    -> Decoder j
-    -> Decoder k
-    -> Decoder l
-    -> Decoder m
-    -> Decoder n
-    -> Decoder o
-    -> Decoder p
-    -> Decoder q
-    -> Decoder r
-    -> Decoder value
-map18 fn a b c d e f g h i j k l m n o p q r =
-    D.map8 fn a b c d e f g h
-        |> apply i
-        |> apply j
-        |> apply k
-        |> apply l
-        |> apply m
-        |> apply n
-        |> apply o
-        |> apply p
-        |> apply q
-        |> apply r
