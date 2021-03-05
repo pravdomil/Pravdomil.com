@@ -198,12 +198,11 @@ viewRepositories model =
                         v.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
-                            |> Maybe.withDefault "The Rest"
+                            |> Maybe.withDefault "Projects"
                     )
                 |> Dict.toList
                 |> List.map (Tuple.mapSecond (List.sortBy .name))
                 |> List.sortBy Tuple.first
-                |> List.reverse
     in
     div []
         [ p [ C.mb5, C.textCenter ] [ text "And here are my projects:" ]
