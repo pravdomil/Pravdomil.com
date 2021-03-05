@@ -34,12 +34,13 @@ main =
 type alias Model =
     { navigationKey : Navigation.Key
     , githubToken : Maybe String
-    , repositories : Result Error (Result Http.Error (List Repository))
+    , repositories : Result Error (List Repository)
     }
 
 
 type Error
     = Loading
+    | HttpError Http.Error
 
 
 init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
@@ -77,11 +78,16 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GotRepositories a ->
-            ( { model
-                | repositories = a |> Result.map (.data >> .viewer >> .repositories >> .nodes) |> Ok
-              }
-            , Cmd.none
-            )
+            case a of
+                Ok b ->
+                    ( { model | repositories = Ok b.data.viewer.repositories.nodes }
+                    , Cmd.none
+                    )
+
+                Err b ->
+                    ( { model | repositories = Err (HttpError b) }
+                    , Cmd.none
+                    )
 
         UrlRequested _ ->
             ( model
@@ -180,10 +186,7 @@ viewRepositories model =
         repositories : List Repository
         repositories =
             model.repositories
-                |> Result.toMaybe
-                |> Maybe.map Result.toMaybe
-                |> Maybe.andThen identity
-                |> Maybe.withDefault []
+                |> Result.withDefault []
                 |> List.filter (\v -> v.name /= "Pravdomil.com")
                 |> (++) GitHub.externalRepositories
 
