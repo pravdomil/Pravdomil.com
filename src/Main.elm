@@ -11,6 +11,7 @@ import Http
 import Json.Decode as Decode
 import Styles.C as C
 import Task
+import Translation exposing (Translation(..), t)
 import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
 
@@ -115,7 +116,7 @@ subscriptions _ =
 
 view : Model -> Document msg
 view model =
-    { title = "Pravdomil.com"
+    { title = t A_Title
     , body =
         [ viewBody model
         ]
@@ -139,10 +140,10 @@ viewBody model =
 viewHeader : Model -> Html msg
 viewHeader _ =
     div [ C.textCenter ]
-        [ p [ C.mb4 ] [ text "Welcome to" ]
-        , h2 [ C.mb5 ] [ a [ href "/" ] [ text "Pravdomil's Webpage" ] ]
+        [ p [ C.mb4 ] [ text (t (A_Raw "Welcome to")) ]
+        , h2 [ C.mb5 ] [ a [ href "/" ] [ text (t (A_Raw "Pravdomil's Webpage")) ] ]
         , p [ C.mb5 ]
-            [ text "You can also find me at:"
+            [ text (t (A_Raw "You can also find me at:"))
             , br [] []
             , span [ C.dInlineBlock ]
                 [ a [ C.btn, C.btnLink, href "mailto:info@pravdomil.com" ]
@@ -176,7 +177,7 @@ viewHeader _ =
 viewFooter : Model -> Html msg
 viewFooter _ =
     p [ C.textCenter, C.small ]
-        [ text "That's all for now."
+        [ text (t (A_Raw "That's all for now."))
         ]
 
 
@@ -187,7 +188,7 @@ viewRepositories model =
         repositories =
             model.repositories
                 |> Result.withDefault []
-                |> List.filter (\v -> v.name /= "Pravdomil.com")
+                |> List.filter (\v -> v.name /= t A_Title)
                 |> (++) GitHub.externalRepositories
 
         categories : List ( String, List Repository )
@@ -198,14 +199,14 @@ viewRepositories model =
                         v.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
-                            |> Maybe.withDefault "Projects"
+                            |> Maybe.withDefault (t (A_Raw "Projects"))
                     )
                 |> Dict.toList
                 |> List.map (Tuple.mapSecond (List.sortBy .name))
                 |> List.sortBy Tuple.first
     in
     div []
-        [ p [ C.mb5, C.textCenter ] [ text "And here are my projects:" ]
+        [ p [ C.mb5, C.textCenter ] [ text (t (A_Raw "And here are my projects:")) ]
         , div [ C.row ] (categories |> List.map viewCategory)
         ]
 
