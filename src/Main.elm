@@ -209,6 +209,21 @@ viewRepositories model =
     div []
         [ p [ C.mb5, C.textCenter ] [ text (t (A_Raw "And here are my projects:")) ]
         , div [ C.row ] (categories |> List.map viewCategory)
+        , div [ C.mb5 ]
+            [ h2 [ C.mb3 ]
+                [ text (t (A_Raw "Živnost"))
+                ]
+            , p []
+                [ text "Vývoj webových aplikací. "
+                , text "Pravdomil Toman, "
+                , a [ href "https://www.rzp.cz/cgi-bin/aps_cacheWEB.sh?VSS_SERV=ZVWSBJFND&Action=Search&PODLE=subjekt&ICO=01625977" ]
+                    [ u []
+                        [ text "IČ: 01625977"
+                        ]
+                    ]
+                , text "."
+                ]
+            ]
         ]
 
 
