@@ -140,8 +140,14 @@ viewBody model =
 viewHeader : Model -> Html msg
 viewHeader _ =
     div [ C.textCenter ]
-        [ p [ C.mb4 ] [ text (t (A_Raw "Welcome to")) ]
-        , h2 [ C.mb5 ] [ a [ href "/" ] [ text (t (A_Raw "Pravdomil's Webpage")) ] ]
+        [ p [ C.mb4 ]
+            [ text (t (A_Raw "Welcome to"))
+            ]
+        , h2 [ C.mb5 ]
+            [ a [ href "/" ]
+                [ text (t (A_Raw "Pravdomil's Webpage"))
+                ]
+            ]
         , p [ C.mb1 ]
             [ text (t (A_Raw "You can also find me at:"))
             ]
@@ -207,8 +213,11 @@ viewRepositories model =
                 |> List.sortBy Tuple.first
     in
     div []
-        [ p [ C.mb5, C.textCenter ] [ text (t (A_Raw "And here are my projects:")) ]
-        , div [ C.row ] (categories |> List.map viewCategory)
+        [ p [ C.mb5, C.textCenter ]
+            [ text (t (A_Raw "And here are my projects:"))
+            ]
+        , div [ C.row ]
+            (categories |> List.map viewCategory)
         , div [ C.mb5 ]
             [ h2 [ C.mb3 ]
                 [ text (t (A_Raw "Živnost"))
@@ -235,8 +244,11 @@ viewCategory ( category, a ) =
             b |> String.split "-" |> List.map firstToUpper |> String.join " "
     in
     div [ C.col12, C.mb5 ]
-        [ h2 [ C.mb3 ] [ text (humanize category) ]
-        , div [ C.row ] (a |> List.map viewRepository)
+        [ h2 [ C.mb3 ]
+            [ text (humanize category)
+            ]
+        , div [ C.row ]
+            (a |> List.map viewRepository)
         ]
 
 
@@ -260,7 +272,9 @@ viewRepository b =
     in
     div [ C.col12, C.colMd4, C.mb3 ]
         [ a [ C.dBlock, href (link b) ]
-            [ h5 [ C.borderBottom, C.mb0 ] [ text (b.name |> String.replace "-" " ") ]
+            [ h5 [ C.borderBottom, C.mb0 ]
+                [ text (b.name |> String.replace "-" " ")
+                ]
             , text (b.description |> Maybe.withDefault "")
             ]
         ]
