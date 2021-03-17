@@ -9,8 +9,8 @@ function main() {
   })
 }
 
-function element(parent, type, className) {
-  const el = document.createElement(type)
+function element(parent, tag, className) {
+  const el = document.createElement(tag)
   if (parent) parent.appendChild(el)
   if (className) el.className = className
   return el
