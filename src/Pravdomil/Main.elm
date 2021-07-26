@@ -145,14 +145,16 @@ viewBody model =
 viewHeader : Model -> Element msg
 viewHeader _ =
     textColumn [ width fill, spacing 32, fontCenter ]
-        [ p []
-            [ text (Translation.raw "Welcome to")
-            ]
-        , h1 []
-            [ link []
-                { label = text (Translation.raw "Pravdomil's Webpage")
-                , url = "/"
-                }
+        [ column [ spacing 16 ]
+            [ p []
+                [ text (Translation.raw "Welcome to")
+                ]
+            , h1 []
+                [ link []
+                    { label = text (Translation.raw "Pravdomil's Webpage")
+                    , url = "/"
+                    }
+                ]
             ]
         , column [ spacing 16 ]
             [ p []
