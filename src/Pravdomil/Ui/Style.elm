@@ -5,11 +5,11 @@ import Element.Font as Font
 
 
 baseBgColor =
-    grey9
+    grey10
 
 
 baseColor =
-    grey1
+    primary
 
 
 baseFontSize =
@@ -239,7 +239,7 @@ grey10 =
 
 
 primary =
-    Element.rgb 0.05 0.43 0.99
+    Element.rgb 0 0 0.8039
 
 
 secondary =
