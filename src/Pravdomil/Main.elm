@@ -238,11 +238,11 @@ viewCategory ( category, a ) =
         humanize b =
             b |> String.split "-" |> List.map firstToUpper |> String.join " "
     in
-    div [ C.col12, C.mb5 ]
-        [ h2 [ C.mb3 ]
+    column [ spacing 32 ]
+        [ h2 []
             [ text (humanize category)
             ]
-        , div [ C.row ]
+        , wrappedRow [ spacing 16 ]
             (a |> List.map viewRepository)
         ]
 
@@ -250,8 +250,8 @@ viewCategory ( category, a ) =
 viewRepository : Repository -> Element msg
 viewRepository b =
     let
-        link : Repository -> String
-        link c =
+        link_ : Repository -> String
+        link_ c =
             case c.homepageUrl of
                 Just "https://pravdomil.com" ->
                     c.url ++ "#readme"
@@ -265,14 +265,22 @@ viewRepository b =
                 Just d ->
                     d
     in
-    div [ C.col12, C.colMd4, C.mb3 ]
-        [ a [ C.dBlock, href (link b) ]
-            [ h5 [ C.borderBottom, C.mb0 ]
-                [ text (b.name |> String.replace "-" " ")
+    link [ width (px 244), height fill ]
+        { label =
+            column [ width fill, height fill, spacing 6 ]
+                [ h3 []
+                    [ text (b.name |> String.replace "-" " ")
+                    ]
+                , el [ width fill, borderWidthEach 0 0 0 1 ] none
+                , p []
+                    [ text (b.description |> Maybe.withDefault "")
+                    ]
+                , text ""
+                , text ""
+                , text ""
                 ]
-            , text (b.description |> Maybe.withDefault "")
-            ]
-        ]
+        , url = link_ b
+        }
 
 
 
