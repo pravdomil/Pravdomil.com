@@ -37,7 +37,7 @@ hrBorderColor =
 
 
 h1FontSize =
-    20
+    32
 
 
 h2FontSize =
