@@ -52,16 +52,12 @@ init flags _ key =
             flags
                 |> Decode.decodeValue (Decode.field "githubToken" (Decode_.maybe Decode.string))
                 |> Result.withDefault Nothing
-
-        model : Model
-        model =
-            { navigationKey = key
-            , githubToken = githubToken
-            , repositories = Err Loading
-            }
     in
-    ( model
-    , Request.repositories model.githubToken
+    ( { navigationKey = key
+      , githubToken = githubToken
+      , repositories = Err Loading
+      }
+    , Request.repositories githubToken
         |> Task.attempt GotRepositories
     )
 
