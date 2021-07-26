@@ -267,7 +267,7 @@ viewRepository b =
     in
     link [ width (px 244), height fill ]
         { label =
-            column [ width fill, height fill, spacing 6 ]
+            column [ width fill, height fill, spacing 6, paddingEach 0 0 0 24 ]
                 [ h3 []
                     [ text (b.name |> String.replace "-" " ")
                     ]
@@ -275,9 +275,6 @@ viewRepository b =
                 , p []
                     [ text (b.description |> Maybe.withDefault "")
                     ]
-                , text ""
-                , text ""
-                , text ""
                 ]
         , url = link_ b
         }
