@@ -135,6 +135,7 @@ viewBody model =
             [ column [ width (fill |> maximum 768), spacing 32, centerX ]
                 [ text ""
                 , viewHeader model
+                , viewRepositories model
                 , viewFooter model
                 , text ""
                 ]
@@ -221,11 +222,11 @@ viewRepositories model =
                 |> List.map (Tuple.mapSecond (List.sortBy .name))
                 |> List.sortBy Tuple.first
     in
-    div []
-        [ p [ C.mb5, C.textCenter ]
-            [ text (Translation.raw "And here are my projects:")
+    column [ spacing 16 ]
+        [ p [ fontCenter ]
+            [ text (Translation.raw "Things I do:")
             ]
-        , div [ C.row ]
+        , column [ spacing 32 ]
             (categories |> List.map viewCategory)
         ]
 
