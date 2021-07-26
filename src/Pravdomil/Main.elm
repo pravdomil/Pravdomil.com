@@ -186,7 +186,7 @@ viewHeader _ =
 
 viewFooter : Model -> Element msg
 viewFooter _ =
-    p [ C.textCenter, C.small ]
+    p [ fontCenter, fontSize 14 ]
         [ text (Translation.raw "That's all for now.")
         ]
 
