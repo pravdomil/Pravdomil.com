@@ -14,7 +14,7 @@ import Element.Lazy
 import Element.Region
 import Html
 import Html.Attributes
-import Pravdomil.Style as A
+import Pravdomil.Ui.Style as A
 
 
 layout a =
