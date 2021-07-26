@@ -1,2 +1,5 @@
 {
+  "devDependencies": {
+    "elm-utils": "github:pravdomil/Elm-Utils"
+  }
 }
