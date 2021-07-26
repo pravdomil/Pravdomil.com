@@ -30,6 +30,10 @@ type alias Repository =
     }
 
 
+
+--
+
+
 externalRepositories : List Repository
 externalRepositories =
     [ { name = "Přijímačky UMPRUM"
