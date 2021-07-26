@@ -113,7 +113,7 @@ subscriptions _ =
 
 view : Model -> Browser.Document msg
 view model =
-    { title = t A_Title
+    { title = Translation.title
     , body =
         [ viewBody model
         ]
