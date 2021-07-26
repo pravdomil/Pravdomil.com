@@ -289,12 +289,17 @@ viewRepository b =
 
 firstToUpper : String -> String
 firstToUpper a =
-    a |> mapFirstLetter String.toUpper
+    a |> mapFirstChar Char.toUpper
 
 
-mapFirstLetter : (String -> String) -> String -> String
-mapFirstLetter fn a =
-    (a |> String.left 1 |> fn) ++ (a |> String.dropLeft 1)
+mapFirstChar : (Char -> Char) -> String -> String
+mapFirstChar fn a =
+    case String.uncons a of
+        Just ( first, rest ) ->
+            String.cons (fn first) rest
+
+        Nothing ->
+            a
 
 
 groupBy : (a -> comparable) -> List a -> Dict comparable (List a)
