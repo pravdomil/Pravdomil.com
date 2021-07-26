@@ -124,13 +124,13 @@ view model =
 
 viewBody : Model -> Element msg
 viewBody model =
-    div [ C.p2 ]
-        [ div [ C.border, C.mAuto, C.rounded, C.maxWidth 60 ]
-            [ div [ C.containerFluid, C.maxWidth 48 ]
-                [ div [ C.mb5 ] []
+    column [ width (fill |> maximum 896), centerX, padding 8 ]
+        [ column [ width fill, padding 8, borderWidth 1, borderRounded 4 ]
+            [ column [ width (fill |> maximum 768), spacing 32, centerX ]
+                [ text ""
                 , viewHeader model
-                , viewRepositories model
                 , viewFooter model
+                , text ""
                 ]
             ]
         ]
