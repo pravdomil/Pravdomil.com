@@ -6,6 +6,8 @@ import Dict exposing (Dict)
 import GitHub.Repository exposing (Repository)
 import GitHub.Request as Request
 import Http
+import Ionicon
+import Ionicon.Social
 import Json.Decode as Decode
 import Pravdomil.Translation as Translation
 import Pravdomil.Ui.Base exposing (..)
@@ -138,43 +140,45 @@ viewBody model =
 
 viewHeader : Model -> Element msg
 viewHeader _ =
-    div [ C.textCenter ]
-        [ p [ C.mb4 ]
+    textColumn [ width fill, spacing 32, fontCenter ]
+        [ p []
             [ text (Translation.raw "Welcome to")
             ]
-        , h2 [ C.mb5 ]
-            [ a [ href "/" ]
-                [ text (Translation.raw "Pravdomil's Webpage")
-                ]
+        , h1 []
+            [ link []
+                { label = text (Translation.raw "Pravdomil's Webpage")
+                , url = "/"
+                }
             ]
-        , p [ C.mb1 ]
-            [ text (Translation.raw "You can also find me at:")
-            ]
-        , p [ C.mb5 ]
-            [ span [ C.dInlineBlock ]
-                [ a [ C.btn, C.btnLink, href "mailto:info@pravdomil.com" ]
-                    [ i [ C.fa, C.faEnvelope ] []
-                    ]
-                , a [ C.btn, C.btnLink, href "https://twitter.com/pravdomil" ]
-                    [ i [ C.fa, C.faTwitter ] []
-                    ]
-                , a [ C.btn, C.btnLink, href "https://github.com/pravdomil" ]
-                    [ i [ C.fa, C.faGithub ] []
-                    ]
-                , a [ C.btn, C.btnLink, href "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer" ]
-                    [ i [ C.fa, C.faPaypal ] []
-                    ]
+        , column [ spacing 16 ]
+            [ p []
+                [ text (Translation.raw "You can also find me at:")
                 ]
-            , span [ C.dInlineBlock ]
-                [ a [ C.btn, C.btnLink, href "https://stackoverflow.com/users/3748498/pravdomil" ]
-                    [ i [ C.fa, C.faStackOverflow ] []
-                    ]
-                , a [ C.btn, C.btnLink, href "https://youtube.com/pravdomil" ]
-                    [ i [ C.fa, C.faYoutubePlay ] []
-                    ]
-                , a [ C.btn, C.btnLink, href "https://vimeo.com/pravdomil" ]
-                    [ i [ C.fa, C.faVimeo ] []
-                    ]
+            , row [ spacing 16, centerX ]
+                [ link []
+                    { label = html (Ionicon.email 24 (toRgb primary))
+                    , url = "mailto:info@pravdomil.com"
+                    }
+                , link []
+                    { label = html (Ionicon.Social.twitter 24 (toRgb primary))
+                    , url = "https://twitter.com/pravdomil"
+                    }
+                , link []
+                    { label = html (Ionicon.Social.github 24 (toRgb primary))
+                    , url = "https://github.com/pravdomil"
+                    }
+                , link []
+                    { label = html (Ionicon.Social.usd 24 (toRgb primary))
+                    , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer"
+                    }
+                , link []
+                    { label = html (Ionicon.Social.youtube 24 (toRgb primary))
+                    , url = "https://youtube.com/pravdomil"
+                    }
+                , link []
+                    { label = html (Ionicon.Social.vimeo 24 (toRgb primary))
+                    , url = "https://vimeo.com/pravdomil"
+                    }
                 ]
             ]
         ]
