@@ -156,7 +156,7 @@ viewHeader _ =
             ]
         , column [ spacing 16 ]
             [ p []
-                [ text (Translation.raw "You can also find me at:")
+                [ text (Translation.raw "You can find me at:")
                 ]
             , row [ spacing 16, centerX ]
                 [ link []
