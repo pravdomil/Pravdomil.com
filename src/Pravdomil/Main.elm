@@ -163,27 +163,27 @@ viewHeader _ =
                 ]
             , row [ spacing 16, centerX ]
                 [ link []
-                    { label = html (Ionicon.email 24 (toRgb primary))
+                    { label = html (Ionicon.email 20 (toRgb primary))
                     , url = "mailto:info@pravdomil.com"
                     }
                 , link []
-                    { label = html (Ionicon.Social.twitter 24 (toRgb primary))
+                    { label = html (Ionicon.Social.twitter 20 (toRgb primary))
                     , url = "https://twitter.com/pravdomil"
                     }
                 , link []
-                    { label = html (Ionicon.Social.github 24 (toRgb primary))
+                    { label = html (Ionicon.Social.github 20 (toRgb primary))
                     , url = "https://github.com/pravdomil"
                     }
                 , link []
-                    { label = html (Ionicon.Social.usd 24 (toRgb primary))
+                    { label = html (Ionicon.Social.usd 20 (toRgb primary))
                     , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer"
                     }
                 , link []
-                    { label = html (Ionicon.Social.youtube 24 (toRgb primary))
+                    { label = html (Ionicon.Social.youtube 20 (toRgb primary))
                     , url = "https://youtube.com/pravdomil"
                     }
                 , link []
-                    { label = html (Ionicon.Social.vimeo 24 (toRgb primary))
+                    { label = html (Ionicon.Social.vimeo 20 (toRgb primary))
                     , url = "https://vimeo.com/pravdomil"
                     }
                 ]
