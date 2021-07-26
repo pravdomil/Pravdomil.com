@@ -1,7 +1,7 @@
 module GitHub.Request exposing (..)
 
-import GitHub exposing (Response)
 import GitHub.Decode
+import GitHub.Repository exposing (Response)
 import Http
 import Json.Encode as Encode
 import Task exposing (Task)
