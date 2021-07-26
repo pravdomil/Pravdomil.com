@@ -41,11 +41,11 @@ h1FontSize =
 
 
 h2FontSize =
-    baseFontSize
+    28
 
 
 h3FontSize =
-    baseFontSize
+    20
 
 
 h4FontSize =
