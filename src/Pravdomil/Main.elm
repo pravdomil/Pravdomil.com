@@ -1,4 +1,4 @@
-module Main exposing (..)
+module Pravdomil.Main exposing (..)
 
 import Browser exposing (Document, UrlRequest)
 import Browser.Navigation as Navigation
@@ -9,9 +9,9 @@ import Html exposing (..)
 import Html.Attributes exposing (href)
 import Http
 import Json.Decode as Decode
+import Pravdomil.Translation exposing (Translation(..), t)
 import Styles.C as C
 import Task
-import Translation exposing (Translation(..), t)
 import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
 
