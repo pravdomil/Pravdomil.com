@@ -34,8 +34,8 @@ type alias Response =
 --
 
 
-externalRepositories : List Repository
-externalRepositories =
+external : List Repository
+external =
     [ { name = "Přijímačky UMPRUM"
       , description = Just "My book."
       , url = ""
