@@ -1,16 +1,13 @@
 module Pravdomil.Main exposing (..)
 
-import Browser exposing (Document, UrlRequest)
+import Browser
 import Browser.Navigation as Navigation
 import Dict exposing (Dict)
 import GitHub.Repository exposing (Repository)
 import GitHub.Request as Request
-import Html exposing (..)
-import Html.Attributes exposing (href)
 import Http
 import Json.Decode as Decode
-import Pravdomil.Translation exposing (Translation(..), t)
-import Styles.C as C
+import Pravdomil.Translation as Translation
 import Task
 import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
@@ -71,7 +68,7 @@ init flags _ key =
 
 type Msg
     = GotRepositories (Result Http.Error GitHub.Repository.Response)
-    | UrlRequested UrlRequest
+    | UrlRequested Browser.UrlRequest
     | UrlChanged Url
 
 
@@ -114,7 +111,7 @@ subscriptions _ =
 --
 
 
-view : Model -> Document msg
+view : Model -> Browser.Document msg
 view model =
     { title = t A_Title
     , body =
