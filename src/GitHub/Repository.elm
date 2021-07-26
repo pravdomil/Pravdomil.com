@@ -1,4 +1,4 @@
-module GitHub exposing (..)
+module GitHub.Repository exposing (..)
 
 
 type alias Response =

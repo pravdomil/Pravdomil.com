@@ -3,7 +3,7 @@ module Pravdomil.Main exposing (..)
 import Browser exposing (Document, UrlRequest)
 import Browser.Navigation as Navigation
 import Dict exposing (Dict)
-import GitHub exposing (Repository)
+import GitHub.Repository exposing (Repository)
 import GitHub.Request as Request
 import Html exposing (..)
 import Html.Attributes exposing (href)
@@ -70,7 +70,7 @@ init flags _ key =
 
 
 type Msg
-    = GotRepositories (Result Http.Error GitHub.Response)
+    = GotRepositories (Result Http.Error GitHub.Repository.Response)
     | UrlRequested UrlRequest
     | UrlChanged Url
 
@@ -196,7 +196,7 @@ viewRepositories model =
             model.repositories
                 |> Result.withDefault []
                 |> List.filter (\v -> v.name /= t A_Title)
-                |> (++) GitHub.externalRepositories
+                |> (++) GitHub.Repository.externalRepositories
 
         categories : List ( String, List Repository )
         categories =
