@@ -87,10 +87,17 @@ update msg model =
                     , Cmd.none
                     )
 
-        UrlRequested _ ->
-            ( model
-            , Cmd.none
-            )
+        UrlRequested b ->
+            case b of
+                Browser.Internal url ->
+                    ( model
+                    , Navigation.load (Url.toString url)
+                    )
+
+                Browser.External url ->
+                    ( model
+                    , Navigation.load url
+                    )
 
         UrlChanged _ ->
             ( model
