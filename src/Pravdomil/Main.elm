@@ -8,6 +8,7 @@ import GitHub.Request as Request
 import Http
 import Json.Decode as Decode
 import Pravdomil.Translation as Translation
+import Pravdomil.Ui.Base exposing (..)
 import Task
 import Url exposing (Url)
 import Utils.Json.Decode_ as Decode_
@@ -115,12 +116,13 @@ view : Model -> Browser.Document msg
 view model =
     { title = Translation.title
     , body =
-        [ viewBody model
+        [ adaptiveScale
+        , layout [] (viewBody model)
         ]
     }
 
 
-viewBody : Model -> Html msg
+viewBody : Model -> Element msg
 viewBody model =
     div [ C.p2 ]
         [ div [ C.border, C.mAuto, C.rounded, C.maxWidth 60 ]
@@ -134,7 +136,7 @@ viewBody model =
         ]
 
 
-viewHeader : Model -> Html msg
+viewHeader : Model -> Element msg
 viewHeader _ =
     div [ C.textCenter ]
         [ p [ C.mb4 ]
@@ -178,14 +180,14 @@ viewHeader _ =
         ]
 
 
-viewFooter : Model -> Html msg
+viewFooter : Model -> Element msg
 viewFooter _ =
     p [ C.textCenter, C.small ]
         [ text (t (A_Raw "That's all for now."))
         ]
 
 
-viewRepositories : Model -> Html msg
+viewRepositories : Model -> Element msg
 viewRepositories model =
     let
         repositories : List Repository
@@ -233,7 +235,7 @@ viewRepositories model =
         ]
 
 
-viewCategory : ( String, List Repository ) -> Html msg
+viewCategory : ( String, List Repository ) -> Element msg
 viewCategory ( category, a ) =
     let
         humanize : String -> String
@@ -249,7 +251,7 @@ viewCategory ( category, a ) =
         ]
 
 
-viewRepository : Repository -> Html msg
+viewRepository : Repository -> Element msg
 viewRepository b =
     let
         link : Repository -> String
