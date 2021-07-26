@@ -140,15 +140,15 @@ viewHeader : Model -> Element msg
 viewHeader _ =
     div [ C.textCenter ]
         [ p [ C.mb4 ]
-            [ text (t (A_Raw "Welcome to"))
+            [ text (Translation.raw "Welcome to")
             ]
         , h2 [ C.mb5 ]
             [ a [ href "/" ]
-                [ text (t (A_Raw "Pravdomil's Webpage"))
+                [ text (Translation.raw "Pravdomil's Webpage")
                 ]
             ]
         , p [ C.mb1 ]
-            [ text (t (A_Raw "You can also find me at:"))
+            [ text (Translation.raw "You can also find me at:")
             ]
         , p [ C.mb5 ]
             [ span [ C.dInlineBlock ]
@@ -183,7 +183,7 @@ viewHeader _ =
 viewFooter : Model -> Element msg
 viewFooter _ =
     p [ C.textCenter, C.small ]
-        [ text (t (A_Raw "That's all for now."))
+        [ text (Translation.raw "That's all for now.")
         ]
 
 
@@ -205,7 +205,7 @@ viewRepositories model =
                         v.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
-                            |> Maybe.withDefault (t (A_Raw "Projects"))
+                            |> Maybe.withDefault (Translation.raw "Projects")
                     )
                 |> Dict.toList
                 |> List.map (Tuple.mapSecond (List.sortBy .name))
@@ -213,13 +213,13 @@ viewRepositories model =
     in
     div []
         [ p [ C.mb5, C.textCenter ]
-            [ text (t (A_Raw "And here are my projects:"))
+            [ text (Translation.raw "And here are my projects:")
             ]
         , div [ C.row ]
             (categories |> List.map viewCategory)
         , div [ C.mb5 ]
             [ h2 [ C.mb3 ]
-                [ text (t (A_Raw "Živnost"))
+                [ text (Translation.raw "Živnost")
                 ]
             , p []
                 [ text "Vývoj webových aplikací. "
