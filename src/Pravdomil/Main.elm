@@ -33,7 +33,7 @@ main =
 
 
 type alias Model =
-    { navigationKey : Navigation.Key
+    { key : Navigation.Key
     , githubToken : Maybe String
     , repositories : Result Error (List Repository)
     }
@@ -53,7 +53,7 @@ init flags _ key =
                 |> Decode.decodeValue (Decode.field "githubToken" (Decode_.maybe Decode.string))
                 |> Result.withDefault Nothing
     in
-    ( { navigationKey = key
+    ( { key = key
       , githubToken = githubToken
       , repositories = Err Loading
       }
