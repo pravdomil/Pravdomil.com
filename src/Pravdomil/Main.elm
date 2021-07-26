@@ -196,7 +196,7 @@ viewRepositories model =
             model.repositories
                 |> Result.withDefault []
                 |> List.filter (\v -> v.name /= t A_Title)
-                |> (++) GitHub.Repository.externalRepositories
+                |> (++) GitHub.Repository.external
 
         categories : List ( String, List Repository )
         categories =
