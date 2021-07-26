@@ -1,17 +1,6 @@
 module GitHub.Repository exposing (..)
 
 
-type alias Response =
-    { data :
-        { viewer :
-            { repositories :
-                { nodes : List Repository
-                }
-            }
-        }
-    }
-
-
 type alias Repository =
     { name : String
     , description : Maybe String
@@ -26,6 +15,17 @@ type alias Repository =
                     { name : String
                     }
                 }
+        }
+    }
+
+
+type alias Response =
+    { data :
+        { viewer :
+            { repositories :
+                { nodes : List Repository
+                }
+            }
         }
     }
 
