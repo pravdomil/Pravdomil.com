@@ -61,7 +61,7 @@ init flags _ key =
             }
     in
     ( model
-    , Request.request model.githubToken |> Task.attempt GotRepositories
+    , Request.repositories model.githubToken |> Task.attempt GotRepositories
     )
 
 
