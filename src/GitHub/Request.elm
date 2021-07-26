@@ -1,15 +1,15 @@
 module GitHub.Request exposing (..)
 
-import GitHub.Decode
-import GitHub.Repository exposing (Response)
+import GitHub.Repository as Repository
+import GitHub.Repository.Decode
 import Http
 import Json.Encode as Encode
 import Task exposing (Task)
 import Utils.Resolver as Resolver
 
 
-request : Maybe String -> Task Http.Error Response
-request token =
+repositories : Maybe String -> Task Http.Error Repository.Response
+repositories token =
     let
         headers : List Http.Header
         headers =
@@ -26,7 +26,7 @@ request token =
         , headers = headers
         , url = "https://api.github.com/graphql"
         , body = Http.jsonBody body
-        , resolver = Resolver.json GitHub.Decode.response
+        , resolver = Resolver.json GitHub.Repository.Decode.response
         , timeout = Nothing
         }
 
