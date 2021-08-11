@@ -15,4 +15,4 @@ source bin/build
 # Start development server.
 cp "src/_dist/static/VERSION/main.js" "dist/static/$VERSION/main.js"
 sed -i "" "s/<head>/<head><script src=\"static\/$VERSION\/elm.js\"><\/script>/" dist/index.html
-elm-live src/Main.elm --open --dir dist --hot -- --output="dist/static/$VERSION/elm.js"
+elm-serve src/Main.elm --open --root dist --output "dist/static/$VERSION/elm.js"
