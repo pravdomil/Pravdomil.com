@@ -164,8 +164,8 @@ viewHeader _ =
                 , text "."
                 , br
                 , link []
-                    { label = text (Translation.raw "Send donation")
-                    , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer"
+                    { label = text (Translation.raw "Send a donation")
+                    , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Donation"
                     }
                 , text "."
                 ]
