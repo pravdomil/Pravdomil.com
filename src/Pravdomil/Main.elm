@@ -6,8 +6,6 @@ import Dict exposing (Dict)
 import GitHub.Repository exposing (Repository)
 import GitHub.Request as Request
 import Http
-import Ionicon
-import Ionicon.Social
 import Json.Decode as Decode
 import Pravdomil.Translation as Translation
 import Pravdomil.Ui.Base exposing (..)
@@ -158,34 +156,18 @@ viewHeader _ =
                 ]
             ]
         , column [ spacing 16 ]
-            [ p []
-                [ text (Translation.raw "You can find me at:")
-                ]
-            , row [ spacing 16, centerX ]
+            [ p [ centerX ]
                 [ link []
-                    { label = html (Ionicon.email 20 (toRgb primary))
+                    { label = text (Translation.raw "Contact me")
                     , url = "mailto:info@pravdomil.com"
                     }
+                , text "."
+                , br
                 , link []
-                    { label = html (Ionicon.Social.twitter 20 (toRgb primary))
-                    , url = "https://twitter.com/pravdomil"
-                    }
-                , link []
-                    { label = html (Ionicon.Social.github 20 (toRgb primary))
-                    , url = "https://github.com/pravdomil"
-                    }
-                , link []
-                    { label = html (Ionicon.Social.usd 20 (toRgb primary))
+                    { label = text (Translation.raw "Send donation")
                     , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Beer"
                     }
-                , link []
-                    { label = html (Ionicon.Social.youtube 20 (toRgb primary))
-                    , url = "https://youtube.com/pravdomil"
-                    }
-                , link []
-                    { label = html (Ionicon.Social.vimeo 20 (toRgb primary))
-                    , url = "https://vimeo.com/pravdomil"
-                    }
+                , text "."
                 ]
             ]
         ]
