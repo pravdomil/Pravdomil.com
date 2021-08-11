@@ -3,9 +3,9 @@ module GitHub.Request exposing (..)
 import GitHub.Repository as Repository
 import GitHub.Repository.Decode
 import Http
+import Http.Resolver as Resolver
 import Json.Encode as Encode
 import Task exposing (Task)
-import Utils.Resolver as Resolver
 
 
 repositories : Maybe String -> Task Http.Error Repository.Response
