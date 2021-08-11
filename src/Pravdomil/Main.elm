@@ -130,7 +130,7 @@ viewBody : Model -> Element msg
 viewBody model =
     column [ width (fill |> maximum 896), centerX, padding 8 ]
         [ column [ width fill, padding 8, borderWidth 1, borderRounded 4 ]
-            [ column [ width (fill |> maximum 768), spacing 32, centerX ]
+            [ column [ width (fill |> maximum 768), spacing 64, centerX ]
                 [ text ""
                 , viewHeader model
                 , viewRepositories model
