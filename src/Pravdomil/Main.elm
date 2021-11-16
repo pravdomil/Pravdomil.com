@@ -188,6 +188,7 @@ viewRepositories model =
             model.repositories
                 |> Result.withDefault []
                 |> (++) GitHub.Repository.external
+                |> List.filter (\v -> List.any (\v2 -> v2.topic.name == "private") v.repositoryTopics.nodes |> not)
 
         categories : List ( String, List Repository )
         categories =
