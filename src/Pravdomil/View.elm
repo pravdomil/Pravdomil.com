@@ -45,11 +45,7 @@ viewHeader _ =
                 ]
             , heading1 theme
                 []
-                [ link theme
-                    []
-                    { label = text (Pravdomil.Translation.raw "Pravdomil's Webpage")
-                    , url = "/"
-                    }
+                [ text (Pravdomil.Translation.raw "Pravdomil's Webpage")
                 ]
             ]
         , column [ spacing 16 ]
