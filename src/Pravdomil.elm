@@ -1,28 +1,29 @@
 module Pravdomil exposing (..)
 
 import Browser
-import Browser.Navigation as Navigation
-import Dict exposing (Dict)
-import GitHub.Repository exposing (Repository)
-import GitHub.Request as Request
+import Browser.Navigation
+import Dict
+import GitHub.Repository
+import GitHub.Request
+import GitHub.Token
 import Http
-import Json.Decode as Decode
-import Pravdomil.Translation as Translation
-import Pravdomil.Ui.Base exposing (..)
+import Json.Decode
+import Pravdomil.Model
+import Pravdomil.Translation
+import Pravdomil.Ui.Base
 import Task
-import Url exposing (Url)
-import Utils.Json.Decode_ as Decode_
+import Url
 
 
-main : Program Decode.Value Model Msg
+main : Program Json.Decode.Value Pravdomil.Model.Model Pravdomil.Model.Msg
 main =
     Browser.application
         { init = init
         , update = update
         , subscriptions = subscriptions
         , view = view
-        , onUrlRequest = UrlRequested
-        , onUrlChange = UrlChanged
+        , onUrlRequest = Pravdomil.Model.UrlRequested
+        , onUrlChange = Pravdomil.Model.UrlChanged
         }
 
 
@@ -30,33 +31,28 @@ main =
 --
 
 
-type alias Model =
-    { key : Navigation.Key
-    , githubToken : Maybe String
-    , repositories : Result Error (List Repository)
-    }
-
-
-type Error
-    = Loading
-    | HttpError Http.Error
-
-
-init : Decode.Value -> Url -> Navigation.Key -> ( Model, Cmd Msg )
+init : Json.Decode.Value -> Url.Url -> Browser.Navigation.Key -> ( Pravdomil.Model.Model, Cmd Pravdomil.Model.Msg )
 init flags _ key =
     let
-        githubToken : Maybe String
-        githubToken =
+        token : Maybe GitHub.Token.Token
+        token =
             flags
-                |> Decode.decodeValue (Decode.field "githubToken" (Decode_.maybe Decode.string))
+                |> Json.Decode.decodeValue
+                    (Json.Decode.field "githubToken"
+                        (Json.Decode.nullable
+                            (Json.Decode.string
+                                |> Json.Decode.map GitHub.Token.Token
+                            )
+                        )
+                    )
                 |> Result.withDefault Nothing
     in
     ( { key = key
-      , githubToken = githubToken
-      , repositories = Err Loading
+      , token = token
+      , repositories = Err Pravdomil.Model.Loading
       }
-    , Request.repositories githubToken
-        |> Task.attempt GotRepositories
+    , GitHub.Request.repositories token
+        |> Task.attempt Pravdomil.Model.GotRepositories
     )
 
 
@@ -64,41 +60,33 @@ init flags _ key =
 --
 
 
-type Msg
-    = GotRepositories (Result Http.Error GitHub.Repository.Response)
-    | UrlRequested Browser.UrlRequest
-    | UrlChanged Url
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Pravdomil.Model.Msg -> Pravdomil.Model.Model -> ( Pravdomil.Model.Model, Cmd Pravdomil.Model.Msg )
 update msg model =
     case msg of
-        GotRepositories a ->
-            case a of
-                Ok b ->
-                    ( { model | repositories = Ok b.data.viewer.repositories.nodes }
-                    , Cmd.none
-                    )
-
-                Err b ->
-                    ( { model | repositories = Err (HttpError b) }
-                    , Cmd.none
-                    )
-
-        UrlRequested b ->
+        Pravdomil.Model.UrlRequested b ->
             case b of
                 Browser.Internal url ->
                     ( model
-                    , Navigation.load (Url.toString url)
+                    , Browser.Navigation.load (Url.toString url)
                     )
 
                 Browser.External url ->
                     ( model
-                    , Navigation.load url
+                    , Browser.Navigation.load url
                     )
 
-        UrlChanged _ ->
+        Pravdomil.Model.UrlChanged _ ->
             ( model
+            , Cmd.none
+            )
+
+        Pravdomil.Model.GotRepositories a ->
+            ( case a of
+                Ok b ->
+                    { model | repositories = Ok b.data.viewer.repositories.nodes }
+
+                Err b ->
+                    { model | repositories = Err (Pravdomil.Model.HttpError b) }
             , Cmd.none
             )
 
@@ -107,7 +95,7 @@ update msg model =
 --
 
 
-subscriptions : Model -> Sub Msg
+subscriptions : Pravdomil.Model.Model -> Sub Pravdomil.Model.Msg
 subscriptions _ =
     Sub.none
 
@@ -116,12 +104,11 @@ subscriptions _ =
 --
 
 
-view : Model -> Browser.Document msg
+view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
-    { title = Translation.title
+    { title = Pravdomil.Translation.title
     , body =
-        [ adaptiveScale
-        , layout [] (viewBody model)
+        [ Pravdomil.Ui.Base.layout [] (viewBody model)
         ]
     }
 
