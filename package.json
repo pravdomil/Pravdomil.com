@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "elm-utils": "github:pravdomil/elm-utils"
+    "elm-utils": "github:pravdomil/elm-utils",
+    "pravdomil-ui": "github:pravdomil/pravdomil-ui"
   }
 }

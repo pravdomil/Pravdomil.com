@@ -3,7 +3,8 @@
     "source-directories": [
         "src",
         "src-external",
-        "node_modules/elm-utils/src"
+        "node_modules/elm-utils/src",
+        "node_modules/pravdomil-ui/src"
     ],
     "elm-version": "0.19.1",
     "dependencies": {
