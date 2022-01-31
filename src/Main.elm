@@ -1,7 +1,7 @@
 module Main exposing (..)
 
-import Pravdomil.Main
+import Pravdomil
 
 
 main =
-    Pravdomil.Main.main
+    Pravdomil.main

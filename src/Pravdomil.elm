@@ -1,4 +1,4 @@
-module Pravdomil.Main exposing (..)
+module Pravdomil exposing (..)
 
 import Browser
 import Browser.Navigation as Navigation
