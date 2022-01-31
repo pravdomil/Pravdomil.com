@@ -1,19 +1,20 @@
 module GitHub.Request exposing (..)
 
 import GitHub.Repository
+import GitHub.Token
 import Http
 import Http.Resolver
 import Json.Encode
 import Task
 
 
-repositories : Maybe String -> Task.Task Http.Error GitHub.Repository.Response
+repositories : Maybe GitHub.Token.Token -> Task.Task Http.Error GitHub.Repository.Response
 repositories token =
     let
         headers : List Http.Header
         headers =
             token
-                |> Maybe.map (\v -> [ Http.header "Authorization" ("bearer " ++ v) ])
+                |> Maybe.map (\(GitHub.Token.Token v) -> [ Http.header "Authorization" ("bearer " ++ v) ])
                 |> Maybe.withDefault []
 
         body : Json.Encode.Value
