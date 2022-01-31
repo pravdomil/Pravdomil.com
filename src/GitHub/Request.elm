@@ -1,14 +1,13 @@
 module GitHub.Request exposing (..)
 
-import GitHub.Repository as Repository
-import GitHub.Repository.Decode
+import GitHub.Repository
 import Http
-import Http.Resolver as Resolver
-import Json.Encode as Encode
-import Task exposing (Task)
+import Http.Resolver
+import Json.Encode
+import Task
 
 
-repositories : Maybe String -> Task Http.Error Repository.Response
+repositories : Maybe String -> Task.Task Http.Error GitHub.Repository.Response
 repositories token =
     let
         headers : List Http.Header
@@ -17,16 +16,16 @@ repositories token =
                 |> Maybe.map (\v -> [ Http.header "Authorization" ("bearer " ++ v) ])
                 |> Maybe.withDefault []
 
-        body : Encode.Value
+        body : Json.Encode.Value
         body =
-            Encode.object [ ( "query", Encode.string query ) ]
+            Json.Encode.object [ ( "query", Json.Encode.string query ) ]
     in
     Http.task
         { method = "POST"
         , headers = headers
         , url = "https://api.github.com/graphql"
         , body = Http.jsonBody body
-        , resolver = Resolver.json GitHub.Repository.Decode.response
+        , resolver = Http.Resolver.json GitHub.Repository.responseDecoder
         , timeout = Nothing
         }
 
