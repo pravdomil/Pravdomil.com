@@ -22,10 +22,10 @@ rm -r dist || true
 cp -r src/_dist dist
 mv dist/static/VERSION "dist/static/$VERSION"
 
-# Pass version to the app.
+# Pass version to application.
 sed -i "" "s/VERSION/$VERSION/g" dist/index.html
 
-# Compile our app.
+# Compile application.
 elm make src/Main.elm --output "dist/static/$VERSION/elm.js" --optimize
 {
   uglifyjs "dist/static/$VERSION/elm.js" --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,passes=2,unsafe_comps,unsafe'
