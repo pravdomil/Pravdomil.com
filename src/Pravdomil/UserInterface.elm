@@ -1,4 +1,4 @@
-module Pravdomil.UI exposing (..)
+module Pravdomil.UserInterface exposing (..)
 
 import Element.PravdomilUI exposing (..)
 import Element.PravdomilUI.Theme.Light
