@@ -1,16 +1,16 @@
 module Pravdomil.UserInterface exposing (..)
 
-import Element.PravdomilUI exposing (..)
-import Element.PravdomilUI.Theme.Light
+import Element.PravdomilUi exposing (..)
+import Element.PravdomilUi.Theme.Light
 
 
 theme =
-    Element.PravdomilUI.Theme.Light.theme style
+    Element.PravdomilUi.Theme.Light.theme style
         |> (\v ->
                 { v
                     | page =
                         v.page
-                            ++ [ bgColor Element.PravdomilUI.Theme.Light.style.black0
+                            ++ [ bgColor Element.PravdomilUi.Theme.Light.style.black0
                                ]
                     , heading3 =
                         v.heading3
@@ -21,7 +21,7 @@ theme =
 
 
 style =
-    Element.PravdomilUI.Theme.Light.style
+    Element.PravdomilUi.Theme.Light.style
         |> (\v ->
                 { v
                     | primary = rgb 0 0 0.8
