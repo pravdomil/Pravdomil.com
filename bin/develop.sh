@@ -9,10 +9,29 @@ set -u
 # Be in project root.
 cd "${0%/*}/.."
 
-# Build application first.
-source bin/build.sh
+# Install dependencies from npm.
+npm i
+
+# Clean directory.
+dir=elm-stuff/develop-script
+if [ -d $dir ]; then rm -r $dir; fi
+mkdir -p $dir
 
 # Start development server.
-cp "src/_dist/static/VERSION/main.js" "dist/static/$VERSION/main.js"
-sed -i "" "s/<head>/<head><script src=\"static\/$VERSION\/elm.js\"><\/script>/" dist/index.html
-elm-serve src/Main.elm --open --root dist --output "dist/static/$VERSION/elm.js"
+cat << EOF > $dir/index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <script src="elm.js"></script>
+    <script>
+    (function(){ var a = document.createElement("div"); document.body.appendChild(a); Elm.Main.init({ node: a, flags: { global: this, githubToken: localStorage.getItem("githubToken") } })})()
+    </script>
+  </body>
+</html>
+EOF
+elm-serve src/Main.elm --open --root $dir --output $dir/elm.js

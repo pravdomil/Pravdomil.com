@@ -9,26 +9,34 @@ set -u
 # Be in project root.
 cd "${0%/*}/.."
 
-# Have dependencies from npm ready.
+# Install dependencies from npm.
 npm i
 
-# Define what version we are building.
-VERSION=$(date +%s)
+# Clean directory.
+dir=dist
+if [ -d $dir ]; then rm -r $dir; fi
+mkdir -p $dir
 
-# Have clean distribution directory.
-rm -r dist || true
+# Compile.
+elm make src/Main.elm --output $dir/temp.js --optimize
+elm-ffi $dir/temp.js
+elm-minify $dir/temp.js
+output=$(<$dir/temp.js)
+rm $dir/temp.js
 
-# Copy static resources.
-cp -r src/_dist dist
-mv dist/static/VERSION "dist/static/$VERSION"
-
-# Pass version to application.
-sed -i "" "s/VERSION/$VERSION/g" dist/index.html
-
-# Compile application.
-elm make src/Main.elm --output "dist/static/$VERSION/elm.js" --optimize
-{
-  uglifyjs "dist/static/$VERSION/elm.js" --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,passes=2,unsafe_comps,unsafe'
-  uglifyjs "dist/static/$VERSION/main.js" --compress
-} | uglifyjs --mangle --output "dist/static/$VERSION/main.js"
-rm "dist/static/$VERSION/elm.js"
+cat << EOF > $dir/index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <script>$output</script>
+    <script>
+    (function(){ var a = document.createElement("div"); document.body.appendChild(a); Elm.Main.init({ node: a, flags: { global: this, githubToken: localStorage.getItem("githubToken") } })})()
+    </script>
+  </body>
+</html>
+EOF
