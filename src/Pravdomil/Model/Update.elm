@@ -28,7 +28,8 @@ init flags _ key =
                     )
                 |> Result.withDefault Nothing
     in
-    ( Model key
+    ( Pravdomil.Model.Model
+        key
         token
         (Err Pravdomil.Model.Loading)
     , GitHub.Request.repositories token
