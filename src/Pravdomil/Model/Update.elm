@@ -1,4 +1,4 @@
-module Pravdomil exposing (..)
+module Pravdomil.Model.Update exposing (..)
 
 import Browser
 import Browser.Navigation
@@ -7,25 +7,8 @@ import GitHub.Request
 import GitHub.Token
 import Json.Decode
 import Pravdomil.Model
-import Pravdomil.View
 import Task
 import Url
-
-
-main : Program Json.Decode.Value Pravdomil.Model.Model Pravdomil.Model.Msg
-main =
-    Browser.application
-        { init = init
-        , update = update
-        , subscriptions = subscriptions
-        , view = Pravdomil.View.view
-        , onUrlRequest = Pravdomil.Model.UrlRequested
-        , onUrlChange = Pravdomil.Model.UrlChanged
-        }
-
-
-
---
 
 
 init : Json.Decode.Value -> Url.Url -> Browser.Navigation.Key -> ( Pravdomil.Model.Model, Cmd Pravdomil.Model.Msg )
