@@ -2,16 +2,16 @@ module Pravdomil.Model.Update exposing (..)
 
 import Browser
 import Browser.Navigation
-import GitHub.Repository
 import GitHub.Request
 import GitHub.Token
 import Json.Decode
 import Pravdomil.Model
+import Pravdomil.Msg
 import Task
 import Url
 
 
-init : Json.Decode.Value -> Url.Url -> Browser.Navigation.Key -> ( Pravdomil.Model.Model, Cmd Pravdomil.Model.Msg )
+init : Json.Decode.Value -> Url.Url -> Browser.Navigation.Key -> ( Pravdomil.Model.Model, Cmd Pravdomil.Msg.Msg )
 init flags _ key =
     let
         token : Maybe GitHub.Token.Token
@@ -32,7 +32,7 @@ init flags _ key =
       , repositories = Err Pravdomil.Model.Loading
       }
     , GitHub.Request.repositories token
-        |> Task.attempt Pravdomil.Model.GotRepositories
+        |> Task.attempt Pravdomil.Msg.GotRepositories
     )
 
 
@@ -40,10 +40,10 @@ init flags _ key =
 --
 
 
-update : Pravdomil.Model.Msg -> Pravdomil.Model.Model -> ( Pravdomil.Model.Model, Cmd Pravdomil.Model.Msg )
+update : Pravdomil.Msg.Msg -> Pravdomil.Model.Model -> ( Pravdomil.Model.Model, Cmd Pravdomil.Msg.Msg )
 update msg model =
     case msg of
-        Pravdomil.Model.UrlRequested b ->
+        Pravdomil.Msg.UrlRequested b ->
             case b of
                 Browser.Internal url ->
                     ( model
@@ -55,12 +55,12 @@ update msg model =
                     , Browser.Navigation.load url
                     )
 
-        Pravdomil.Model.UrlChanged _ ->
+        Pravdomil.Msg.UrlChanged _ ->
             ( model
             , Cmd.none
             )
 
-        Pravdomil.Model.GotRepositories a ->
+        Pravdomil.Msg.GotRepositories a ->
             ( case a of
                 Ok b ->
                     { model | repositories = Ok b.data.viewer.repositories.nodes }
@@ -75,6 +75,6 @@ update msg model =
 --
 
 
-subscriptions : Pravdomil.Model.Model -> Sub Pravdomil.Model.Msg
+subscriptions : Pravdomil.Model.Model -> Sub Pravdomil.Msg.Msg
 subscriptions _ =
     Sub.none
