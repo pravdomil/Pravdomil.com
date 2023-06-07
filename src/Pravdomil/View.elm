@@ -6,13 +6,12 @@ import Element.PravdomilUi exposing (..)
 import GitHub.Repository
 import Pravdomil.Model
 import Pravdomil.Repository
-import Pravdomil.Translation
 import Pravdomil.Utils.Theme exposing (..)
 
 
 view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
-    { title = Pravdomil.Translation.title
+    { title = "Pravdomil.com"
     , body =
         [ layout theme [] (viewBody model)
         ]
@@ -41,11 +40,11 @@ viewHeader _ =
         [ column [ spacing 16 ]
             [ paragraph theme
                 []
-                [ text (Pravdomil.Translation.raw "Welcome to")
+                [ text "Welcome to"
                 ]
             , heading1 theme
                 []
-                [ text (Pravdomil.Translation.raw "Pravdomil's Webpage")
+                [ text "Pravdomil's Webpage"
                 ]
             ]
         , column [ spacing 16 ]
@@ -53,7 +52,7 @@ viewHeader _ =
                 [ centerX ]
                 [ link theme
                     []
-                    { label = text (Pravdomil.Translation.raw "Contact me")
+                    { label = text "Contact me"
                     , url = "mailto:info@pravdomil.com"
                     }
                 , text "."
@@ -62,7 +61,7 @@ viewHeader _ =
                 []
                 [ link theme
                     []
-                    { label = text (Pravdomil.Translation.raw "Send me a donation")
+                    { label = text "Send me a donation"
                     , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Donation"
                     }
                 , text "."
@@ -75,7 +74,7 @@ viewFooter : Pravdomil.Model.Model -> Element msg
 viewFooter _ =
     paragraph theme
         [ fontCenter, fontSize 14 ]
-        [ text (Pravdomil.Translation.raw "That's all for now.")
+        [ text "That's all for now."
         ]
 
 
@@ -97,7 +96,7 @@ viewRepositories model =
                         v.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
-                            |> Maybe.withDefault (Pravdomil.Translation.raw "Projects")
+                            |> Maybe.withDefault "Projects"
                     )
                 |> Dict.toList
                 |> List.map (Tuple.mapSecond (List.sortBy .name))
@@ -106,7 +105,7 @@ viewRepositories model =
     column [ spacing 16 ]
         [ paragraph theme
             [ fontCenter ]
-            [ text (Pravdomil.Translation.raw "Things I do:")
+            [ text "Things I do:"
             ]
         , column [ spacing 32 ]
             (categories |> List.map viewCategory)
