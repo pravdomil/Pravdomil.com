@@ -7,7 +7,7 @@ import GitHub.Repository
 import Pravdomil.Model
 import Pravdomil.Repository
 import Pravdomil.Translation
-import Pravdomil.UserInterface exposing (..)
+import Pravdomil.Utils.Theme exposing (..)
 
 
 view : Pravdomil.Model.Model -> Browser.Document msg
