@@ -47,16 +47,10 @@ update msg =
         Pravdomil.Msg.UrlRequested b ->
             case b of
                 Browser.Internal url ->
-                    \model ->
-                        ( model
-                        , Browser.Navigation.load (Url.toString url)
-                        )
+                    \model -> ( model, Browser.Navigation.load (Url.toString url) )
 
                 Browser.External url ->
-                    \model ->
-                        ( model
-                        , Browser.Navigation.load url
-                        )
+                    \model -> ( model, Browser.Navigation.load url )
 
         Pravdomil.Msg.UrlChanged _ ->
             Platform.Extra.noOperation
