@@ -28,10 +28,9 @@ init flags _ key =
                     )
                 |> Result.withDefault Nothing
     in
-    ( { key = key
-      , token = token
-      , repositories = Err Pravdomil.Model.Loading
-      }
+    ( Model key
+        token
+        (Err Pravdomil.Model.Loading)
     , GitHub.Request.repositories token
         |> Task.attempt Pravdomil.Msg.GotRepositories
     )
