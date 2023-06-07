@@ -1,11 +1,9 @@
 module Pravdomil.Model exposing (..)
 
-import Browser
 import Browser.Navigation
 import GitHub.Repository
 import GitHub.Token
 import Http
-import Url
 
 
 type alias Model =
@@ -15,16 +13,10 @@ type alias Model =
     }
 
 
-type Error
-    = Loading
-    | HttpError Http.Error
-
-
 
 --
 
 
-type Msg
-    = UrlRequested Browser.UrlRequest
-    | UrlChanged Url.Url
-    | GotRepositories (Result Http.Error GitHub.Repository.Response)
+type Error
+    = Loading
+    | HttpError Http.Error
