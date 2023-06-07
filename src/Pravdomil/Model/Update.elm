@@ -5,6 +5,7 @@ import Browser.Navigation
 import GitHub.Request
 import GitHub.Token
 import Json.Decode
+import Platform.Extra
 import Pravdomil.Model
 import Pravdomil.Msg
 import Task
@@ -41,34 +42,35 @@ init flags _ key =
 
 
 update : Pravdomil.Msg.Msg -> Pravdomil.Model.Model -> ( Pravdomil.Model.Model, Cmd Pravdomil.Msg.Msg )
-update msg model =
+update msg =
     case msg of
         Pravdomil.Msg.UrlRequested b ->
             case b of
                 Browser.Internal url ->
-                    ( model
-                    , Browser.Navigation.load (Url.toString url)
-                    )
+                    \model ->
+                        ( model
+                        , Browser.Navigation.load (Url.toString url)
+                        )
 
                 Browser.External url ->
-                    ( model
-                    , Browser.Navigation.load url
-                    )
+                    \model ->
+                        ( model
+                        , Browser.Navigation.load url
+                        )
 
         Pravdomil.Msg.UrlChanged _ ->
-            ( model
-            , Cmd.none
-            )
+            Platform.Extra.noOperation
 
         Pravdomil.Msg.GotRepositories a ->
-            ( case a of
-                Ok b ->
-                    { model | repositories = Ok b.data.viewer.repositories.nodes }
+            \model ->
+                ( case a of
+                    Ok b ->
+                        { model | repositories = Ok b.data.viewer.repositories.nodes }
 
-                Err b ->
-                    { model | repositories = Err (Pravdomil.Model.HttpError b) }
-            , Cmd.none
-            )
+                    Err b ->
+                        { model | repositories = Err (Pravdomil.Model.HttpError b) }
+                , Cmd.none
+                )
 
 
 
