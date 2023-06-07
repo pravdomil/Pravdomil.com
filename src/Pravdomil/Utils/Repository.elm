@@ -1,4 +1,4 @@
-module Pravdomil.Repository exposing (..)
+module Pravdomil.Utils.Repository exposing (..)
 
 import GitHub.Repository
 

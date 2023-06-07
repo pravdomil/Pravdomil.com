@@ -5,7 +5,7 @@ import Dict
 import Element.PravdomilUi exposing (..)
 import GitHub.Repository
 import Pravdomil.Model
-import Pravdomil.Repository
+import Pravdomil.Utils.Repository
 import Pravdomil.Utils.Theme exposing (..)
 
 
@@ -85,7 +85,7 @@ viewRepositories model =
         repositories =
             model.repositories
                 |> Result.withDefault []
-                |> (++) Pravdomil.Repository.external
+                |> (++) Pravdomil.Utils.Repository.external
                 |> List.filter (\v -> List.any (\v2 -> v2.topic.name == "private") v.repositoryTopics.nodes |> not)
 
         categories : List ( String, List GitHub.Repository.Repository )
