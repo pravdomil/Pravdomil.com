@@ -2,6 +2,7 @@ module GitHub.Repository exposing (..)
 
 import Json.Decode
 import Json.Decode.Extra
+import Json.Decode.Extra2
 
 
 type alias Repository =
@@ -34,9 +35,9 @@ repositoryDecoder =
             }
         )
         (Json.Decode.field "name" Json.Decode.string)
-        (Json.Decode.Extra.maybeField "description" (Json.Decode.nullable Json.Decode.string))
+        (Json.Decode.Extra2.maybeField "description" (Json.Decode.nullable Json.Decode.string))
         (Json.Decode.field "url" Json.Decode.string)
-        (Json.Decode.Extra.maybeField "homepageUrl" (Json.Decode.nullable Json.Decode.string))
+        (Json.Decode.Extra2.maybeField "homepageUrl" (Json.Decode.nullable Json.Decode.string))
         (Json.Decode.field "repositoryTopics"
             (Json.Decode.map (\v1 -> { nodes = v1 })
                 (Json.Decode.field "nodes"
