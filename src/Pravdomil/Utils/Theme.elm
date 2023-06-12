@@ -1,19 +1,19 @@
 module Pravdomil.Utils.Theme exposing (..)
 
 import Element.PravdomilUi exposing (..)
-import Element.PravdomilUi.Theme.Light
+import Element.PravdomilUi.Theme.Basic
 
 
 theme =
-    Element.PravdomilUi.Theme.Light.theme style
-        |> (\v ->
-                { v
+    Element.PravdomilUi.Theme.Basic.theme style
+        |> (\x ->
+                { x
                     | page =
-                        v.page
-                            ++ [ bgColor Element.PravdomilUi.Theme.Light.style.black0
+                        x.page
+                            ++ [ bgColor Element.PravdomilUi.Theme.Basic.style.black0
                                ]
                     , heading3 =
-                        v.heading3
+                        x.heading3
                             ++ [ fontSize 20
                                ]
                 }
@@ -21,9 +21,9 @@ theme =
 
 
 style =
-    Element.PravdomilUi.Theme.Light.style
-        |> (\v ->
-                { v
+    Element.PravdomilUi.Theme.Basic.style
+        |> (\x ->
+                { x
                     | primary = rgb 0 0 0.8
                 }
            )
