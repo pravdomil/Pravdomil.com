@@ -36,7 +36,7 @@ query =
     """
 query {
   viewer {
-    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, isFork: false, first: 100) {
+    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, first: 100) {
       nodes {
         name
         description
