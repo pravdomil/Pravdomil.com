@@ -9,13 +9,9 @@ theme =
         |> (\x ->
                 { x
                     | page =
-                        x.page
-                            ++ [ bgColor Element.PravdomilUi.Theme.Basic.style.black0
-                               ]
+                        \x2 -> x.page (bgColor Element.PravdomilUi.Theme.Basic.style.black0 :: x2)
                     , heading3 =
-                        x.heading3
-                            ++ [ fontSize 20
-                               ]
+                        \x2 -> x.heading3 (fontSize 20 :: x2)
                 }
            )
 
@@ -24,6 +20,6 @@ style =
     Element.PravdomilUi.Theme.Basic.style
         |> (\x ->
                 { x
-                    | primary = rgb 0 0 0.8
+                    | primaryBack = rgb 0 0 0.8
                 }
            )
