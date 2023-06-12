@@ -88,7 +88,7 @@ viewRepositories model =
             model.repositories
                 |> Result.withDefault []
                 |> (++) Pravdomil.Utils.Repository.external
-                |> List.filter (\v -> List.any (\v2 -> v2.topic.name == "private") v.repositoryTopics.nodes |> not)
+                |> List.filter (\x -> List.any (\x2 -> x2.topic.name == "private") x.repositoryTopics.nodes |> not)
 
         categories : List ( String, List GitHub.Repository.Repository )
         categories =
