@@ -94,8 +94,8 @@ viewRepositories model =
         categories =
             repositories
                 |> groupBy
-                    (\v ->
-                        v.repositoryTopics.nodes
+                    (\x ->
+                        x.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
                             |> Maybe.withDefault "Projects"
