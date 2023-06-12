@@ -1,7 +1,6 @@
 module GitHub.Repository exposing (..)
 
 import Json.Decode
-import Json.Decode.Extra
 import Json.Decode.Extra2
 
 
