@@ -25,12 +25,12 @@ type alias Repository =
 repositoryDecoder : Json.Decode.Decoder Repository
 repositoryDecoder =
     Json.Decode.map5
-        (\v1 v2 v3 v4 v5 ->
-            { name = v1
-            , description = v2
-            , url = v3
-            , homepageUrl = v4
-            , repositoryTopics = v5
+        (\x x2 x3 x4 x5 ->
+            { name = x
+            , description = x2
+            , url = x3
+            , homepageUrl = x4
+            , repositoryTopics = x5
             }
         )
         (Json.Decode.field "name" Json.Decode.string)
