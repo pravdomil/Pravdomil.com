@@ -38,12 +38,12 @@ repositoryDecoder =
         (Json.Decode.field "url" Json.Decode.string)
         (Json.Decode.Extra2.maybeField "homepageUrl" (Json.Decode.nullable Json.Decode.string))
         (Json.Decode.field "repositoryTopics"
-            (Json.Decode.map (\v1 -> { nodes = v1 })
+            (Json.Decode.map (\x -> { nodes = x })
                 (Json.Decode.field "nodes"
                     (Json.Decode.list
-                        (Json.Decode.map (\v1 -> { topic = v1 })
+                        (Json.Decode.map (\x -> { topic = x })
                             (Json.Decode.field "topic"
-                                (Json.Decode.map (\v1 -> { name = v1 })
+                                (Json.Decode.map (\x -> { name = x })
                                     (Json.Decode.field "name" Json.Decode.string)
                                 )
                             )
@@ -71,14 +71,14 @@ type alias Response =
 
 responseDecoder : Json.Decode.Decoder Response
 responseDecoder =
-    Json.Decode.map (\v1 -> { data = v1 })
+    Json.Decode.map (\x -> { data = x })
         (Json.Decode.field "data"
             (Json.Decode.map
-                (\v1 -> { viewer = v1 })
+                (\x -> { viewer = x })
                 (Json.Decode.field "viewer"
-                    (Json.Decode.map (\v1 -> { repositories = v1 })
+                    (Json.Decode.map (\x -> { repositories = x })
                         (Json.Decode.field "repositories"
-                            (Json.Decode.map (\v1 -> { nodes = v1 })
+                            (Json.Decode.map (\x -> { nodes = x })
                                 (Json.Decode.field "nodes" (Json.Decode.list repositoryDecoder))
                             )
                         )
