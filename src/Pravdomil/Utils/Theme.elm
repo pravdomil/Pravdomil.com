@@ -9,7 +9,7 @@ theme =
         |> (\x ->
                 { x
                     | page =
-                        \x2 -> x.page (bgColor Element.PravdomilUi.Theme.Basic.style.black0 :: x2)
+                        \x2 -> x.page (bgColor Element.PravdomilUi.Theme.Basic.style.back100 :: x2)
                     , heading3 =
                         \x2 -> x.heading3 (fontSize 20 :: x2)
                 }
