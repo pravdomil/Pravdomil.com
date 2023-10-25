@@ -23,7 +23,9 @@ repositories token =
 
         body : Json.Encode.Value
         body =
-            Json.Encode.object [ ( "query", Json.Encode.string query ) ]
+            Json.Encode.object
+                [ ( "query", Json.Encode.string query )
+                ]
     in
     Http.task
         { method = "POST"
