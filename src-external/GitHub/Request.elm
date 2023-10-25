@@ -15,8 +15,8 @@ repositories token =
         headers =
             Maybe.withDefault []
                 (Maybe.map
-                    (\(GitHub.Token.Token v) ->
-                        [ Http.header "Authorization" ("bearer " ++ v) ]
+                    (\(GitHub.Token.Token x) ->
+                        [ Http.header "Authorization" ("bearer " ++ x) ]
                     )
                     token
                 )
