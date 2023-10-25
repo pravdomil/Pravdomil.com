@@ -9,4 +9,5 @@ import Url
 type Msg
     = UrlRequested Browser.UrlRequest
     | UrlChanged Url.Url
-    | GotRepositories (Result Http.Error GitHub.Repository.Response)
+      --
+    | RepositoriesReceived (Result Http.Error GitHub.Repository.Response)

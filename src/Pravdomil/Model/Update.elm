@@ -33,7 +33,7 @@ init flags _ key =
         token
         (Err Pravdomil.Model.Loading)
     , GitHub.Request.repositories token
-        |> Task.attempt Pravdomil.Msg.GotRepositories
+        |> Task.attempt Pravdomil.Msg.RepositoriesReceived
     )
 
 
@@ -55,7 +55,7 @@ update msg =
         Pravdomil.Msg.UrlChanged _ ->
             Platform.Extra.noOperation
 
-        Pravdomil.Msg.GotRepositories a ->
+        Pravdomil.Msg.RepositoriesReceived a ->
             \model ->
                 ( case a of
                     Ok b ->
