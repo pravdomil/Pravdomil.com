@@ -90,6 +90,17 @@ viewRepositories model =
             model.repositories
                 |> Result.withDefault []
                 |> (++) Pravdomil.Utils.Repository.external
+                |> List.filter
+                    (\x ->
+                        not
+                            (List.any
+                                (\x2 ->
+                                    (x2.topic.name == "programming")
+                                        || (x2.topic.name == "programming-packages")
+                                )
+                                x.repositoryTopics.nodes
+                            )
+                    )
 
         categories : List ( String, List GitHub.Repository.Repository )
         categories =
