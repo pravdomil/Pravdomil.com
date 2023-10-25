@@ -56,7 +56,6 @@ viewHeader _ =
                 [ link
                     []
                     { label = text "Contact me"
-                    , active = False
                     , url = "mailto:info@pravdomil.com"
                     }
                 , text "."
@@ -66,7 +65,6 @@ viewHeader _ =
                 [ link
                     []
                     { label = text "Send me a donation"
-                    , active = False
                     , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Donation"
                     }
                 , text "."
@@ -166,7 +164,6 @@ viewRepository b =
                     [ text (Maybe.withDefault "" b.description)
                     ]
                 ]
-        , active = False
         , url = link_ b
         }
 
