@@ -153,8 +153,8 @@ viewRepository b =
         [ width (px 244), height fill ]
         { label =
             column [ width fill, height fill, spacing 6, paddingEach 0 0 0 24 ]
-                [ heading3
-                    []
+                [ paragraph
+                    (heading3 [])
                     [ text (String.replace "-" " " b.name)
                     ]
                 , el [ width fill, borderWidthEach 0 0 0 1 ] none
