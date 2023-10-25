@@ -119,7 +119,7 @@ viewRepositories model =
     in
     column [ spacing 16 ]
         [ paragraph
-            [ Element.Font.center ]
+            [ Element.Font.center, Element.Font.size 14 ]
             [ text "Things I do:"
             ]
         , column [ spacing 32 ]
