@@ -134,8 +134,8 @@ viewCategory ( category, a ) =
 viewRepository : GitHub.Repository.Repository -> Element msg
 viewRepository b =
     let
-        link_ : GitHub.Repository.Repository -> String
-        link_ c =
+        link__ : GitHub.Repository.Repository -> String
+        link__ c =
             case c.homepageUrl of
                 Just "https://pravdomil.com" ->
                     c.url ++ "#readme"
@@ -163,7 +163,7 @@ viewRepository b =
                     [ text (Maybe.withDefault "" b.description)
                     ]
                 ]
-        , url = link_ b
+        , url = link__ b
         }
 
 
