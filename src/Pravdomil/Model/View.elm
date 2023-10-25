@@ -174,7 +174,7 @@ viewRepository b =
 
 firstToUpper : String -> String
 firstToUpper a =
-    a |> mapFirstChar Char.toUpper
+    mapFirstChar Char.toUpper a
 
 
 mapFirstChar : (Char -> Char) -> String -> String
@@ -195,12 +195,12 @@ groupBy toKey a =
             let
                 key : comparable
                 key =
-                    b |> toKey
+                    toKey b
 
                 value : List a
                 value =
-                    b :: (acc |> Dict.get key |> Maybe.withDefault [])
+                    b :: Maybe.withDefault [] (Dict.get key acc)
             in
-            acc |> Dict.insert key value
+            Dict.insert key value acc
     in
-    a |> List.foldr fold Dict.empty
+    List.foldr fold Dict.empty a
