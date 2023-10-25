@@ -23,7 +23,7 @@ view model =
 viewBody : Pravdomil.Model.Model -> Element msg
 viewBody model =
     column [ width (fill |> maximum 896), centerX, padding 8 ]
-        [ column [ width fill, padding 8, Element.Border.width 1, Element.Border.color style.primaryBack, Element.Border.rounded 4 ]
+        [ column [ width fill, padding 8, Element.Border.width 1, Element.Border.color blue, Element.Border.rounded 4 ]
             [ column [ width (fill |> maximum 768), spacing 64, centerX ]
                 [ text ""
                 , viewHeader model
