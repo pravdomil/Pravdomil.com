@@ -6,6 +6,7 @@ import Element exposing (..)
 import Element.Border
 import Element.Font
 import GitHub.Repository
+import Html
 import Pravdomil.Model
 import Pravdomil.Utils.Repository
 import Pravdomil.Utils.Theme exposing (..)
@@ -15,6 +16,7 @@ view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
     { title = "Pravdomil.com"
     , body =
+        [ Html.node "style" [] [ Html.text "@import \"https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin-ext\"" ]
         , layout (page []) (viewBody model)
         ]
     }
