@@ -5,6 +5,18 @@ import Element.Font
 import Element.Region
 
 
+type alias EdgesXY =
+    { left : Int
+    , right : Int
+    , top : Int
+    , bottom : Int
+    }
+
+
+
+--
+
+
 blue =
     rgb 0 0 0.8
 
