@@ -11,6 +11,7 @@ cd "${0%/*}/.."
 
 # Install dependencies from npm.
 npm i
+export PATH="$PWD/node_modules/.bin:$PATH"
 
 # Clean directory.
 dir=elm-stuff/develop-script
