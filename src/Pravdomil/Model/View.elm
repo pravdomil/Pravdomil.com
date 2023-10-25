@@ -15,12 +15,11 @@ import Pravdomil.Utils.Theme exposing (..)
 
 view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
-    { title = "Pravdomil.com"
-    , body =
+    Browser.Document
+        "Pravdomil.com"
         [ Html.node "style" [] [ Html.text css ]
         , layout (page []) (viewBody model)
         ]
-    }
 
 
 viewBody : Pravdomil.Model.Model -> Element msg
