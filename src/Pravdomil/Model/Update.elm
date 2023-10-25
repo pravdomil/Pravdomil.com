@@ -44,25 +44,25 @@ init flags _ key =
 update : Pravdomil.Msg.Msg -> Pravdomil.Model.Model -> ( Pravdomil.Model.Model, Cmd Pravdomil.Msg.Msg )
 update msg =
     case msg of
-        Pravdomil.Msg.UrlRequested b ->
-            case b of
-                Browser.Internal url ->
-                    \model -> ( model, Browser.Navigation.load (Url.toString url) )
+        Pravdomil.Msg.UrlRequested a ->
+            case a of
+                Browser.Internal b ->
+                    \x -> ( x, Browser.Navigation.load (Url.toString b) )
 
-                Browser.External url ->
-                    \model -> ( model, Browser.Navigation.load url )
+                Browser.External b ->
+                    \x -> ( x, Browser.Navigation.load b )
 
         Pravdomil.Msg.UrlChanged _ ->
             Platform.Extra.noOperation
 
         Pravdomil.Msg.RepositoriesReceived a ->
-            \model ->
+            \x ->
                 ( case a of
                     Ok b ->
-                        { model | repositories = Ok b.data.viewer.repositories.nodes }
+                        { x | repositories = Ok b.data.viewer.repositories.nodes }
 
                     Err b ->
-                        { model | repositories = Err (Pravdomil.Model.HttpError b) }
+                        { x | repositories = Err (Pravdomil.Model.HttpError b) }
                 , Cmd.none
                 )
 
