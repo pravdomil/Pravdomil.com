@@ -45,8 +45,8 @@ viewHeader _ =
                 []
                 [ text "Welcome to"
                 ]
-            , heading1
-                []
+            , paragraph
+                (heading2 [])
                 [ text "Pravdomil's Webpage"
                 ]
             ]
