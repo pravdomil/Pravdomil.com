@@ -26,7 +26,12 @@ blue =
 
 
 page a =
-    a
+    Element.Font.family
+        [ Element.Font.typeface "Playfair Display"
+        , Element.Font.serif
+        ]
+        :: Element.Font.size 16
+        :: a
 
 
 heading1 a =
