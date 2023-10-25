@@ -152,12 +152,12 @@ viewRepository b =
     link
         [ width (px 244), height fill ]
         { label =
-            column [ width fill, height fill, spacing 6, paddingEach 0 0 0 24 ]
+            column [ width fill, height fill, spacing 6, paddingEach (EdgesXY 0 0 0 24) ]
                 [ paragraph
                     (heading3 [])
                     [ text (String.replace "-" " " b.name)
                     ]
-                , el [ width fill, borderWidthEach 0 0 0 1 ] none
+                , el [ width fill, Element.Border.widthEach (EdgesXY 0 0 0 1) ] none
                 , paragraph
                     []
                     [ text (Maybe.withDefault "" b.description)
