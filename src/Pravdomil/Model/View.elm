@@ -39,7 +39,7 @@ viewBody model =
 viewHeader : Pravdomil.Model.Model -> Element msg
 viewHeader _ =
     textColumn
-        [ width fill, spacing 32, fontCenter ]
+        [ width fill, spacing 32, Element.Font.center ]
         [ column [ spacing 16 ]
             [ paragraph
                 []
