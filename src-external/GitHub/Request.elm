@@ -13,9 +13,13 @@ repositories token =
     let
         headers : List Http.Header
         headers =
-            token
-                |> Maybe.map (\(GitHub.Token.Token v) -> [ Http.header "Authorization" ("bearer " ++ v) ])
-                |> Maybe.withDefault []
+            Maybe.withDefault []
+                (Maybe.map
+                    (\(GitHub.Token.Token v) ->
+                        [ Http.header "Authorization" ("bearer " ++ v) ]
+                    )
+                    token
+                )
 
         body : Json.Encode.Value
         body =
