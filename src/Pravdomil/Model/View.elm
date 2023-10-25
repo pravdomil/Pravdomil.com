@@ -5,7 +5,6 @@ import Dict
 import Element exposing (..)
 import Element.Border
 import Element.Font
-import Element.Region
 import GitHub.Repository
 import Pravdomil.Model
 import Pravdomil.Utils.Repository
