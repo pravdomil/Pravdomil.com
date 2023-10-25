@@ -88,7 +88,7 @@ viewRepositories model =
             model.repositories
                 |> Result.withDefault []
                 |> (++) Pravdomil.Utils.Repository.external
-                |> List.filter (\x -> List.any (\x2 -> x2.topic.name == "private") x.repositoryTopics.nodes |> not)
+                |> List.filter (\x -> not (List.any (\x2 -> x2.topic.name == "private") x.repositoryTopics.nodes))
 
         categories : List ( String, List GitHub.Repository.Repository )
         categories =
@@ -110,7 +110,7 @@ viewRepositories model =
             [ text "Things I do:"
             ]
         , column [ spacing 32 ]
-            (categories |> List.map viewCategory)
+            (List.map viewCategory categories)
         ]
 
 
@@ -119,7 +119,7 @@ viewCategory ( category, a ) =
     let
         humanize : String -> String
         humanize b =
-            b |> String.split "-" |> List.map firstToUpper |> String.join " "
+            String.join " " (List.map firstToUpper (String.split "-" b))
     in
     column [ spacing 32 ]
         [ heading2 theme
@@ -127,7 +127,7 @@ viewCategory ( category, a ) =
             [ text (humanize category)
             ]
         , wrappedRow [ spacing 16 ]
-            (a |> List.map viewRepository)
+            (List.map viewRepository a)
         ]
 
 
@@ -155,12 +155,12 @@ viewRepository b =
             column [ width fill, height fill, spacing 6, paddingEach 0 0 0 24 ]
                 [ heading3 theme
                     []
-                    [ text (b.name |> String.replace "-" " ")
+                    [ text (String.replace "-" " " b.name)
                     ]
                 , el [ width fill, borderWidthEach 0 0 0 1 ] none
                 , paragraph theme
                     []
-                    [ text (b.description |> Maybe.withDefault "")
+                    [ text (Maybe.withDefault "" b.description)
                     ]
                 ]
         , active = False
