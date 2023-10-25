@@ -40,9 +40,9 @@ viewBody model =
 
 viewHeader : Pravdomil.Model.Model -> Element msg
 viewHeader _ =
-    textColumn
+    column
         [ width fill, spacing 64, Element.Font.center ]
-        [ column [ spacing 16 ]
+        [ column [ width fill, spacing 16 ]
             [ paragraph
                 []
                 [ text "Welcome to"
@@ -52,7 +52,7 @@ viewHeader _ =
                 [ text "Pravdomil's Webpage"
                 ]
             ]
-        , column [ spacing 16 ]
+        , column [ width fill, spacing 16 ]
             [ paragraph
                 [ centerX ]
                 [ link
