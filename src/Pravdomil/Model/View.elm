@@ -191,15 +191,15 @@ groupBy : (a -> comparable) -> List a -> Dict.Dict comparable (List a)
 groupBy toKey a =
     let
         fold : a -> Dict.Dict comparable (List a) -> Dict.Dict comparable (List a)
-        fold v acc =
+        fold b acc =
             let
                 key : comparable
                 key =
-                    v |> toKey
+                    b |> toKey
 
                 value : List a
                 value =
-                    v :: (acc |> Dict.get key |> Maybe.withDefault [])
+                    b :: (acc |> Dict.get key |> Maybe.withDefault [])
             in
             acc |> Dict.insert key value
     in
