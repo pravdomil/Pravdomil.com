@@ -2,7 +2,7 @@ module Pravdomil.Model.View exposing (..)
 
 import Browser
 import Dict
-import Element.PravdomilUi exposing (..)
+import Element exposing (..)
 import GitHub.Repository
 import Pravdomil.Model
 import Pravdomil.Utils.Repository
