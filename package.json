@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "elm-minify": "github:pravdomil/elm-minify",
+    "elm-serve": "github:pravdomil/elm-serve",
     "elm-utils": "github:pravdomil/elm-utils",
     "pravdomil-ui": "github:pravdomil/pravdomil-ui"
   }
