@@ -98,8 +98,8 @@ viewRepositories model =
                             x.repositoryTopics.nodes
                         )
                 )
-                (Pravdomil.Utils.Repository.external
-                    ++ Result.withDefault [] model.repositories
+                (Result.withDefault [] model.repositories
+                    ++ Pravdomil.Utils.Repository.external
                 )
 
         categories : List ( String, List GitHub.Repository.Repository )
