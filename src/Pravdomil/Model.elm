@@ -13,10 +13,6 @@ type alias Model =
     }
 
 
-
---
-
-
 type Error
     = Loading
     | HttpError Http.Error
