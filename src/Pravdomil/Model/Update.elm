@@ -17,23 +17,23 @@ init flags _ key =
     let
         token : Maybe GitHub.Token.Token
         token =
-            flags
-                |> Json.Decode.decodeValue
+            Result.withDefault Nothing
+                (Json.Decode.decodeValue
                     (Json.Decode.field "githubToken"
                         (Json.Decode.nullable
-                            (Json.Decode.string
-                                |> Json.Decode.map GitHub.Token.Token
-                            )
+                            (Json.Decode.map GitHub.Token.Token Json.Decode.string)
                         )
                     )
-                |> Result.withDefault Nothing
+                    flags
+                )
     in
     ( Pravdomil.Model.Model
         key
         token
         (Err Pravdomil.Model.Loading)
-    , GitHub.Request.repositories token
-        |> Task.attempt Pravdomil.Msg.RepositoriesReceived
+    , Task.attempt
+        Pravdomil.Msg.RepositoriesReceived
+        (GitHub.Request.repositories token)
     )
 
 
