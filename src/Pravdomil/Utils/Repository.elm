@@ -35,4 +35,10 @@ external =
         ""
         (Just "https://vimeo.com/pravdomil")
         { nodes = [] }
+    , GitHub.Repository.Repository
+        "Programming Projects"
+        (Just "I do program.")
+        ""
+        (Just "https://github.com/pravdomil?tab=repositories")
+        { nodes = [] }
     ]
