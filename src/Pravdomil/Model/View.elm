@@ -75,7 +75,7 @@ viewHeader _ =
 viewFooter : Pravdomil.Model.Model -> Element msg
 viewFooter _ =
     paragraph
-        [ fontCenter, fontSize 14 ]
+        [ Element.Font.center, Element.Font.size 14 ]
         [ text "That's all for now."
         ]
 
@@ -106,7 +106,7 @@ viewRepositories model =
     in
     column [ spacing 16 ]
         [ paragraph
-            [ fontCenter ]
+            [ Element.Font.center ]
             [ text "Things I do:"
             ]
         , column [ spacing 32 ]
