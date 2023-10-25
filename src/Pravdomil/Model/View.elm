@@ -13,7 +13,7 @@ view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
     { title = "Pravdomil.com"
     , body =
-        [ layout theme [] (viewBody model)
+        [ layout [] (viewBody model)
         ]
     }
 
@@ -35,22 +35,22 @@ viewBody model =
 
 viewHeader : Pravdomil.Model.Model -> Element msg
 viewHeader _ =
-    textColumn theme
+    textColumn
         [ width fill, spacing 32, fontCenter ]
         [ column [ spacing 16 ]
-            [ paragraph theme
+            [ paragraph
                 []
                 [ text "Welcome to"
                 ]
-            , heading1 theme
+            , heading1
                 []
                 [ text "Pravdomil's Webpage"
                 ]
             ]
         , column [ spacing 16 ]
-            [ paragraph theme
+            [ paragraph
                 [ centerX ]
-                [ link theme
+                [ link
                     []
                     { label = text "Contact me"
                     , active = False
@@ -58,9 +58,9 @@ viewHeader _ =
                     }
                 , text "."
                 ]
-            , paragraph theme
+            , paragraph
                 []
-                [ link theme
+                [ link
                     []
                     { label = text "Send me a donation"
                     , active = False
@@ -74,7 +74,7 @@ viewHeader _ =
 
 viewFooter : Pravdomil.Model.Model -> Element msg
 viewFooter _ =
-    paragraph theme
+    paragraph
         [ fontCenter, fontSize 14 ]
         [ text "That's all for now."
         ]
@@ -105,7 +105,7 @@ viewRepositories model =
                 |> List.sortBy Tuple.first
     in
     column [ spacing 16 ]
-        [ paragraph theme
+        [ paragraph
             [ fontCenter ]
             [ text "Things I do:"
             ]
@@ -122,7 +122,7 @@ viewCategory ( category, a ) =
             String.join " " (List.map firstToUpper (String.split "-" b))
     in
     column [ spacing 32 ]
-        [ heading2 theme
+        [ heading2
             []
             [ text (humanize category)
             ]
@@ -149,16 +149,16 @@ viewRepository b =
                 Just d ->
                     d
     in
-    link theme
+    link
         [ width (px 244), height fill ]
         { label =
             column [ width fill, height fill, spacing 6, paddingEach 0 0 0 24 ]
-                [ heading3 theme
+                [ heading3
                     []
                     [ text (String.replace "-" " " b.name)
                     ]
                 , el [ width fill, borderWidthEach 0 0 0 1 ] none
-                , paragraph theme
+                , paragraph
                     []
                     [ text (Maybe.withDefault "" b.description)
                     ]
