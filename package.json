@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "elm-ffi": "github:pravdomil/elm-ffi",
     "elm-minify": "github:pravdomil/elm-minify",
     "elm-serve": "github:pravdomil/elm-serve",
     "elm-utils": "github:pravdomil/elm-utils"
