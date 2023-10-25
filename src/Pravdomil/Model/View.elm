@@ -150,7 +150,7 @@ viewRepository b =
                     d
     in
     link
-        [ width (px 244), height fill ]
+        (link_ [ width (px 244), height fill ])
         { label =
             column [ width fill, height fill, spacing 6, paddingEach (EdgesXY 0 0 0 24) ]
                 [ paragraph
