@@ -18,6 +18,20 @@ type alias EdgesXY =
 --
 
 
+css =
+    """
+@import "https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin-ext";
+html {
+  background-image: repeating-linear-gradient(45deg, rgba(0,0,204,1) 0, rgba(0,0,204,1) 0.4px, white 0, white 50%);
+  background-size: 4px 4px;
+}
+"""
+
+
+
+--
+
+
 blue =
     rgb 0 0 0.8
 

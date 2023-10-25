@@ -16,7 +16,7 @@ view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
     { title = "Pravdomil.com"
     , body =
-        [ Html.node "style" [] [ Html.text "@import \"https://fonts.googleapis.com/css?family=Playfair+Display&subset=latin-ext\"" ]
+        [ Html.node "style" [] [ Html.text css ]
         , layout (page []) (viewBody model)
         ]
     }
