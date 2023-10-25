@@ -3,6 +3,7 @@ module Pravdomil.Model.View exposing (..)
 import Browser
 import Dict
 import Element exposing (..)
+import Element.Background
 import Element.Border
 import Element.Font
 import GitHub.Repository
@@ -25,7 +26,7 @@ view model =
 viewBody : Pravdomil.Model.Model -> Element msg
 viewBody model =
     column [ width (fill |> maximum 896), centerX, padding 8 ]
-        [ column [ width fill, padding 8, Element.Border.width 1, Element.Border.color blue, Element.Border.rounded 4 ]
+        [ column [ width fill, padding 8, Element.Border.width 1, Element.Border.color blue, Element.Border.rounded 4, Element.Background.color (rgb 1 1 1) ]
             [ column [ width (fill |> maximum 768), spacing 64, centerX ]
                 [ text ""
                 , viewHeader model
