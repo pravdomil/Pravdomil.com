@@ -1,6 +1,7 @@
 module Pravdomil.Utils.Theme exposing (..)
 
 import Element exposing (..)
+import Element.Border
 import Element.Font
 import Element.Region
 
@@ -47,4 +48,6 @@ heading3 a =
 
 
 link_ a =
-    Element.Font.color blue :: a
+    Element.Font.color blue
+        :: Element.Border.rounded 4
+        :: a
