@@ -13,13 +13,13 @@ repositories token =
     let
         headers : List Http.Header
         headers =
-            Maybe.withDefault []
-                (Maybe.map
-                    (\(GitHub.Token.Token x) ->
-                        [ Http.header "Authorization" ("bearer " ++ x) ]
-                    )
-                    token
-                )
+            case token of
+                Just b ->
+                    [ Http.header "Authorization" ("bearer " ++ GitHub.Token.toString b)
+                    ]
+
+                Nothing ->
+                    []
 
         body : Json.Encode.Value
         body =
