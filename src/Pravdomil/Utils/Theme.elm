@@ -35,15 +35,15 @@ page a =
 
 
 heading1 a =
-    Element.Region.heading 1 :: a
+    Element.Region.heading 1 :: Element.Font.size 32 :: a
 
 
 heading2 a =
-    Element.Region.heading 2 :: a
+    Element.Region.heading 2 :: Element.Font.size 28 :: a
 
 
 heading3 a =
-    Element.Region.heading 3 :: Element.Font.size 20 :: a
+    Element.Region.heading 3 :: Element.Font.size 24 :: a
 
 
 link_ a =
