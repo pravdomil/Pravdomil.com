@@ -110,7 +110,7 @@ viewRepositories model =
                         x.repositoryTopics.nodes
                             |> List.head
                             |> Maybe.map (.topic >> .name)
-                            |> Maybe.withDefault "Projects"
+                            |> Maybe.withDefault ""
                     )
                 |> Dict.toList
                 |> List.map (Tuple.mapSecond (List.sortBy .name))
