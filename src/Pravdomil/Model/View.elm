@@ -122,8 +122,8 @@ viewCategory ( category, a ) =
             String.join " " (List.map firstToUpper (String.split "-" b))
     in
     column [ spacing 32 ]
-        [ heading2
-            []
+        [ paragraph
+            (heading2 [])
             [ text (humanize category)
             ]
         , wrappedRow [ spacing 16 ]
