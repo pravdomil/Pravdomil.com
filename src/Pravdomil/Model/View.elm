@@ -15,7 +15,7 @@ view : Pravdomil.Model.Model -> Browser.Document msg
 view model =
     { title = "Pravdomil.com"
     , body =
-        [ layout [] (viewBody model)
+        , layout (page []) (viewBody model)
         ]
     }
 
