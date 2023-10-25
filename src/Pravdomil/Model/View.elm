@@ -53,7 +53,7 @@ viewHeader _ =
             [ paragraph
                 [ centerX ]
                 [ link
-                    []
+                    (link_ [])
                     { label = text "Contact me"
                     , url = "mailto:info@pravdomil.com"
                     }
@@ -62,7 +62,7 @@ viewHeader _ =
             , paragraph
                 []
                 [ link
-                    []
+                    (link_ [])
                     { label = text "Send me a donation"
                     , url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BCL2X3AFQBAP2&item_name=pravdomil.com%20Donation"
                     }
