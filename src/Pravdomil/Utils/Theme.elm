@@ -39,3 +39,7 @@ heading2 a =
 
 heading3 a =
     Element.Region.heading 3 :: Element.Font.size 20 :: a
+
+
+link_ a =
+    Element.Font.color blue :: a
