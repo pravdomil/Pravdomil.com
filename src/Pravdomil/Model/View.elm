@@ -1,4 +1,4 @@
-module Pravdomil.View exposing (..)
+module Pravdomil.Model.View exposing (..)
 
 import Browser
 import Dict
