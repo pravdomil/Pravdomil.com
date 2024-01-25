@@ -9,7 +9,7 @@ external =
         "Přijímačky UMPRUM"
         (Just "My book.")
         ""
-        (Just "https://pravdomil.com/prijimackyumprum/")
+        (Just "https://pravdomil.cz/prijimackyumprum/")
         { nodes = [] }
     , GitHub.Repository.Repository
         "Photography"
